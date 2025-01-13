@@ -1,0 +1,58 @@
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.input-group label {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+.input-group-container {
+  display: flex;
+  position: relative;
+}
+.input-group-icon {
+  position: absolute;
+  min-width: 3.4rem;
+  height: 3.4rem;
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 0.6rem;
+  border-bottom-left-radius: 0.6rem;
+}
+.input-group-icon svg {
+  width: 1.4rem;
+  height: 1.4rem;
+}
+.input-group-icon svg path {
+  stroke: #fff;
+  fill: #fff;
+}
+
+.input-group-field {
+  appearance: none;
+  border: none;
+  outline: none;
+
+  background-color: var(--light-gray-color);
+  border-radius: 0.6rem;
+  height: 3.4rem;
+  padding-left: 4.4rem;
+  padding-right: 1rem;
+  font-size: 1.2rem;
+  width: 100%;
+}
+.isPassword {
+  position: absolute;
+  height: 1.4rem;
+  width: 1.4rem;
+  right: 1rem;
+  top: 1rem;
+}
+.isPassword * {
+  stroke: var(--primary-color);
+  fill: var(--primary-color);
+}

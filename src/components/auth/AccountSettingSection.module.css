@@ -1,0 +1,122 @@
+.mainSection {
+  width: 66%;
+  margin: 0rem auto;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: left;
+}
+.inputGroup input,
+textarea {
+  appearance: none;
+  border: none;
+  outline: none;
+  font-size: 1.2rem;
+  background-color: var(--light-gray-color);
+  padding: 0.88rem 1.6rem;
+  border-radius: 0.6rem;
+  width: 100%;
+}
+.inputGroup textarea {
+  resize: none;
+  height: 11.2rem;
+}
+.inputGroup label {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+span.required {
+  color: red;
+}
+.selectInput {
+  position: relative;
+}
+.selectInput svg {
+  position: absolute;
+  right: 1rem;
+  top: 1.4rem;
+  height: 0.718rem;
+  width: 0.718rem;
+  pointer-events: none;
+}
+
+.selectInput * {
+  stroke: #000;
+  fill: #000;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 1.4rem;
+  text-align: center;
+  margin-bottom: 4rem;
+}
+.header h1 {
+  font-size: 2.4rem;
+  font-weight: 600;
+}
+.header svg {
+  height: 3rem;
+  width: 3rem;
+  margin-top: 1.4rem;
+  margin-bottom: 0.6rem;
+}
+.header * {
+  stroke: var(--primary-color);
+}
+
+.mainContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2.2rem;
+}
+.row p {
+  font-size: 0.82rem;
+  margin-top: 0.8rem;
+}
+
+.actoins {
+  display: flex;
+  justify-content: end;
+}
+.line {
+  height: 0.2rem;
+  margin-top: 2rem;
+  background-color: var(--light-gray-color);
+  margin-bottom: 1rem;
+}
+.acountDeletion header {
+  margin-bottom: 3rem;
+}
+.acountDeletion header h1 {
+  font-size: 2rem;
+  font-weight: 500;
+}
+.acountDeletion main p {
+  font-size: 0.84rem;
+  margin-bottom: 2.32rem;
+}
+
+.acountDeletion main button {
+  background-color: #ea4335;
+  border-color: #ea4335;
+}
+.lineSeparator {
+  padding-top: 4rem;
+  padding-bottom: 1.6rem;
+  text-align: left;
+}
+
+.lineSeparator div {
+  height: 0.1rem;
+  background-color: var(--light-gray-color);
+  margin-bottom: 0.88rem;
+}

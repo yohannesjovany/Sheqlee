@@ -1,0 +1,40 @@
+.formatedcontainer :global(.ql-container) {
+  border: none;
+  font-size: 1.2rem;
+  padding: 1rem;
+  min-height: 8rem;
+  background-color: var(--light-gray-color);
+  border-bottom-left-radius: 0.6rem;
+  border-bottom-right-radius: 0.6rem;
+}
+.formatedcontainer :global(.ql-toolbar) {
+  background-color: var(--dark-gray-color);
+  border: none;
+  color: #fff;
+  border-top-left-radius: 0.6rem;
+  border-top-right-radius: 0.6rem;
+}
+.formatedcontainer :global(.ql-toolbar .ql-picker) {
+  color: #fff;
+}
+.formatedcontainer :global(.ql-toolbar button) {
+  color: #ffffff;
+}
+
+.formatedcontainer :global(.ql-toolbar .ql-picker-options) {
+  background-color: #444;
+  border: none;
+}
+.formatedcontainer :global(.ql-toolbar .ql-stroke) {
+  stroke: #fff; /* Change the stroke color of icons */
+}
+
+.formatedcontainer :global(.ql-toolbar .ql-fill) {
+  fill: #fff; /* Change the fill color of icons */
+}
+.formatedcontainer :global(.ql-editor.ql-blank::before) {
+  font-style: normal; /* Removes italic style */
+  padding-left: 0.8rem;
+  color: #999; /* Sets desired text color */
+  /* Add any additional styling as needed */
+}

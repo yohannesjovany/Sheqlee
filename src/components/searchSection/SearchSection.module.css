@@ -1,0 +1,79 @@
+.searchSection {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  height: 55vh;
+}
+
+.searchSection h1 {
+  font-size: 2.4rem;
+  font-weight: 600;
+}
+.searchSection p {
+  font-size: 1.4rem;
+  align-self: center;
+}
+.filterForm {
+  display: grid;
+  gap: 1.2rem;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: stretch;
+  justify-items: stretch;
+}
+.searchInput {
+  grid-column: span 3;
+}
+.categories {
+  grid-column: span 2;
+}
+.inputGroup {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  height: 3.2rem;
+
+  /* width: 100%; */
+}
+.selectBox {
+  border: none;
+  appearance: none;
+  width: 100%;
+  border-radius: 0.6rem;
+  background-color: var(--light-gray-color);
+  font-size: 1.2rem;
+  color: #444444;
+  padding: 0rem 0rem 0rem 1.2rem;
+}
+
+.slectIcon {
+  position: absolute;
+  right: 1.2rem;
+  top: 1rem;
+  pointer-events: none;
+}
+.slectIcon img {
+  height: 0.4rem;
+}
+.inputGroup input {
+  border: none;
+  appearance: none;
+  width: 100%;
+  border-radius: 0.6rem;
+  background-color: var(--light-gray-color);
+  font-size: 1.2rem;
+  color: #444444;
+  padding: 0rem 0rem 0rem 3.5rem;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 1.2rem;
+  top: 1rem;
+  pointer-events: none;
+}
+.searchIcon img {
+  height: 1.2rem;
+}

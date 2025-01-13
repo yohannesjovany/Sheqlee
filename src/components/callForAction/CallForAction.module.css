@@ -1,0 +1,13 @@
+.actionCall {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  max-height: 7.12rem;
+  min-height: 7.12rem;
+  background-color: var(--light-gray-color);
+}
+.actionCall p {
+  font-weight: 500;
+  font-size: 1.4rem;
+}

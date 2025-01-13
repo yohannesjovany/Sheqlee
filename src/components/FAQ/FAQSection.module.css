@@ -1,0 +1,82 @@
+.faq {
+  margin: 0rem auto;
+  width: 62%;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.4rem;
+  gap: 1.4rem;
+}
+.header svg {
+  height: 3rem;
+}
+
+.header h1 {
+  font-size: 2.4rem;
+  font-weight: 600rem;
+}
+
+.toggleAction {
+  display: flex;
+  gap: 1rem;
+  background-color: var(--light-gray-color);
+  padding: 0.3rem;
+  font-size: 1.2rem;
+  border-radius: 0.6rem;
+}
+
+.toggleAction button {
+  appearance: none;
+  outline: none;
+  border: none;
+  border-radius: 0.6rem;
+  padding: 0.48rem 1.8rem;
+}
+.active {
+  background-color: #000;
+  color: #fff;
+  outline: none;
+  border: none;
+}
+.accordionItem svg {
+  height: 0.48rem;
+  width: 0.8rem;
+}
+
+.accordionItem header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.4rem;
+  padding: 1.6rem 2rem;
+  background-color: var(--light-gray-color);
+}
+.accordionItem header.act {
+  border-top-left-radius: 0.6rem;
+  border-top-right-radius: 0.6rem;
+}
+.accordionItem header.inact {
+  border-radius: 0.6rem;
+}
+.inactiveAccordion {
+  display: none;
+}
+.activeAccordon {
+  background-color: #f7f7f7;
+  display: block;
+  padding: 1.4rem 1rem 2rem 2rem;
+  border-bottom-right-radius: 0.6rem;
+  border-bottom-left-radius: 0.6rem;
+}
+.accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}

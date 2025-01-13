@@ -1,0 +1,60 @@
+.header {
+  position: sticky;
+  top: 0px;
+  width: 100%;
+  background-color: #f7f7f7;
+  max-height: 7.12rem;
+  padding: 2.1rem 3rem 2.1rem 4rem;
+  z-index: 10;
+}
+
+.container {
+  display: flex;
+  background-color: inherit;
+  justify-content: space-between;
+  align-items: center;
+  max-height: 3rem;
+}
+.nav-list {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+  list-style: none;
+}
+.nav-list * {
+  font-size: 1rem;
+  font-weight: 500;
+}
+.nav-list button {
+  font-size: 1rem;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: inherit;
+  gap: 1.4rem;
+}
+.logo img {
+  max-height: 3rem;
+}
+.logo * {
+  display: inline-block;
+  font-size: 1.6rem;
+  font-weight: bold;
+  font-family: "Recoleta";
+}
+a {
+  position: relative;
+}
+
+a.activeNav::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3rem;
+  width: 100%;
+  height: 0.4rem;
+  background-color: var(--primary-color);
+  background-repeat: no-repeat;
+}

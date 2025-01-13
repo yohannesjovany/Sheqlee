@@ -1,0 +1,44 @@
+.hero {
+  height: 90vh;
+  padding: 0rem 3rem 0rem 4rem;
+  line-height: 1.2;
+  letter-spacing: 0rem;
+  display: flex;
+  align-items: center;
+  transform: translateY(-4rem);
+}
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  transform: translateY(2.5rem);
+}
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+  padding: 0rem 0rem 0rem 2rem;
+}
+.heroContent button {
+  flex-basis: auto;
+  display: inline;
+}
+.heroContent span {
+  color: var(--primary-color);
+}
+
+.heroContent h1 {
+  font-size: 3.3rem;
+
+  font-weight: 600;
+}
+
+.heroContent p,
+button {
+  font-size: 1.4rem;
+}
+
+.heroContent button {
+  padding: 0.85rem 4rem;
+}

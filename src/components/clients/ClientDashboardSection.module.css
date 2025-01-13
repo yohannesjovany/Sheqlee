@@ -1,0 +1,80 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 1.4rem;
+  text-align: center;
+  margin-bottom: 4rem;
+}
+.header h1 {
+  font-size: 2.4rem;
+  font-weight: 600;
+}
+.header svg {
+  height: 3rem;
+  width: 3rem;
+  margin-top: 1.4rem;
+  margin-bottom: 0.6rem;
+}
+.postJobButton {
+  display: flex;
+  justify-content: center;
+}
+.mainContainer {
+  margin-bottom: 4rem;
+}
+
+.tableContainer {
+  width: 100%;
+  padding: 0rem 2.76rem;
+}
+
+.table {
+  width: 100%;
+  border-radius: 0.8rem;
+  border-collapse: collapse;
+  font-size: 1.4rem;
+}
+
+.tabel th,
+td {
+  padding: 1rem;
+  text-align: left; /* Adjust based on content type */
+}
+
+.table th {
+  font-size: 1.6rem;
+  font-weight: 500;
+  background-color: #f7f7f7;
+}
+.tabel tr {
+  background-color: #f7f7f7;
+  border-bottom: 0.1rem solid var(--light-gray-color);
+}
+
+.table thead th {
+  background-color: var(--light-gray-color);
+  height: 5.56rem;
+  text-align: left;
+}
+.table thead th:first-child {
+  border-top-left-radius: 0.8rem;
+}
+.table thead th:last-child {
+  border-top-right-radius: 0.8rem;
+}
+.actionsContainer {
+  display: flex;
+  gap: 0.2rem;
+}
+.publish {
+  all: unset;
+  color: #fff;
+  background-color: #000;
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding: 0.28rem 1.2rem;
+  border-radius: 0.28rem;
+}

@@ -1,0 +1,16 @@
+.errorSection{
+    display:flex;
+    flex-direction:column;
+    gap:3rem;
+    align-items:center;
+    justify-content:center;
+    height:50vh
+}
+
+.errorSection svg{
+    height:4.28rem;
+}
+.errorSection h1{
+    color:#444;
+    font-weight:normal;
+}

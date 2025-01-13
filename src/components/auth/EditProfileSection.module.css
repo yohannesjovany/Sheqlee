@@ -1,0 +1,257 @@
+.mainSection {
+  width: 66%;
+  margin: 0rem auto;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: left;
+}
+.inputGroup input {
+  appearance: none;
+  border: none;
+  outline: none;
+  font-size: 1.2rem;
+  background-color: var(--light-gray-color);
+  padding: 0.88rem 1.6rem;
+  border-radius: 0.6rem;
+  width: 100%;
+}
+.inputGroup label {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+.inputGroup label p {
+  font-size: 0.8rem;
+  font-weight: normal;
+}
+span.required {
+  color: red;
+}
+.selectInput {
+  position: relative;
+}
+.selectInput svg {
+  position: absolute;
+  right: 1rem;
+  top: 1.4rem;
+  height: 0.718rem;
+  width: 0.718rem;
+  pointer-events: none;
+}
+
+.selectInput * {
+  stroke: #000;
+  fill: #000;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 1.4rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  margin-top: 4rem;
+  line-height: 1;
+}
+.header h1 {
+  font-size: 2.4rem;
+  font-weight: 600;
+}
+.header svg {
+  height: 4.4rem;
+  width: 4.4rem;
+}
+.header * {
+  stroke: var(--primary-color);
+  fill: var(--primary-color);
+}
+
+.row {
+  display: flex;
+  gap: 2rem;
+  align-items: start;
+  margin-top: 2rem;
+}
+.row * {
+  flex: 1;
+}
+.fileUpload {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 0;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.fileUpload label {
+  display: inline-block;
+  padding: 0.4rem 1.4rem;
+  cursor: pointer;
+  background-color: var(--primary-color);
+  color: #fff;
+  border-radius: 0.4rem;
+  text-align: center;
+  margin: 1rem;
+}
+.fileUpload input[type="file"] {
+  display: none;
+}
+
+.fileUpload div {
+  display: flex;
+  justify-content: center;
+  height: 5.64rem;
+  width: 5.64rem;
+  background-color: var(--light-gray-color);
+  border-radius: 50%;
+  align-items: center;
+  overflow: hidden;
+}
+.fileUpload div img {
+  width: 50%;
+  height: 50%;
+}
+.fileUpload p {
+  font-size: 0.8rem;
+}
+.lineSeparator {
+  padding-top: 4rem;
+  padding-bottom: 1.6rem;
+  text-align: left;
+}
+
+.lineSeparator div {
+  height: 0.1rem;
+  background-color: var(--light-gray-color);
+  margin-bottom: 0.88rem;
+}
+.actionButton {
+  display: flex;
+  margin-top: 4rem;
+  justify-content: end;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1.2rem;
+}
+
+.table th {
+  font-weight: 500;
+  color: #fff;
+  background-color: var(--dark-gray-color);
+  height: 3rem;
+}
+
+.table thead tr {
+  background-color: var(--dark-gray-color);
+  height: 2rem;
+}
+.table thead th:first-child {
+  border-top-left-radius: 0.8rem;
+}
+.table thead th:last-child {
+  border-top-right-radius: 0.8rem;
+}
+
+.table th,
+td {
+  padding-left: 1rem;
+  text-align: left; /* Adjust based on content type */
+  height: 3rem;
+  padding: 0rem;
+  margin: 0rem;
+  padding-left: 1rem;
+  padding-right: 2rem;
+}
+
+.table tbody tr {
+  background-color: #f7f7f7;
+  border-bottom: 0.1rem solid var(--light-gray-color);
+  border-radius: 0.88rem;
+  height: 2rem;
+}
+.table tr:last-child {
+  border: none;
+}
+.table tr:last-child td:first-child {
+  border-bottom-left-radius: 0.88rem;
+}
+.table tr:last-child td:last-child {
+  border-bottom-right-radius: 0.88rem;
+}
+.table th:first-child,
+.table td:first-child {
+  width: 100%; /* Let the first column take up all available space */
+}
+.actionsButton {
+  all: unset;
+  width: 1.88rem;
+  height: 1.6rem;
+  background-color: var(--primary-color);
+  border-radius: 0.28rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.actionsButton svg {
+  height: 0.8rem;
+  width: 0.6rem;
+}
+.actionsButton * {
+  stroke: #fff;
+  fill: #fff;
+}
+
+.skillandProfile {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.addButton {
+  display: flex;
+  justify-content: end;
+}
+
+.addButton button {
+  font-size: 1rem;
+  padding: 0.6rem 1.4rem;
+}
+
+.cvUpload {
+  display: flex;
+  justify-content: left;
+}
+.cvUpload label {
+  display: inline-block;
+  padding: 0.4rem 1.4rem;
+  cursor: pointer;
+  background-color: var(--primary-color);
+  color: #fff;
+  border-top-right-radius: 0.4rem;
+  border-bottom-right-radius: 0.4rem;
+  text-align: center;
+  /* margin: 1rem; */
+}
+.cvUpload input[type="file"] {
+  display: none;
+}
+.cvUpload > span {
+  text-align: center;
+  line-height: 1;
+  border: 0.14rem solid var(--primary-color);
+  width: 13.92rem;
+  border-top-left-radius: 0.4rem;
+  border-bottom-left-radius: 0.4rem;
+}

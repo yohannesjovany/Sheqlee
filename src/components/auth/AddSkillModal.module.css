@@ -1,0 +1,52 @@
+.addSkill {
+  background-color: #fff;
+  padding: 1.6rem 2.16rem 0.8rem 2.16rem;
+  text-align: center;
+  border-radius: 0.8rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+.addSkill p {
+  display: block;
+  width: fit-content;
+}
+
+.addSkill button {
+  all: unset;
+  outline: none;
+  background-color: #000;
+  font-size: 1.2rem;
+  font-weight: 600rem;
+  padding: 0.8rem 4.6rem;
+  border-radius: 0.6rem;
+  margin-top: 2rem;
+  color: #fff;
+}
+.addSkill input,
+select {
+  appearance: none;
+  width: 25rem;
+  appearance: none;
+  border: none;
+  outline: none;
+  font-size: 1.2rem;
+  background-color: var(--light-gray-color);
+  padding: 0.88rem 1.6rem;
+  border-radius: 0.6rem;
+}
+.addSkill div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+}
+.selectgroup {
+  position: relative;
+}
+.selectgroup svg {
+  position: absolute;
+  top: 1.5rem;
+  right: 1rem;
+  pointer-events: none;
+  height: 0.4rem;
+}

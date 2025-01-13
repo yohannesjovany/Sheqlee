@@ -1,0 +1,16 @@
+.pagecontext {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 0rem 1rem 9rem;
+  font-size: 1rem;
+}
+.pagecontext img {
+  height: 1rem;
+  transform: translateY(0.21rem);
+}
+
+.pagecontext p img {
+  height: 0.7rem;
+  transform: translateY(-0.01rem);
+  margin: 0rem 0.5rem;
+}

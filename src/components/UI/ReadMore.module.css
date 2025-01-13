@@ -1,0 +1,32 @@
+.mainContainer {
+  background-color: #f7f7f7;
+  padding: 1.6rem 2.8rem 0.8rem 2rem;
+  margin: 1rem 3rem 2rem 4rem;
+  display: flex;
+  flex-direction: column;
+}
+.notExpanded {
+  max-height: 13rem;
+  overflow: hidden;
+}
+
+.mainContainer button {
+  all: unset;
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 0.2rem 0.4rem;
+  position: relative;
+  flex-grow: 0;
+  font-size: 0.8rem;
+  border-radius: 0.2rem;
+  align-self: flex-end;
+}
+.mainContainer button svg {
+  height: 0.76rem;
+  width: 0.76rem;
+  transform: translateY(0.17rem);
+}
+.mainContainer button svg path {
+  stroke: #fff;
+  fill: #fff;
+}

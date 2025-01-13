@@ -1,0 +1,66 @@
+/* :root {
+  --bg-color: #f7f7f7;
+} */
+.withBackground {
+  background-color: #f7f7f7;
+}
+.section-wrapper {
+  padding: 1rem 3rem 2rem 4rem;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+.header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+.header h1 {
+  all: unset;
+  font-size: 2rem;
+  font-weight: 500;
+}
+.header p {
+  display: inline-block;
+  position: relative;
+  font-size: 0.88rem;
+  font-weight: 500;
+  padding-right: 0.5rem;
+}
+
+.header p::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 50%;
+  height: 0.28rem;
+  background-color: var(--primary-color);
+  background-repeat: no-repeat;
+}
+
+.header img {
+  height: 0.88rem;
+  transform: translateY(21%);
+}
+.header button {
+  all: unset;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.main {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: space-between;
+  column-gap: 2.6rem;
+  row-gap: 1.6rem;
+}

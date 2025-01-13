@@ -1,0 +1,68 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  text-align: center;
+  font-size: 1.4rem;
+  margin: 2rem 0rem;
+}
+.header h1 {
+  font-size: 2.4rem;
+  font-weight: 600;
+}
+.header svg {
+  height: 2.6rem;
+  width: 3.6rem;
+}
+
+.main {
+  width: 70%;
+  margin: 0rem auto;
+}
+#body {
+  width: 100%;
+}
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  gap: 1rem;
+  grid-column: span 2;
+}
+
+.inputGroup label {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+.inputGroup textarea {
+  background-color: var(--light-gray-color);
+  font-size: 1.2rem;
+  padding: 1rem;
+  border-radius: 0.6rem;
+  appearance: none;
+  border: none;
+  outline: none;
+  resize: none;
+  min-height: 14.28rem;
+}
+.char-counter {
+  position: absolute;
+  bottom: 0.64rem;
+  right: 1rem;
+  font-size: 12px;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding-bottom: 2rem;
+}
+.inputAction {
+  grid-column: 2;
+  display: flex;
+  justify-content: end;
+  padding-top: 2rem;
+}

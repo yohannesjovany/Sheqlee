@@ -1,0 +1,46 @@
+/* @import url("./assets/fonts/web/variable/pretendardvariable-dynamic-subset.css");
+@import url("./assets/fonts/web/variable/pretendardvariable.css");
+@import url("./assets/fonts/web/variable/PretendardVariable-VF.css");
+@import url("./assets/fonts/web/static/pretendard-subset.css");
+@import url("./assets/fonts/web/static/pretendard.css"); */
+
+/* 
+// <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 100 to 700 */
+@font-face {
+  font-family: "Recoleta";
+  src: url("./assets/fonts/Recoleta-RegularDEMO.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0rem;
+  padding: 0rem;
+  font-family: var(--font-family);
+}
+:root {
+  --primary-color: #8967b3;
+  --secondary-color: #000000;
+  --light-gray-color: #dfdfdf;
+  --dark-gray-color: #444444;
+  --font-family: "Kantumruy Pro", sans-serif;
+  --spacing: 1rem;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: #ffffff;
+  color: #000000;
+  margin: 0;
+  line-height: 1.4;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+ul {
+  list-style: none;
+}

@@ -1,0 +1,15 @@
+.mainContainer {
+  margin: 3.12rem 4rem 3rem 4rem;
+}
+.mainContainer main {
+  border-radius: 0.8rem;
+  background-color: var(--light-gray-color);
+  padding: 3rem 3rem 2.64rem 2.48rem;
+  max-height: 160vh;
+  overflow: scroll;
+}
+.mainContainer h1 {
+  margin-bottom: 2rem;
+  font-size: 2.4rem;
+  font-weight: 600;
+}

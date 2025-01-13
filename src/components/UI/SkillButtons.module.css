@@ -1,0 +1,19 @@
+.sillButtonContainer {
+  display: flex;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+}
+
+.sillButtonContainer button {
+  all: unset;
+  outline: none;
+  border-radius: 50%;
+  background-color: #a0a0a0;
+  height: 1.2rem;
+  width: 1.2rem;
+  text-align: center;
+  color: #fff;
+}
+button.active {
+  background-color: #000;
+}

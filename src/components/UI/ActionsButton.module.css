@@ -1,0 +1,19 @@
+.actionButton {
+  all: unset;
+  width: 2.52rem;
+  height: 2.12rem;
+  background-color: var(--primary-color);
+  border-radius: 0.28rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.actionButton svg {
+  height: 0.8rem;
+  width: 0.8rem;
+}
+.actionButton * {
+  stroke: #fff;
+  fill: #fff;
+}

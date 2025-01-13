@@ -1,0 +1,55 @@
+.mainContainer {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  justify-content: center;
+}
+.mainContainer img {
+  height: 1.6rem;
+  width: 1.6rem;
+  border-radius: 50%;
+  background-color: var(--light-gray-color);
+}
+
+.mainContainer svg {
+  height: 0.5rem;
+  width: 0.5rem;
+}
+.backdrop {
+  position: absolute;
+  background-color: #00000078;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  z-index: 18;
+}
+.overlay {
+  position: absolute;
+  top: 5rem;
+  background-color: #fff;
+  z-index: 19;
+  padding: 1rem 0.8rem 1rem 0.8rem;
+  border-bottom-right-radius: 0.6rem;
+  border-bottom-left-radius: 0.6rem;
+}
+.overlay ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.underline {
+  height: 0.08rem;
+  width: 100%;
+  background-color: var(--light-gray-color);
+}
+.overlay ul li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.overlay ul li svg {
+  height: 0.8rem;
+  width: 0.8rem;
+}

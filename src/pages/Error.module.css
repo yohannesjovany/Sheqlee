@@ -1,0 +1,10 @@
+.errorSection {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+  font-size: 1.6rem;
+  color: #444444;
+}

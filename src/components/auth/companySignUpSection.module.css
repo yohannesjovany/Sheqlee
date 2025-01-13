@@ -1,0 +1,125 @@
+.mainSection {
+  width: 70%;
+  margin: 0rem auto;
+}
+
+.redirection {
+  display: flex;
+  align-items: center;
+  background-color: #f7f7f7;
+  border-radius: 0.6rem;
+  margin: 2rem auto 3.2rem auto;
+
+  width: fit-content;
+}
+.mainSection a {
+  font-weight: 600;
+  border-bottom: 0.12rem solid var(--primary-color);
+  padding-bottom: 0.2rem;
+}
+.redirection svg {
+  height: 1.6rem;
+}
+.redirection div:first-child {
+  background-color: #000;
+  width: 4.8rem;
+  height: 4.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 0.6rem;
+  border-bottom-left-radius: 0.6rem;
+}
+.redirection div:last-child {
+  padding-left: 1rem;
+  padding-right: 2rem;
+}
+
+.header {
+  display: flex;
+  gap: 2rem;
+  padding-bottom: 2rem;
+}
+.header * {
+  stroke: var(--primary-color);
+  fill: var(--primary-color);
+}
+.header svg {
+  height: 2.53rem;
+  width: 2.65rem;
+  transform: translateY(0.4rem);
+}
+.header h1 {
+  font-size: 2.2rem;
+  font-weight: 600;
+}
+
+.inputContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding-bottom: 1rem;
+}
+.secHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+}
+.secHeader span {
+  flex: 1;
+  height: 0.2rem;
+  background-color: #dddddd;
+}
+.privacy {
+  display: flex;
+  align-items: center;
+  font-size: 0.88rem;
+  gap: 0.8rem;
+  margin-bottom: 2.72rem;
+  margin-top: 2.24rem;
+}
+.privacy input {
+  background-color: #dfdfdf;
+  appearance: none;
+  border: none;
+  outline: none;
+  height: 1.48rem;
+  width: 1.48rem;
+  border-radius: 0.2rem;
+}
+
+.action {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  justify-content: flex-end;
+}
+.googleButton {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 4rem;
+}
+.googleButton svg {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 1rem;
+  transform: translateY(0.2rem);
+}
+
+.googleButton button {
+  /* display: inline-block; */
+  display: flex;
+  gap: 1rem;
+  all: unset;
+  background-color: #4285f4;
+  color: #fff;
+  padding: 0.88rem 3.9rem;
+  border-radius: 0.6rem;
+}
+
+.addPading input {
+  padding-left: 6.5rem;
+}

@@ -1,0 +1,172 @@
+.section {
+  margin-bottom: 3rem;
+}
+
+.mainSection {
+  margin: 0rem auto;
+  text-align: center;
+}
+
+.redirection {
+  display: flex;
+  align-items: center;
+  background-color: #f7f7f7;
+  border-radius: 0.6rem;
+  margin: 2rem auto 3rem auto;
+
+  width: fit-content;
+}
+.mainSection a {
+  font-weight: 600;
+  border-bottom: 0.12rem solid var(--primary-color);
+  padding-bottom: 0.2rem;
+}
+.redirection svg {
+  height: 1.6rem;
+}
+.redirection div:first-child {
+  background-color: #000;
+  width: 4.8rem;
+  height: 4.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 0.6rem;
+  border-bottom-left-radius: 0.6rem;
+}
+.redirection div:last-child {
+  padding-left: 1rem;
+  padding-right: 2rem;
+}
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 2.68rem;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.4rem;
+}
+.header h1 {
+  font-size: 2.4rem;
+  font-weight: 600;
+}
+
+.header h1 span {
+  font-weight: normal;
+}
+.header div:last-child {
+  display: flex;
+  gap: 2rem;
+}
+
+.secHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  width: 70%;
+  margin: 0rem auto;
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+}
+.secHeader span {
+  flex: 1;
+  height: 0.2rem;
+  width: 100%;
+  background-color: var(--light-gray-color);
+}
+
+.actionButtons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 0rem auto;
+}
+
+.sec-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.8rem;
+  gap: 1.2rem;
+}
+.jobTitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+.jobTitle h1 {
+  font-size: 2rem;
+  font-weight: 500;
+}
+.jobTitle svg {
+  height: 2.9rem;
+  width: 2.9rem;
+  padding: 0rem;
+}
+
+.action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  width: 18rem;
+  font-size: 0.8rem;
+  text-align: center;
+  margin-top: 1.28rem;
+}
+.action * {
+  width: 100%;
+  flex-grow: 1;
+  flex-shrink: 0;
+}
+
+.details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+.details * {
+  flex-shrink: 0;
+  background-color: var(--light-gray-color);
+  border-radius: 0.2rem;
+  padding: 0.1rem 0.26rem;
+  font-size: 0.72rem;
+}
+.details svg {
+  padding: 0;
+  margin-right: 0.4rem;
+  height: 0.72rem;
+  transform: translateY(0.09rem);
+}
+.details button {
+  all: unset;
+  background-color: var(--primary-color);
+  border-radius: 0.2rem;
+  padding: 0.1rem 0.6rem;
+  font-size: 0.72rem;
+}
+.mainContainer {
+  margin: 0rem auto;
+  width: 70%;
+  padding: 3rem 2.48rem 2.48rem 2.48rem;
+  background-color: #f7f7f7;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem 0rem 3rem 0rem;
+  gap: 1rem;
+}
+.line {
+  height: 0.2rem;
+  width: 70%;
+  margin: 0rem auto;
+  background-color: var(--light-gray-color);
+  margin-bottom: 3.36rem;
+}

@@ -1,0 +1,22 @@
+.modalcontent {
+  font-size: 1.4rem;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  text-align: center;
+  padding: 3rem 3rem 1.4rem 3rem;
+  border-radius: 0.8rem;
+  max-width: 30.92rem;
+  min-height: 13.6rem;
+  background-color: #ffffff;
+}
+.modalAction {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+}
+.modalAction button {
+  font-size: 1.2rem;
+  font-weight: 600;
+}

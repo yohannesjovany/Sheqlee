@@ -1,0 +1,22 @@
+import CallForAction from "../components/callForAction/CallForAction";
+import TagSpecificJos from "../components/tags/TagSpecificJobs";
+import PageContex from "../components/UI/PageContext";
+import Pagination from "../components/UI/Pagination";
+
+const TagDetails = () => {
+  return (
+    <>
+      <PageContex path={["Tags", "JavaScript"]} />
+      <TagSpecificJos />
+      <Pagination
+        totalItems={139}
+        itemsPerPage={3}
+        currentPage={10}
+        onPageChange="skip"
+      />
+      <CallForAction />
+    </>
+  );
+};
+
+export default TagDetails;
