@@ -1,10 +1,13 @@
 import React from "react";
+
 import Lottie from "lottie-react";
 
 import Classes from "./HeroSection.module.css";
+
 import heroAni from "../../assets/animations/hero.json";
 import Button from "../UI/Button";
 import LogInModal from "./LogInModal";
+
 const HeroSection = () => {
   return (
     <section className={Classes.hero}>

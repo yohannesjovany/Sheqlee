@@ -6,15 +6,17 @@ const jobs = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 const JobPostSection = () => {
   return (
-    <SectionWrapper
-      withHeader={true}
-      title="Latest job posts"
-      info="745+ more jobs"
-    >
-      {jobs.map((job) => (
-        <JobCard />
-      ))}
-    </SectionWrapper>
+    <div style={{ marginTop: "3rem" }}>
+      <SectionWrapper
+        withHeader={true}
+        title="Latest job posts"
+        info="745+ more jobs"
+      >
+        {jobs.map((job) => (
+          <JobCard />
+        ))}
+      </SectionWrapper>
+    </div>
   );
 };
 export default JobPostSection;

@@ -59,10 +59,14 @@ const MainNavigation = (props) => {
                 </li>
                 <div className={Classes.auth}>
                   <li className={Classes.login}>
-                    <Button className="secondary">Log in</Button>
+                    <Button className="secondary">
+                      <NavLink to="/login"> Log in</NavLink>
+                    </Button>
                   </li>
                   <li>
-                    <Button className="primary">Sign up</Button>
+                    <Button className="primary">
+                      <NavLink to="companysignup"> Sign up</NavLink>
+                    </Button>
                   </li>
                 </div>
               </>
