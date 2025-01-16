@@ -1,4 +1,5 @@
 import Classes from "./JobCard.module.css";
+
 import logo from "../../assets/icons/product_design.svg";
 import calendar from "../../assets/icons/calendar.svg";
 import clock from "../../assets/icons/Icon feather-clock.svg";
@@ -8,16 +9,18 @@ const JobCard = (props) => {
   // const { logo, title, description } = props;
   return (
     <div className={Classes.card}>
-      <header>
-        <img src={logo} alt="catagory icon" /> <span>Product Designer</span>
-      </header>
-      <main className="">
-        <p>
-          KeplerLab is a VC-backed, stealth, application-only platform for
-          senior product designers to team up with the best companies on their
-          next big thing.
-        </p>
-      </main>
+      <div>
+        <header>
+          <img src={logo} alt="catagory icon" /> <span>Product Designer</span>
+        </header>
+        <main className="">
+          <p>
+            KeplerLab is a VC-backed, stealth, application-only platform for
+            senior product designers to team up with the best companies on their
+            next big thing.
+          </p>
+        </main>
+      </div>
       <div className={Classes.details}>
         <p>
           <img src={calendar} alt="calendar icon" />
@@ -25,7 +28,7 @@ const JobCard = (props) => {
         </p>
         <p>
           <img src={company} alt="company icon" />
-          KeperLab
+          Entrust Datacard
         </p>
         <p>
           <img src={clock} alt="clock icon" />
