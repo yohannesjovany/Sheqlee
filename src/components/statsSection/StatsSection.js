@@ -10,17 +10,30 @@ const StatsSection = () => {
         <h1>Platform stats</h1>
       </header>
       <main>
-        <img src={handshake} alt="handshake icon" />
-        <img src={programmer} alt="propgrammer icon" />
-        <img src={company} alt="company icon" />
-        <h1>100K+</h1>
-        <h1>15K+</h1>
-        <h1>1K+</h1>
-        <p>Total jobs posted on Sheqlee to date</p>
-
-        <p>Ethiopian professionals signed up so far</p>
-
-        <p>Korean companies posting jobs daily</p>
+        <div>
+          <img src={handshake} alt="handshake icon" />
+          <h1>100K+</h1>
+          <p>
+            Total jobs posted on
+            <br /> Sheqlee to date
+          </p>
+        </div>
+        <div>
+          <img src={programmer} alt="propgrammer icon" />
+          <h1>15K+</h1>
+          <p>
+            Ethiopian professionals
+            <br /> signed up so far
+          </p>
+        </div>
+        <div>
+          <img src={company} alt="company icon" />
+          <h1>1K+</h1>
+          <p>
+            Korean companies <br />
+            posting jobs daily
+          </p>
+        </div>
       </main>
     </section>
   );

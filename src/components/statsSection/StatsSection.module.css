@@ -1,13 +1,15 @@
 .statsSection {
-  height: 70vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
   justify-content: center;
+  gap: 3.2rem;
+  width: 70%;
+  margin: 2rem auto;
+  margin-bottom: 5.2rem;
 }
 .statsSection h1 {
-  font-size: 2.5rem;
+  font-size: 2.4rem;
   font-weight: 500;
 }
 .statsSection p {
@@ -15,17 +17,26 @@
   line-height: 1.2;
 }
 .statsSection main {
-  display: grid;
-  width: 80%;
-  grid-template-columns: repeat(3, 1fr);
-  column-gap: 6rem;
-  row-gap: 1rem;
-  justify-items: center;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  align-content: center;
+  text-align: center;
+  width: 100%;
+}
+.statsSection img {
+  height: 5.46rem;
+  width: 6.32rem;
+  margin-bottom: 1.7rem;
+  padding: 0;
+}
+.statsSection main div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
 }
 .statsSection main * {
-  text-align: center;
+  flex-grow: 1;
 }
 .statsSection main h1 {
   font-weight: 600;
