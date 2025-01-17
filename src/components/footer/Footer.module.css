@@ -1,7 +1,7 @@
 .footer {
   background-color: #000000;
   color: #ffffff;
-  height: 45vh;
+  /* height: 45vh; */
 }
 
 .container {
@@ -34,6 +34,7 @@
   gap: 0.1rem;
   justify-content: center;
   align-items: center;
+  padding-top: 1.6rem;
 }
 .footer-col.footer-logo h1 {
   font-size: 0.88rem;
@@ -47,8 +48,9 @@
   font-weight: 200;
   text-align: center;
 }
-.footer-col.footer-logo img {
+.footer-col.footer-logo svg {
   width: 5rem;
+  height: 5rem;
   margin-bottom: 1.4rem;
 }
 
@@ -61,14 +63,30 @@
   justify-content: space-between;
   font-size: 0.8rem;
   font-weight: 300;
-  padding-bottom: 1.5rem;
+  padding-bottom: 1.2rem;
+  margin-top: 3rem;
+  width: 103%;
 }
 
+.copyryt div {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  justify-content: end;
+}
 .copyryt ul {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
   gap: 1rem;
-  font-weight: 300;
+  /* font-weight: 300; */
 }
-.copyryt img {
-  height: 0.8rem;
+.copyryt svg {
+  height: 1.12rem;
+  width: 1.12rem;
+  margin: 0rem;
+  padding: 0rem;
+}
+.copyryt * {
+  stroke: #fff;
 }

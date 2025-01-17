@@ -58,9 +58,17 @@
 
 .main {
   display: grid;
-  width: 100%;
+  /* width: 100%; */
   grid-template-columns: repeat(3, 1fr);
-  justify-content: space-between;
+  justify-content: stretch;
   column-gap: 2.6rem;
   row-gap: 1.6rem;
+}
+.main div:nth-child(3n) {
+  justify-self: end;
+  width: 100%;
+}
+.main div:nth-child(3n + 2) {
+  justify-self: center;
+  width: 100%;
 }

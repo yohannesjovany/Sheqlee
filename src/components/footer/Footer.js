@@ -1,13 +1,13 @@
 import { NavLink } from "react-router-dom";
 
 import Classes from "./Footer.module.css";
-import sheqleeGray from "../../assets/icons/sheqleeGray.svg";
-import facebook from "../../assets/icons/facebook.svg";
-import instagram from "../../assets/icons/instagram.svg";
-import linkedin from "../../assets/icons/linkedin-logo.svg";
-import telegram from "../../assets/icons/telegram.svg";
-import twitter from "../../assets/icons/twitter.svg";
-import youtube from "../../assets/icons/youtube.svg";
+import { ReactComponent as SheqleeGray } from "../../assets/icons/sheqleeGray.svg";
+import { ReactComponent as Facebook } from "../../assets/icons/facebook.svg";
+import { ReactComponent as Instagram } from "../../assets/icons/instagram.svg";
+import { ReactComponent as Linkedin } from "../../assets/icons/linkedin-logo.svg";
+import { ReactComponent as Telegram } from "../../assets/icons/telegram.svg";
+import { ReactComponent as Twitter } from "../../assets/icons/twitter.svg";
+import { ReactComponent as Youtube } from "../../assets/icons/youtube.svg";
 
 const Footer = () => {
   return (
@@ -15,8 +15,8 @@ const Footer = () => {
       <div className={Classes.container}>
         <div className={Classes["footer-cols"]}>
           <div className={`${Classes["footer-col"]} ${Classes["footer-logo"]}`}>
-            <img src={sheqleeGray} alt="sheqlee" />
-            <h1>Address</h1>
+            <SheqleeGray />
+            <h1>ADDRESS</h1>
             <p>MIT, Mekelle, Tigray</p>
           </div>
           <div className={Classes["footer-col"]}>
@@ -76,22 +76,22 @@ const Footer = () => {
             <p>Follow us on</p>
             <ul>
               <li>
-                <img src={facebook} alt="facebook icon" />
+                <Facebook />
               </li>
               <li>
-                <img src={twitter} alt="twitter icon" />
+                <Twitter />
               </li>
               <li>
-                <img src={instagram} alt="instagram icon" />
+                <Instagram />
               </li>
               <li>
-                <img src={telegram} alt="telegram icon" />
+                <Telegram />
               </li>
               <li>
-                <img src={linkedin} alt="linkedin icon" />
+                <Linkedin />
               </li>
               <li>
-                <img src={youtube} alt="youtube icon" />
+                <Youtube />
               </li>
             </ul>
           </div>

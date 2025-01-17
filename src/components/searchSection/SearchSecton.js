@@ -1,7 +1,8 @@
 import Button from "../UI/Button";
 import Classes from "./SearchSection.module.css";
-import downArrowIcon from "../../assets/icons/Icon material-keyboard-arrow-down (2).svg";
-import searchIcon from "../../assets/icons/Icon metro-search.svg";
+
+import { ReactComponent as DownArrowIcon } from "../../assets/icons/Icon material-keyboard-arrow-down (2).svg";
+import { ReactComponent as SearchIcon } from "../../assets/icons/Icon metro-search.svg";
 import SectionWrapper from "../UI/SectionWrapper";
 import JobCard from "../jobs/JobCard";
 
@@ -10,46 +11,38 @@ const jobsList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8];
 const SearchSection = () => {
   return (
     <>
-      <section className={Classes.searchSection}>
-        <div>
+      <section>
+        <header className={Classes.header}>
           <h1>All Job Posts</h1>
           <p>
             Browse the latest jobs you can take up right now Use <br /> filters
             to find the best jobs for your skillset.
           </p>
-        </div>
-        <div>
-          <form className={Classes.filterForm}>
-            <div className={`${Classes.inputGroup} ${Classes.categories} `}>
-              <select className={Classes.selectBox}>
+        </header>
+        <main className={Classes.main}>
+          <form>
+            <div className={`${Classes.selectGroup} ${Classes.categories} `}>
+              <select>
                 <option>All Catagories</option>
                 <option>All Catagories</option>
                 <option>All Catagories</option>
               </select>
-              <div className={Classes.slectIcon}>
-                <img src={downArrowIcon} alt="down-arrow" />
-              </div>
+              <DownArrowIcon />
             </div>
-            <div className={Classes.inputGroup}>
-              <select className={Classes.selectBox}>
+            <div className={Classes.selectGroup}>
+              <select>
                 <option>All types</option>
               </select>
-              <div className={Classes.slectIcon}>
-                <img src={downArrowIcon} alt="down-arrow" />
-              </div>
+              <DownArrowIcon />
             </div>
-            <div className={Classes.inputGroup}>
-              <select className={Classes.selectBox}>
+            <div className={Classes.selectGroup}>
+              <select>
                 <option>All levels</option>
               </select>
-              <div className={Classes.slectIcon}>
-                <img src={downArrowIcon} alt="down-arrow" />
-              </div>
+              <DownArrowIcon />
             </div>
-            <div className={`${Classes.inputGroup} ${Classes.searchInput} `}>
-              <div className={Classes.searchIcon}>
-                <img src={searchIcon} alt="search icon" />
-              </div>
+            <div className={`${Classes.searchInput} `}>
+              <SearchIcon />
               <input
                 type="text"
                 placeholder="Search by programming technology or field..."
@@ -57,7 +50,7 @@ const SearchSection = () => {
             </div>
             <Button className="primary">Apply filter</Button>
           </form>
-        </div>
+        </main>
       </section>
       <section>
         <SectionWrapper>

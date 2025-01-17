@@ -1,79 +1,59 @@
-.searchSection {
-  display: flex;
-  flex-direction: column;
-  gap: 2.4rem;
-  align-items: center;
+.header {
   text-align: center;
-  justify-content: center;
-  height: 55vh;
+  font-size: 1.4rem;
+  padding: 2.64rem 0rem;
 }
-
-.searchSection h1 {
+.header h1 {
   font-size: 2.4rem;
   font-weight: 600;
 }
-.searchSection p {
-  font-size: 1.4rem;
-  align-self: center;
-}
-.filterForm {
+.main form {
+  width: 60%;
+  margin: 0rem auto;
+  margin-bottom: 4.68rem;
   display: grid;
-  gap: 1.2rem;
-  grid-template-columns: repeat(4, 1fr);
-  align-items: stretch;
-  justify-items: stretch;
-}
-.searchInput {
-  grid-column: span 3;
+  grid-template-columns: 0.7fr 0.7fr 1fr 1fr;
+  column-gap: 1.2rem;
+  row-gap: 0.8rem;
 }
 .categories {
   grid-column: span 2;
 }
-.inputGroup {
-  display: flex;
+.searchInput {
+  grid-column: span 3;
+}
+.main form div {
+  background-color: var(--light-gray-color);
   position: relative;
-  justify-content: center;
   height: 3.2rem;
-
-  /* width: 100%; */
-}
-.selectBox {
-  border: none;
-  appearance: none;
-  width: 100%;
   border-radius: 0.6rem;
-  background-color: var(--light-gray-color);
+  display: flex;
+  align-items: center;
   font-size: 1.2rem;
-  color: #444444;
-  padding: 0rem 0rem 0rem 1.2rem;
 }
-
-.slectIcon {
+.main input,
+.main select {
+  appearance: none;
+  outline: none;
+  all: unset;
+  width: 100%;
+  background-color: var(--light-gray-color);
+}
+.main div svg {
   position: absolute;
+  pointer-events: none;
+}
+.selectGroup select {
+  padding-left: 1.2rem;
+}
+.selectGroup svg {
+  height: 0.44rem;
   right: 1.2rem;
-  top: 1rem;
-  pointer-events: none;
 }
-.slectIcon img {
-  height: 0.4rem;
-}
-.inputGroup input {
-  border: none;
-  appearance: none;
-  width: 100%;
-  border-radius: 0.6rem;
-  background-color: var(--light-gray-color);
-  font-size: 1.2rem;
-  color: #444444;
-  padding: 0rem 0rem 0rem 3.5rem;
-}
-
-.searchIcon {
-  position: absolute;
-  left: 1.2rem;
-  top: 1rem;
-  pointer-events: none;
-}
-.searchIcon img {
+.searchInput svg {
   height: 1.2rem;
+  left: 1.2rem;
+}
+.searchInput input {
+  padding-left: 3.44rem;
 }
