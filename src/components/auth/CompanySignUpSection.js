@@ -26,6 +26,7 @@ const CompanySignUpSection = () => {
           </p>
         </div>
       </div>
+      
       <form>
         <header className={Classes.header}>
           <Company />

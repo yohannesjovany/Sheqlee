@@ -32,7 +32,8 @@ const faqItems = [
   },
   {
     id: "faq5",
-    question: "How do I post a job vacancy on Sheqlee?",
+    question:
+      "How do I post a job vacancy How do I post a job vacancy on Sheqlee?How do I post a job vacancy on Sheqlee? job vacancy on Sheqlee?",
     answer:
       "In order to post a job vacancy on Sheqlee, you must first create an account as a company. Company account creation is done by just filling out a few basic information about your company. Then you can easily post a job vacancy by providing the details of the job post. It takes less than 15mins to post a job.",
   },
@@ -62,7 +63,7 @@ const Accordion = (props) => {
 
 const FAQSection = () => {
   const [isActive, setisActive] = useState(true);
-  const [accordionID, setAccordionID] = useState();
+  const [accordionID, setAccordionID] = useState("faq1");
 
   const hundleAccordionClick = (id) => {
     setAccordionID(id);
@@ -114,13 +115,13 @@ const FAQSection = () => {
             />
           ))}
         </div>
-        <Pagination
-          totalItems={139}
-          itemsPerPage={3}
-          currentPage={10}
-          onPageChange="skip"
-        />
       </main>
+      <Pagination
+        totalItems={139}
+        itemsPerPage={3}
+        currentPage={10}
+        onPageChange="skip"
+      />
     </section>
   );
 };

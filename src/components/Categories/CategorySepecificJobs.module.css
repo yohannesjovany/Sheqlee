@@ -5,11 +5,15 @@
   justify-content: center;
   gap: 1rem;
   font-size: 1.4rem;
-  height: 55vh;
+  padding-top: 1.72rem;
+  margin-bottom: 4rem;
 }
 .header > svg {
   height: 4.6rem;
   width: 4.6rem;
+}
+.header b {
+  font-weight: 500;
 }
 .header h1 {
   font-size: 2.4;

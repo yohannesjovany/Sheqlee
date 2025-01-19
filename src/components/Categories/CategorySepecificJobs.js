@@ -48,7 +48,7 @@ const CategorySepecificJobs = () => {
 
       <SectionWrapper>
         {jobsList.map((job) => (
-          <JobCard />
+          <JobCard noIcon={true} />
         ))}
       </SectionWrapper>
     </section>

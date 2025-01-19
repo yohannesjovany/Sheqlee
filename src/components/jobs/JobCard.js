@@ -11,7 +11,8 @@ const JobCard = (props) => {
     <div className={Classes.card}>
       <div>
         <header>
-          <img src={logo} alt="catagory icon" /> <span>Product Designer</span>
+          {!props.noIcon && <img src={logo} alt="catagory icon" />}{" "}
+          <span>Product Designer</span>
         </header>
         <main className="">
           <p>

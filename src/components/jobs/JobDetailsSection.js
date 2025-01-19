@@ -109,7 +109,9 @@ const JobDetailsSection = () => (
     <main className={Classes.mainContainer}>{formatedText}</main>
     <footer className={Classes.footer}>
       <div className={Classes.details}>
-        <AawesomeTags className={Classes.tagsIndicator} />
+        <div className={Classes.tagsIndicator}>
+          <AawesomeTags />
+        </div>
         {listOfTags.map((tag) => (
           <p>{tag}</p>
         ))}

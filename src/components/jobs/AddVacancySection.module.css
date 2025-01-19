@@ -94,34 +94,53 @@
   width: 1.4rem;
   pointer-events: none;
 }
-
 .salaryInput {
   position: relative;
+  margin: 0rem;
+  padding: 0rem;
 }
 .salaryInput * {
   stroke: #fff;
   fill: #fff;
 }
-.salaryInput .selectInput {
+.salaryInput .selectsalaryInput {
   position: absolute;
+  top: 0rem;
 }
-.salaryInput input {
-  padding-left: 5.5rem;
-}
-.salaryInput .selectInput select {
-  background-color: #000000;
+.selectsalaryInput select {
+  background-color: #000;
+  height: 3.2rem;
   color: #fff;
   font-size: 1rem;
 }
-.salaryInput .selectInput:last-child {
-  right: 0;
-  top: 0;
+
+.salaryInput input {
+  padding-left: 4rem;
 }
-.salaryInput .selectInput:last-child select {
+.salaryInput .selectsalaryInput:last-child {
+  right: 0;
+}
+.selectsalaryInput:last-child svg {
+  position: absolute;
+  right: 0.2rem;
+  top: 1.5rem;
+  height: 0.4rem;
+  pointer-events: none;
+}
+.selectsalaryInput:first-child svg {
+  position: absolute;
+  right: 0.2rem;
+  top: 1.5rem;
+  height: 0.3rem;
+  pointer-events: none;
+}
+.salaryInput .selectsalaryInput:last-child select {
+  padding: 0rem 1.5rem 0rem 0.8rem;
   border-top-left-radius: 0rem;
   border-bottom-left-radius: 0rem;
 }
-.salaryInput .selectInput:first-child select {
+.salaryInput .selectsalaryInput:first-child select {
+  padding: 0rem 0.4rem 0rem 1.12rem;
   border-top-right-radius: 0rem;
   border-bottom-right-radius: 0rem;
 }
@@ -164,10 +183,13 @@ span.required {
 .action {
   display: flex;
   align-items: center;
+
   gap: 1.2rem;
   justify-content: flex-end;
 }
-
+.action button {
+  font-size: 1.4rem;
+}
 .lineSeparator {
   padding-top: 4rem;
   padding-bottom: 1.6rem;

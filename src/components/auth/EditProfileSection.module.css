@@ -164,7 +164,7 @@ span.required {
 }
 
 .table th,
-td {
+.table td {
   padding-left: 1rem;
   text-align: left; /* Adjust based on content type */
   height: 3rem;

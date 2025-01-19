@@ -36,8 +36,9 @@
   border: none;
   border-radius: 0.6rem;
   padding: 0.48rem 1.8rem;
+  background-color: var(--light-gray-color);
 }
-.active {
+button.active {
   background-color: #000;
   color: #fff;
   outline: none;
@@ -55,6 +56,12 @@
   font-size: 1.4rem;
   padding: 1.6rem 2rem;
   background-color: var(--light-gray-color);
+}
+.accordionItem header p {
+  width: 95%;
+}
+.accordionItem main {
+  font-size: 1.2rem;
 }
 .accordionItem header.act {
   border-top-left-radius: 0.6rem;

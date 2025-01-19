@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Classes from "./InputGroup.module.css";
-import { ReactComponent as SlashEye } from "../../assets/icons/eye-off-svgrepo-com.svg";
-import { ReactComponent as Eye } from "../../assets/icons/eye-show-svgrepo-com.svg";
+import { ReactComponent as SlashEye } from "../../assets/icons/Icon awesome-eye-slash.svg";
+import { ReactComponent as Eye } from "../../assets/icons/Icon awesome-eye.svg";
 
 const InputGroup = ({
   id,
@@ -45,10 +45,10 @@ const InputGroup = ({
           className={Classes["input-group-field"]}
         />
         {isPassword && currentState === "text" && (
-          <SlashEye onClick={hundleClick} className={Classes.isPassword} />
+          <Eye onClick={hundleClick} className={Classes.isPassword} />
         )}
         {isPassword && currentState === "password" && (
-          <Eye onClick={hundleClick} className={Classes.isPassword} />
+          <SlashEye onClick={hundleClick} className={Classes.isPassword} />
         )}
       </div>
     </div>

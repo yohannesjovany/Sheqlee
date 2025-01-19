@@ -5,7 +5,8 @@
   justify-content: center;
   gap: 1rem;
   font-size: 1.4rem;
-  height: 55vh;
+  padding-top: 0.8rem;
+  padding-bottom: 4rem;
 }
 .header > svg {
   height: 4.6rem;
@@ -15,6 +16,12 @@
   font-size: 2.4;
   font-weight: 600;
   line-height: 1;
+}
+.header b {
+  font-weight: 500;
+}
+.socialMedia b {
+  font-weight: 600;
 }
 
 .header button {

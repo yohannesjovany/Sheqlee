@@ -95,16 +95,16 @@ const AddVacancySection = () => {
               Salary <span className={Classes.more}>(fixed or range) </span>
             </label>
             <div className={Classes.salaryInput}>
-              <div className={Classes.selectInput}>
-                <select id="salary">
+              <div className={Classes.selectsalaryInput}>
+                <select>
                   <option>$</option>
                   <option>Birr</option>
                 </select>
                 <Downkey />
               </div>
               <input type="number" placeholder="Enter salary..." />
-              <div className={Classes.selectInput}>
-                <select id="salary">
+              <div className={Classes.selectsalaryInput}>
+                <select>
                   <option>/hour</option>
                   <option>/month</option>
                 </select>
@@ -173,8 +173,8 @@ const AddVacancySection = () => {
         <div className={Classes.action}>
           <Button className="secondary">Save draft</Button>
           <Button className="primary">
-            Next{" "}
-            <span className={Classes.moreInbutton}>[preview & confirm]</span>
+            Next
+            <span className={Classes.moreInbutton}> [preview & confirm]</span>
           </Button>
         </div>
       </form>

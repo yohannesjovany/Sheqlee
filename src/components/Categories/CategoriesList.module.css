@@ -38,6 +38,10 @@
   height: 1.84rem;
   width: 1.84rem;
 }
+.wrapper * {
+  stroke: #fff;
+  fill: #fff;
+}
 .wrapper div:first-child {
   background-color: black;
   width: 5rem;
@@ -60,8 +64,17 @@
   font-size: 1.3rem;
   font-weight: 500;
 }
-.container img {
+/* .container img {
   width: 0.2rem;
   height: 0.2rem;
   margin: 0rem 0.8rem;
+} */
+.container p {
+  display: flex;
+  gap: 0.8rem;
+}
+.container p img {
+  height: 0.28rem;
+  width: 0.28rem;
+  align-self: center;
 }

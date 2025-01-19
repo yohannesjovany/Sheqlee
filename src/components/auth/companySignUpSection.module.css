@@ -14,7 +14,7 @@
 }
 .mainSection a {
   font-weight: 600;
-  border-bottom: 0.12rem solid var(--primary-color);
+  border-bottom: 0.14rem solid var(--primary-color);
   padding-bottom: 0.2rem;
 }
 .redirection svg {
@@ -64,6 +64,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  font-weight: 500;
+  color: #333333;
   gap: 2rem;
   padding-top: 3rem;
   padding-bottom: 2rem;

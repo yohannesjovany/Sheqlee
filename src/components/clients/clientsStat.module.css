@@ -25,16 +25,16 @@
   margin: 0rem 7.6rem 8rem 5rem;
 }
 .leftContainer {
-  width: 75%;
+  width: 77%;
   height: 10rem;
   border-radius: 0.8rem;
   background-color: #f7f7f7;
   display: flex;
 }
 .leftContainer div:first-child {
-  flex: 0 0 33.33%;
+  flex: 0 0 30%;
   background-color: #000000;
-  width: 33.33%;
+  width: 30%;
   color: #fff;
   display: flex;
   align-items: center;
@@ -59,7 +59,7 @@
 }
 
 .rightContainer {
-  width: 75%;
+  width: 77%;
   height: 10rem;
   border-radius: 0.8rem;
   background-color: #f7f7f7;
@@ -68,9 +68,9 @@
   align-self: flex-end;
 }
 .rightContainer div:last-child {
-  flex: 0 0 33.33%;
+  flex: 0 0 30%;
   background-color: #000000;
-  width: 33.33%;
+  width: 30%;
   color: #fff;
   display: flex;
   align-items: center;
@@ -97,5 +97,8 @@
 
 .main button {
   align-self: center;
+  font-size: 1.6rem;
+  font-weight: 600;
+  height: 4rem;
   width: 20rem;
 }

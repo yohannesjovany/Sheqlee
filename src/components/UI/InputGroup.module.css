@@ -10,6 +10,7 @@
 .input-group-container {
   display: flex;
   position: relative;
+  align-items: center;
 }
 .input-group-icon {
   position: absolute;
@@ -36,7 +37,6 @@
   appearance: none;
   border: none;
   outline: none;
-
   background-color: var(--light-gray-color);
   border-radius: 0.6rem;
   height: 3.4rem;
@@ -47,10 +47,10 @@
 }
 .isPassword {
   position: absolute;
-  height: 1.4rem;
-  width: 1.4rem;
+  height: 0.8rem;
+  width: 1rem;
   right: 1rem;
-  top: 1rem;
+  top: 1.3rem;
 }
 .isPassword * {
   stroke: var(--primary-color);
