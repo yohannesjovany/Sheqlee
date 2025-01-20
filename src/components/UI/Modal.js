@@ -1,8 +1,8 @@
+import { useEffect } from "react";
 import ReactDOM from "react-dom";
 
 import Classes from "./Modal.module.css";
 import cancelIcon from "../../assets/icons/Icon metro-cancel.svg";
-import { useState } from "react";
 
 const Backdrop = (props) => {
   return (
@@ -19,24 +19,40 @@ const ModalOverlay = (props) => {
 };
 
 const portalElement = document.getElementById("overlay");
+
 const Modal = (props) => {
-  const [isShowing, setisShowing] = useState(true);
-  const hundleClick = () => {
-    setisShowing(!isShowing);
-  };
+  useEffect(() => {
+    const scrollBarWidth =
+      window.innerWidth - document.documentElement.clientWidth;
+    if (props.isOpen) {
+      // Disable scrolling
+      document.body.style.overflow = "hidden";
+      document.body.style.paddingRight = `${scrollBarWidth}px`;
+    } else {
+      // Re-enable scrolling
+      document.body.style.overflow = "";
+      document.body.style.paddingRight = "";
+    }
+
+    // Cleanup function to re-enable scrolling if the component is unmounted
+    return () => {
+      document.body.style.overflow = "";
+      document.body.style.paddingRight = "";
+    };
+  }, [props.isOpen]);
+  if (!props.isOpen) return null;
+
   return (
-    isShowing && (
-      <>
-        {ReactDOM.createPortal(
-          <Backdrop ontoggle={hundleClick} />,
-          portalElement
-        )}
-        {ReactDOM.createPortal(
-          <ModalOverlay>{props.children}</ModalOverlay>,
-          portalElement
-        )}
-      </>
-    )
+    <>
+      {ReactDOM.createPortal(
+        <Backdrop ontoggle={props.onClose} />,
+        portalElement
+      )}
+      {ReactDOM.createPortal(
+        <ModalOverlay>{props.children}</ModalOverlay>,
+        portalElement
+      )}
+    </>
   );
 };
 

@@ -15,6 +15,7 @@
   height: 0.5rem;
   width: 0.5rem;
 }
+
 .backdrop {
   position: absolute;
   background-color: #00000078;
@@ -27,6 +28,7 @@
 .overlay {
   position: absolute;
   top: 5rem;
+  right: 2rem;
   background-color: #fff;
   z-index: 19;
   padding: 1rem 0.8rem 1rem 0.8rem;
@@ -52,4 +54,11 @@
 .overlay ul li svg {
   height: 0.8rem;
   width: 0.8rem;
+}
+
+.overlay ul li:nth-child(2n + 1) * {
+  fill: var(--primary-color);
+}
+.overlay * {
+  stroke: var(--primary-color);
 }

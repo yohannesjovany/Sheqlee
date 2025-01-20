@@ -1,4 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 import Classes from "./MainNavigation.module.css";
 
@@ -8,9 +9,7 @@ import Button from "../UI/Button";
 import LoggedUserNav from "./LoggedUserNav";
 
 const MainNavigation = (props) => {
-  const isClient = false;
-  const isProf = true;
-  const hasLogged = false;
+  const auth = useSelector((state) => state.auth);
   return (
     <header className={Classes.header}>
       <div className={Classes.container}>
@@ -45,7 +44,7 @@ const MainNavigation = (props) => {
                 </span>
               </NavLink>
             </li>
-            {hasLogged || (
+            {auth.status === "guest" && (
               <>
                 <li>
                   <NavLink
@@ -59,36 +58,36 @@ const MainNavigation = (props) => {
                 </li>
                 <div className={Classes.auth}>
                   <li className={Classes.login}>
-                    <Button className="secondary">
-                      <NavLink to="/login"> Log in</NavLink>
-                    </Button>
+                    <NavLink to="/login">
+                      <Button className="secondary">Log in</Button>
+                    </NavLink>
                   </li>
                   <li>
-                    <Button className="primary">
-                      <NavLink to="companysignup"> Sign up</NavLink>
-                    </Button>
+                    <NavLink to="companysignup">
+                      <Button className="primary">Sign up</Button>
+                    </NavLink>
                   </li>
                 </div>
               </>
             )}
-            {isClient && hasLogged && (
+            {auth.user.role === "company" && (
               <>
                 <li>
-                  <Button className="primary">
-                    <NavLink to={"/addvacancy"}>Post a job</NavLink>
-                  </Button>
+                  <NavLink to={"/addvacancy"}>
+                    <Button className="primary">Post a job</Button>
+                  </NavLink>
                 </li>
                 <li>
                   <LoggedUserNav />
                 </li>
               </>
             )}
-            {isProf && hasLogged && (
+            {auth.user.role === "freelancer" && (
               <>
                 <li>
-                  <Button className="primary">
-                    <NavLink to={"/editprofile"}>Edit profile</NavLink>
-                  </Button>
+                  <NavLink to={"/editprofile"}>
+                    <Button className="primary">Edit profile</Button>
+                  </NavLink>
                 </li>
                 <li>
                   <LoggedUserNav />
