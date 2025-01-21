@@ -2,10 +2,15 @@ import { ReactComponent as Categories } from "../../assets/icons/categories.svg"
 import Classes from "./CategoriesList.module.css";
 import ellipse from "../../assets/icons/Ellipse 2.svg";
 import { ReactComponent as UiUx } from "../../assets/icons/ui_ux_design.svg";
+import { useNavigate } from "react-router-dom";
 
-const CategoryItem = ({ name, jobs, subscribers, Logo }) => {
+const CategoryItem = ({ id, name, jobs, subscribers, Logo }) => {
+  const navigate = useNavigate();
+  const hundleClick = () => {
+    navigate(`/categories/${id}`);
+  };
   return (
-    <div className={Classes.wrapper}>
+    <div className={Classes.wrapper} onClick={hundleClick}>
       <div className={Classes.categoryLogo}>
         <Logo />
       </div>
@@ -39,6 +44,7 @@ const CategoriesList = () => {
       <main className={Classes.mainTagContainer}>
         {catItems.map((Item) => (
           <CategoryItem
+            id="cat1"
             name="Web Frontend"
             jobs={140}
             subscribers={2173}

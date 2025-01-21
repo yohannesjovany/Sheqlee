@@ -9,10 +9,23 @@ import { ReactComponent as Linkedin } from "../../assets/icons/linkedin-logo.svg
 import { ReactComponent as Telegram } from "../../assets/icons/telegram.svg";
 import { ReactComponent as Twitter } from "../../assets/icons/twitter.svg";
 import LogInModal from "../HeroSection/LogInModal";
+import { useState } from "react";
+import { useSelector } from "react-redux";
 
 const jobsList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8];
 
 const CategorySepecificJobs = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const auth = useSelector((state) => state.auth);
+
+  const hundleSubscription = () => {
+    if (auth.status === "guest") {
+      setIsModalOpen(true);
+    } else {
+      //post request to subscribe
+    }
+  };
+
   return (
     <section>
       <LogInModal
@@ -21,6 +34,8 @@ const CategorySepecificJobs = () => {
             Please register or login before you could subscribe to categories.
           </p>
         }
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
       />
 
       <header className={Classes.header}>
@@ -29,7 +44,7 @@ const CategorySepecificJobs = () => {
         <p>
           All job posts in the <b>UI/UX & Product Design</b> category.
         </p>
-        <Button className="primary">
+        <Button className="primary" onClick={hundleSubscription}>
           <Bell />
           Subscribe to category
         </Button>

@@ -1,21 +1,24 @@
+import { useState } from "react";
+
 import CallForAction from "../components/callForAction/CallForAction";
 import SearchSection from "../components/searchSection/SearchSecton";
 import PageContex from "../components/UI/PageContext";
 import Pagination from "../components/UI/Pagination";
-import NoResultsFound from "../components/searchSection/NoResultsFound"
 
 const Jobs = () => {
+  const [job, setJob] = useState(false);
   return (
     <>
       <PageContex path={["All Jobs"]} />
       <SearchSection />
-      <Pagination
-        totalItems={139}
-        itemsPerPage={3}
-        currentPage={10}
-        onPageChange="skip"
-      />
-      <NoResultsFound/>
+      {job && (
+        <Pagination
+          totalItems={139}
+          itemsPerPage={3}
+          currentPage={10}
+          onPageChange="skip"
+        />
+      )}
       <CallForAction />
     </>
   );

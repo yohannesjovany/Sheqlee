@@ -37,7 +37,7 @@ const LoginSection = () => {
           </div>
           <div className={Classes.action}>
             <span>
-              Forgot password? <NavLink> Reset</NavLink>
+              Forgot password? <NavLink to={"/resetpassword"}> Reset</NavLink>
             </span>
             <Button className="primary">Login</Button>
           </div>

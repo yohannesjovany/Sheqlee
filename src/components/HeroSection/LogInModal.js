@@ -13,7 +13,7 @@ const LogInModal = (props) => {
       <div className={Classes.modalcontent}>
         <p>{props.message}</p>
         <div className={Classes.modalAction}>
-          <NavLink to="companysignup">
+          <NavLink to="/companysignup">
             <Button className="primary">Sign up</Button>
           </NavLink>
           <NavLink to="/login">

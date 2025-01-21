@@ -22,10 +22,12 @@ const ListOfCompanies = () => {
           <SectionWrapper>
             {companyList.map((job) => (
               <Tag
+                id="cam1"
                 name="Kepler Co., Ltd."
                 jobs={140}
                 subscribers={3500}
                 verified={true}
+                isCompany={true}
               />
             ))}
           </SectionWrapper>

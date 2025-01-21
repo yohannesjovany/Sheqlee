@@ -4,11 +4,17 @@ import logo from "../../assets/icons/product_design.svg";
 import calendar from "../../assets/icons/calendar.svg";
 import clock from "../../assets/icons/Icon feather-clock.svg";
 import company from "../../assets/icons/company.svg";
+import { useNavigate } from "react-router-dom";
 
 const JobCard = (props) => {
   // const { logo, title, description } = props;
+  const navigate = useNavigate();
+  const hundleClick = () => {
+    navigate("/jobs/jobid");
+  };
+
   return (
-    <div className={Classes.card}>
+    <div className={Classes.card} onClick={hundleClick}>
       <div>
         <header>
           {!props.noIcon && <img src={logo} alt="catagory icon" />}{" "}
@@ -43,7 +49,7 @@ const JobCard = (props) => {
           <img src={company} alt="company icon" />
           $15/hr
         </p>
-        <button>Apply</button>
+        <button onClick={hundleClick}>Apply</button>
       </div>
     </div>
   );

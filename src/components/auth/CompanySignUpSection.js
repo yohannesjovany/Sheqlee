@@ -26,7 +26,7 @@ const CompanySignUpSection = () => {
           </p>
         </div>
       </div>
-      
+
       <form>
         <header className={Classes.header}>
           <Company />
@@ -95,13 +95,14 @@ const CompanySignUpSection = () => {
             <input type="checkbox" />
             <span>
               By creating an account, you agree to our{" "}
-              <NavLink>Terms and Conditions</NavLink> and
-              <NavLink> Privacy Policy</NavLink>.
+              <NavLink to={"/termsandconditions"}>Terms and Conditions</NavLink>{" "}
+              and
+              <NavLink to={"/privacypolicy"}> Privacy Policy</NavLink>.
             </span>
           </div>
           <div className={Classes.action}>
             <span>
-              Already got an account? <NavLink>Login</NavLink>
+              Already got an account? <NavLink to="/login">Login</NavLink>
             </span>
             <Button className="primary">Register</Button>
           </div>

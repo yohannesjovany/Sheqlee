@@ -22,7 +22,7 @@ const AllTags = () => {
         {
           <SectionWrapper>
             {tagsList.map((job) => (
-              <Tag name="Java" jobs={140} subscribers={3500} />
+              <Tag id="job1" name="Java" jobs={140} subscribers={3500} />
             ))}
           </SectionWrapper>
         }

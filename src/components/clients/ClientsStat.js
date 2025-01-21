@@ -1,5 +1,9 @@
+import { NavLink, useNavigate } from "react-router-dom";
 import Button from "../UI/Button";
 import Classes from "./clientsStat.module.css";
+import { useSelector } from "react-redux";
+import LogInModal from "../HeroSection/LogInModal";
+import { useState } from "react";
 
 const LeftDiv = (props) => {
   return (
@@ -32,6 +36,21 @@ const RightDiv = (props) => {
 };
 
 const ClientsStat = () => {
+  const [isModalOpen, setIsmodalOpen] = useState(false);
+  const auth = useSelector((state) => state.auth);
+  const navigate = useNavigate();
+
+  const hundlePostProject = () => {
+    if (auth.user.role === "company") {
+      navigate("/addvacancy");
+    } else {
+      setIsmodalOpen(!isModalOpen);
+    }
+  };
+
+  const hundleClose = () => {
+    setIsmodalOpen(false);
+  };
   return (
     <section>
       <header className={Classes.header}>
@@ -43,8 +62,12 @@ const ClientsStat = () => {
           </p>
         </div>
         <div className={Classes.action}>
-          <Button className="secondary">Log in</Button>
-          <Button className="primary">Register as an employer</Button>
+          <NavLink to={"/login"}>
+            <Button className="secondary">Log in</Button>
+          </NavLink>
+          <NavLink to={"/companysignup"}>
+            <Button className="primary">Register as an employer</Button>
+          </NavLink>
         </div>
       </header>
       <main className={Classes.main}>
@@ -68,7 +91,18 @@ const ClientsStat = () => {
           title="Unique alerts delivered"
           desctription="We have been delivered 3,916,718 notifications about new remote jobs to job seekers since the website launched. "
         />
-        <Button className="primary">Post a job now</Button>
+        <Button className="primary" onClick={hundlePostProject}>
+          Post a job now
+        </Button>
+        <LogInModal
+          message={
+            <p>
+              Please register or login as a <br /> client to post jobs.
+            </p>
+          }
+          isOpen={isModalOpen}
+          onClose={hundleClose}
+        />
       </main>
     </section>
   );

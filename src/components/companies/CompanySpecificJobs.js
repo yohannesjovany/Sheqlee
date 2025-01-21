@@ -9,6 +9,9 @@ import ReadMore from "../UI/ReadMore";
 import Button from "../UI/Button";
 import JobCard from "../jobs/JobCard";
 import SectionWrapper from "../UI/SectionWrapper";
+import { useState } from "react";
+import { useSelector } from "react-redux";
+import LogInModal from "../HeroSection/LogInModal";
 
 const formattedText = (
   <p>
@@ -42,6 +45,17 @@ const formattedText = (
 const jobsList = [1, 2, 3, 4, 5];
 
 const CompanySpecificJobs = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const auth = useSelector((state) => state.auth);
+
+  const hundleSubscription = () => {
+    if (auth.status === "guest") {
+      setIsModalOpen(true);
+    } else {
+      //post request to subscribe
+    }
+  };
+
   return (
     <section>
       <header className={Classes.header}>
@@ -67,10 +81,20 @@ const CompanySpecificJobs = () => {
           </p>
         </div>
         <div>
-          <Button className="primary">
+          <Button className="primary" onClick={hundleSubscription}>
             <Bell />
-            Subscribe to category
+            Subscribe to company
           </Button>
+          <LogInModal
+            message={
+              <p>
+                Please register or login before you could subscribe to
+                companies.
+              </p>
+            }
+            isOpen={isModalOpen}
+            onClose={() => setIsModalOpen(false)}
+          />
           <p>
             Subscribers: <b>5</b>
           </p>

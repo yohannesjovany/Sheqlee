@@ -21,7 +21,12 @@ const TagsSection = () => {
       withBackground="withBackground"
     >
       {tags.map((tag) => (
-        <Tag name={tag.name} jobs={tag.jobs} subscribers={tag.subscribers} />
+        <Tag
+          id={"tag1"}
+          name={tag.name}
+          jobs={tag.jobs}
+          subscribers={tag.subscribers}
+        />
       ))}
     </SectionWrapper>
   );
