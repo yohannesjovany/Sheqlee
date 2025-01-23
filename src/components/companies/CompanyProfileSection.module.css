@@ -9,7 +9,8 @@
   gap: 1rem;
   text-align: left;
 }
-.inputGroup input {
+.inputGroup input,
+.inputGroup select {
   appearance: none;
   border: none;
   outline: none;
@@ -101,20 +102,22 @@ span.required {
   display: none;
 }
 
-.fileUpload div {
+.fileUpload .img {
   display: flex;
-  justify-content: center;
-  height: 5.64rem;
-  width: 5.64rem;
-  background-color: var(--light-gray-color);
-  border-radius: 50%;
   align-items: center;
-  overflow: hidden;
+  justify-content: center;
+  min-height: 5.64rem;
+  max-height: 5.64rem;
+  min-width: 5.64rem;
+  max-width: 5.64rem;
+  border-radius: 50%;
+  background-color: var(--light-gray-color);
 }
-.fileUpload div img {
-  width: 50%;
-  height: 50%;
+.fileUpload .img img {
+  width: 3rem;
+  height: 3rem;
 }
+
 .fileUpload p {
   font-size: 0.8rem;
 }

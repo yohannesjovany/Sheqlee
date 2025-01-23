@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 
 import Classes from "./loggedUserNav.module.css";
 
-import sheqlee from "../../assets/icons/sheqlee.svg";
+import sheqlee from "../../assets/icons/settings - alt2 (3).svg";
 import { ReactComponent as DownArrow } from "../../assets/icons/Icon material-keyboard-arrow-downT.svg";
 import { ReactComponent as Company } from "../../assets/icons/company.svg";
 import { ReactComponent as Setting } from "../../assets/icons/Icon material-settings.svg";
@@ -75,7 +75,11 @@ const LoggedUserNav = () => {
   return (
     <div>
       <div className={Classes.mainContainer} onClick={toggleDropdown}>
-        {auth.user.role === "company" && <img src={sheqlee} />}
+        {auth.user.role === "company" && (
+          <div className={Classes.img}>
+            <img src={sheqlee} />
+          </div>
+        )}
         <span>{auth.user.fullname}</span>
         <DownArrow />
       </div>

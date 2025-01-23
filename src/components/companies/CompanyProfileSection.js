@@ -2,7 +2,7 @@ import Classes from "./CompanyProfileSection.module.css";
 import { ReactComponent as Company } from "../../assets/icons/company.svg";
 import { ReactComponent as Edit } from "../../assets/icons/Icon material-edit.svg";
 import { ReactComponent as Downkey } from "../../assets/icons/Icon material-keyboard-arrow-downT.svg";
-import placeholderImage from "../../assets/icons/settings - alt2 (2).svg";
+import placeholderImage from "../../assets/icons/settings - alt2 (3).svg";
 import FormatedInput from "../UI/FromatedInput";
 import Button from "../UI/Button";
 
@@ -48,7 +48,7 @@ const CompanyProfileSection = () => {
               </div>
             </div>
             <div className={Classes.fileUpload}>
-              <div>
+              <div className={Classes.img}>
                 <img src={placeholderImage} />
               </div>
               <label for="image-upload">
