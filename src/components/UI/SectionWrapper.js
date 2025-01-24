@@ -13,7 +13,9 @@ const SectionWrapper = (props) => {
           <header className={classes.header}>
             <h1>{props.title}</h1>
             <div className={classes.info}>
-              <p>{props.info}</p>
+              <p className={props.loading ? classes.shimmer : undefined}>
+                {props.info}
+              </p>
               <button>
                 <img src={rightArrow} alt="right arrow icon" />
               </button>

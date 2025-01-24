@@ -33,7 +33,7 @@
   flex-shrink: 0;
   background-color: var(--light-gray-color);
   border-radius: 0.2rem;
-  column-gap: 0.6rem;
+  column-gap: 0.2rem;
   padding: 0rem 0.4rem;
   font-size: 0.72rem;
   height: 1.48rem;
@@ -54,4 +54,87 @@
   border-radius: 0.2rem;
   padding: 0rem 1.6rem;
   font-size: 0.72rem;
+}
+.details button span {
+  background-color: inherit;
+}
+
+/* .shimmer {
+  color: transparent;
+  background-color: var(--light-gray-color);
+} */
+header.shimmer span {
+  color: transparent;
+  background-color: var(--light-gray-color);
+  height: 1.2rem;
+  width: 14.84rem;
+  border-radius: 0.28rem;
+}
+header.shimmer img {
+  display: none;
+}
+header.shimmer .overlay {
+  height: 2rem;
+  width: 2rem;
+  background-color: var(--light-gray-color);
+  border-radius: 50%;
+}
+.infoOverlay,
+.imgOverlay {
+  display: none;
+}
+
+main.shimmer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+main.shimmer p {
+  display: none;
+}
+main.shimmer .overlay {
+  background-color: var(--light-gray-color);
+  border-radius: 0.2rem;
+  height: 0.68rem;
+  flex-basis: auto;
+}
+main.shimmer .overla {
+  flex-grow: 0;
+  background-color: var(--light-gray-color);
+  height: 0.68rem;
+  flex-shrink: 1;
+  width: 50%;
+}
+
+.details.shimmer p * {
+  display: none;
+}
+
+.details.shimmer .imgOverlay {
+  background-color: #c9c9c9;
+  width: 1rem;
+  height: 1rem;
+  display: inline-block;
+  border-radius: 50%;
+}
+.details.shimmer .infoOverlay {
+  background-color: #c9c9c9;
+  width: 4.2rem;
+  height: 0.6rem;
+  display: inline-block;
+  border-radius: 0.2rem;
+}
+.details.shimmer p infoOverlay:nth-child(3n + 1) {
+  width: 2rem !important;
+}
+.details.shimmer button span {
+  color: transparent;
+  background-color: #d5d5d5;
+  height: 0.68rem;
+  width: 3.2rem;
+}
+.details.shimmer button {
+  padding-left: 0.6rem;
+  padding-right: 0.6rem;
 }

@@ -13,7 +13,7 @@ const JobPostSection = () => {
         info="745+ more jobs"
       >
         {jobs.map((job) => (
-          <JobCard />
+          <JobCard loading={true} />
         ))}
       </SectionWrapper>
     </div>

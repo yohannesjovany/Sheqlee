@@ -4,34 +4,42 @@ import company from "../../assets/icons/company (2).svg";
 import handshake from "../../assets/icons/handshake.svg";
 
 const StatsSection = () => {
+  const loading = false;
   return (
     <section className={Classes.statsSection}>
       <header>
         <h1>Platform stats</h1>
       </header>
-      <main>
+      <main className={loading ? Classes.shimmer : undefined}>
         <div>
           <img src={handshake} alt="handshake icon" />
           <h1>100K+</h1>
           <p>
-            Total jobs posted on
-            <br /> Sheqlee to date
+            <span>Total jobs posted on</span>
+            <span>
+              <br /> Sheqlee to date
+            </span>
           </p>
         </div>
         <div>
           <img src={programmer} alt="propgrammer icon" />
           <h1>15K+</h1>
           <p>
-            Ethiopian professionals
-            <br /> signed up so far
+            <span>Ethiopian professionals</span>
+            <span>
+              <br /> signed up so far
+            </span>
           </p>
         </div>
         <div>
           <img src={company} alt="company icon" />
           <h1>1K+</h1>
           <p>
-            Korean companies <br />
-            posting jobs daily
+            <span>Korean companies</span>
+            <span>
+              <br />
+              posting jobs daily
+            </span>
           </p>
         </div>
       </main>

@@ -10,17 +10,22 @@ const JobCard = (props) => {
   // const { logo, title, description } = props;
   const navigate = useNavigate();
   const hundleClick = () => {
+    if (props.loading) return;
     navigate("/jobs/jobid");
   };
 
   return (
     <div className={Classes.card} onClick={hundleClick}>
       <div>
-        <header>
-          {!props.noIcon && <img src={logo} alt="catagory icon" />}{" "}
+        <header className={props.loading ? Classes.shimmer : undefined}>
+          <div class={Classes.overlay}></div>
+          {!props.noIcon && <img src={logo} alt="catagory icon" />}
+
           <span>Product Designer</span>
         </header>
-        <main className="">
+        <main className={props.loading ? Classes.shimmer : undefined}>
+          <div className={Classes.overlay}></div>
+          <div className={Classes.overla}></div>
           <p>
             KeplerLab is a VC-backed, stealth, application-only platform for
             senior product designers to team up with the best companies on their
@@ -28,28 +33,42 @@ const JobCard = (props) => {
           </p>
         </main>
       </div>
-      <div className={Classes.details}>
+      <div
+        className={`${Classes.details} ${props.loading ? Classes.shimmer : ""}`}
+      >
         <p>
+          <span className={Classes.imgOverlay}></span>
+          <span className={Classes.infoOverlay}></span>
           <img src={calendar} alt="calendar icon" />
-          30mins ago
+          <span>30mins ago</span>
         </p>
         <p>
+          <span className={Classes.imgOverlay}></span>
+          <span className={Classes.infoOverlay}></span>
           <img src={company} alt="company icon" />
-          Entrust Datacard
+          <span>Entrust Datacard</span>
         </p>
         <p>
+          <span className={Classes.imgOverlay}></span>
+          <span className={Classes.infoOverlay}></span>
           <img src={clock} alt="clock icon" />
-          Full-Time
+          <span>Full-Time</span>
         </p>
         <p>
+          <span className={Classes.imgOverlay}></span>
+          <span className={Classes.infoOverlay}></span>
           <img src={calendar} alt="calander icon" />
-          Intermediate
+          <span>Intermediate</span>
         </p>
         <p>
+          <span className={Classes.imgOverlay}></span>
+          <span className={Classes.infoOverlay}></span>
           <img src={company} alt="company icon" />
-          $15/hr
+          <span>$15/hr</span>
         </p>
-        <button onClick={hundleClick}>Apply</button>
+        <button onClick={hundleClick}>
+          <span>Apply</span>
+        </button>
       </div>
     </div>
   );

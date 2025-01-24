@@ -41,3 +41,31 @@
 .statsSection main h1 {
   font-weight: 600;
 }
+
+.shimmer h1 {
+  background-color: var(--light-gray-color);
+  color: var(--light-gray-color);
+  height: 1.6rem;
+  width: 7rem;
+  color: transparent;
+  border-radius: 0.4rem;
+}
+.shimmer p {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding-top: 1rem;
+}
+.shimmer p span {
+  color: transparent;
+  background-color: var(--light-gray-color);
+  height: 0.8rem;
+  display: block;
+  width: 10rem;
+  border-radius: 0.28rem;
+}
+.shimmer p span:last-child {
+  width: 4rem;
+}
