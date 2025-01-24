@@ -29,6 +29,7 @@ import ClientDashboard from "./pages/ClientDashboard";
 import CompanyProfle from "./pages/CompanyProfile";
 import AccountSetting from "./pages/AccountSetting";
 import EditProfile from "./pages/EditProfile";
+import { VacancyDataProvider } from "./store/VacancyContext";
 
 const router = createBrowserRouter([
   {
@@ -81,15 +82,28 @@ const router = createBrowserRouter([
 
       {
         path: "/addvacancy",
-        element: <AddVacancy />,
+        element: (
+          <VacancyDataProvider>
+            <AddVacancy />
+          </VacancyDataProvider>
+        ),
         children: [
           {
             index: true,
-            element: <AddVacancySection />,
+            element: (
+              <VacancyDataProvider>
+                {" "}
+                <AddVacancySection />
+              </VacancyDataProvider>
+            ),
           },
           {
             path: "/addvacancy/reviewandpublish",
-            element: <ReviewAndPublishSection />,
+            element: (
+              <VacancyDataProvider>
+                <ReviewAndPublishSection />
+              </VacancyDataProvider>
+            ),
           },
         ],
       },

@@ -11,6 +11,8 @@ import { ReactComponent as AawesomeTags } from "../../assets/icons/Icon awesome-
 import { ReactComponent as Templet } from "../../assets/icons/template.svg";
 
 import Button from "../UI/Button";
+import { useContext } from "react";
+import VacancyDataContext from "../../store/VacancyContext";
 
 const listOfTags = ["Java", "User Interface", "Python", "C++", "Flutter"];
 const formatedText = (
@@ -64,6 +66,8 @@ const formatedText = (
 );
 
 const ReviewAndPublishSection = () => {
+  const { vacancyData } = useContext(VacancyDataContext);
+  console.log(vacancyData);
   return (
     <section className={Classes.section}>
       <div className={Classes.redirection}>
@@ -95,7 +99,7 @@ const ReviewAndPublishSection = () => {
         <span />
       </p>
       <main>
-        <secttion>
+        <section>
           <header className={Classes["sec-header"]}>
             <div className={Classes.jobTitle}>
               <UiUX />
@@ -131,7 +135,7 @@ const ReviewAndPublishSection = () => {
               ))}
             </div>
           </footer>
-        </secttion>
+        </section>
       </main>
       <div className={Classes.line}></div>
       <div className={Classes.actionButtons}>
