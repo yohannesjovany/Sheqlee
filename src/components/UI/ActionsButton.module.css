@@ -1,4 +1,5 @@
 .actionButton {
+  position: relative;
   all: unset;
   width: 2.52rem;
   height: 2.12rem;
@@ -16,4 +17,21 @@
 .actionButton * {
   stroke: #fff;
   fill: #fff;
+}
+.actionButton .tooltip-text {
+  visibility: hidden;
+  position: absolute;
+  opacity: 0;
+  text-align: center;
+  background-color: var(--light-gray-color);
+  font-size: 0.8rem;
+  padding: 0.32rem 0.6rem;
+  border-radius: 0.2rem;
+  transform: translate(0%, 120%);
+  transition: opacity 0.3s;
+}
+
+.actionButton:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
 }

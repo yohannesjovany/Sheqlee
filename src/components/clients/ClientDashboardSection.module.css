@@ -46,6 +46,7 @@
   background-color: var(--light-gray-color);
   height: 5.56rem;
 }
+
 .table thead th:first-child {
   border-top-left-radius: 0.8rem;
 }
@@ -54,6 +55,7 @@
 }
 .table tbody tr {
   background-color: #f7f7f7;
+  height: 4.4rem;
   border-bottom: 0.1rem solid var(--light-gray-color);
 }
 .table tbody tr:last-child {
@@ -65,10 +67,25 @@
 .table tbody tr:last-child td:last-child {
   border-bottom-right-radius: 0.8rem;
 }
+.table tbody tr td {
+  padding-left: 1rem;
+}
+.table tbody tr td:nth-child(4n + 1) {
+  display: flex;
+  height: 4.3rem;
+  align-items: center;
+  justify-content: center;
+
+  padding-left: 0;
+  text-align: center;
+}
 
 .actionsContainer {
   display: flex;
   gap: 0.2rem;
+}
+.actionsContainer * {
+  flex-grow: 0;
 }
 .publish {
   all: unset;

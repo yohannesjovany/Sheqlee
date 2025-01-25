@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Classes from "./SatatusBar.module.css";
 
 const returnStyle = (status) => {
@@ -11,17 +12,30 @@ const returnStyle = (status) => {
 };
 
 const StatusBar = (props) => {
+  const [status, setStatus] = useState(props.status);
+  const hundleClick = () => {
+    if (status === "active") {
+      setStatus("inactive");
+      props.onChangeStatus("inactive");
+    } else if (status === "inactive") {
+      setStatus("active");
+      props.onChangeStatus("active");
+    } else {
+      return null;
+    }
+  };
   return (
     <div
       className={Classes.container}
       style={{
-        border: `0.1rem solid ${returnStyle(props.status)[0]}`,
-        justifyContent: `${returnStyle(props.status)[1]}`,
+        border: `0.1rem solid ${returnStyle(status)[0]}`,
+        justifyContent: `${returnStyle(status)[1]}`,
       }}
+      onClick={hundleClick}
     >
       <div
         style={{
-          backgroundColor: `${returnStyle(props.status)[0]}`,
+          backgroundColor: `${returnStyle(status)[0]}`,
         }}
       ></div>
     </div>

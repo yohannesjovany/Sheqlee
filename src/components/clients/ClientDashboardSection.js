@@ -31,7 +31,28 @@ const listOfJobs = [
 ];
 
 const ClientDashboardSection = () => {
-  const postedaJob = true;
+  const postedaJob = false;
+  const hundleChangestatus = (id, status) => {
+    const job = listOfJobs.filter((job) => job.id === id);
+    job[0].status = status;
+  };
+  const hundleDulicateAction = (id) => {
+    //duplicate with fetch actions
+    return null;
+  };
+  const hundleDeleteAction = (id) => {
+    //duplicate with fetch actions
+    return null;
+  };
+  const hundleViewAction = (id) => {
+    //duplicate with fetch actions
+    return null;
+  };
+  const hundleEditAction = (id) => {
+    //duplicate with fetch actions
+    console.log("in edit");
+    return null;
+  };
   return (
     <section>
       <header className={Classes.header}>
@@ -80,23 +101,64 @@ const ClientDashboardSection = () => {
                       <td>{job.type}</td>
                       <td>{job.level}</td>
                       <td>
-                        <StatusBar status={job.status} />
+                        <StatusBar
+                          status={job.status}
+                          onChangeStatus={(status) => {
+                            hundleChangestatus(job.id, status);
+                          }}
+                        />
                       </td>
                       <td>
                         {(job.status === "active" ||
                           job.status === "inactive") && (
                           <div className={Classes.actionsContainer}>
-                            <ActionsButton action="duplicate" />
-                            <ActionsButton action="view" />
-                            <ActionsButton action={"delete"} />
+                            <ActionsButton
+                              action="Duplicate"
+                              status="vacancy"
+                              onAction={() => {
+                                hundleDulicateAction(job.id);
+                              }}
+                            />
+                            <ActionsButton
+                              action="View"
+                              status="vacancy"
+                              onAction={() => {
+                                hundleViewAction(job.id);
+                              }}
+                            />
+                            <ActionsButton
+                              action={"Delete"}
+                              status="vacancy"
+                              onAction={() => {
+                                hundleDeleteAction(job.id);
+                              }}
+                            />
                           </div>
                         )}
                         {job.status === "draft" && (
                           <div className={Classes.actionsContainer}>
-                            <ActionsButton action="duplicate" />
+                            <ActionsButton
+                              action="Duplicate"
+                              status="draft"
+                              onAction={() => {
+                                hundleDulicateAction(job.id);
+                              }}
+                            />
                             <button className={Classes.publish}>Publish</button>
-                            <ActionsButton action="edit" />
-                            <ActionsButton action={"delete"} />
+                            <ActionsButton
+                              action="Edit"
+                              status="draft"
+                              onAction={() => {
+                                hundleEditAction(job.id);
+                              }}
+                            />
+                            <ActionsButton
+                              action={"Delete"}
+                              status="draft"
+                              onAction={() => {
+                                hundleDeleteAction(job.id);
+                              }}
+                            />
                           </div>
                         )}
                       </td>
