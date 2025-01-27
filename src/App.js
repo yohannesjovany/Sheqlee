@@ -25,11 +25,11 @@ import TermsAndConditions from "./pages/TermsandConditions";
 import AddVacancy from "./pages/AddVacancy";
 import AddVacancySection from "./components/jobs/AddVacancySection";
 import ReviewAndPublishSection from "./components/jobs/ReviewAndPublishSection";
-import ClientDashboard from "./pages/ClientDashboard";
 import CompanyProfle from "./pages/CompanyProfile";
 import AccountSetting from "./pages/AccountSetting";
 import EditProfile from "./pages/EditProfile";
 import { VacancyDataProvider } from "./store/VacancyContext";
+import Dashboard from "./pages/Dashboard";
 
 const router = createBrowserRouter([
   {
@@ -75,7 +75,7 @@ const router = createBrowserRouter([
       { path: "/privacypolicy", element: <PrivacyPolicy /> },
       { path: "/cookiepolicy", element: <CookiePolicy /> },
       { path: "/termsandconditions", element: <TermsAndConditions /> },
-      { path: "/clientdashboard", element: <ClientDashboard /> },
+      { path: "/dashboard", element: <Dashboard /> },
       { path: "/companyprofile", element: <CompanyProfle /> },
       { path: "/accountsetting", element: <AccountSetting /> },
       { path: "/editprofile", element: <EditProfile /> },

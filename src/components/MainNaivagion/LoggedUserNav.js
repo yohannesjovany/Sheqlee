@@ -41,7 +41,7 @@ const DropDownModal = (props) => {
       <div className={Classes.overlay}>
         <ul>
           <li onClick={props.onClose}>
-            <Dashbord /> <NavLink to="/clientdashboard"> Dashbord</NavLink>
+            <Dashbord /> <NavLink to="/dashboard"> Dashbord</NavLink>
           </li>
           <div className={Classes.underline}></div>
           {auth.user.role === "company" && (
