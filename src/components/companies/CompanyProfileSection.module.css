@@ -112,10 +112,16 @@ span.required {
   max-width: 5.64rem;
   border-radius: 50%;
   background-color: var(--light-gray-color);
+  overflow: hidden;
 }
 .fileUpload .img img {
+  width: 5.64rem;
+  height: 5.64rem;
+}
+.fileUpload .img .placeholder {
   width: 3rem;
   height: 3rem;
+  overflow: hidden;
 }
 
 .fileUpload p {

@@ -5,8 +5,22 @@ import { ReactComponent as Downkey } from "../../assets/icons/Icon material-keyb
 import placeholderImage from "../../assets/icons/settings - alt2 (3).svg";
 import FormatedInput from "../UI/FromatedInput";
 import Button from "../UI/Button";
+import { useState } from "react";
 
 const CompanyProfileSection = () => {
+  const [image, setImage] = useState();
+
+  const handleImageChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        setImage(reader.result); // Set the uploaded image's data URL
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
   return (
     <section className={Classes.mainSection}>
       <header className={Classes.header}>
@@ -49,10 +63,18 @@ const CompanyProfileSection = () => {
             </div>
             <div className={Classes.fileUpload}>
               <div className={Classes.img}>
-                <img src={placeholderImage} />
+                <img
+                  src={image ? image : placeholderImage}
+                  className={!image ? Classes.placeholder : undefined}
+                />
               </div>
               <label for="image-upload">
-                <input type="file" id="image-upload" accept="image/*" />
+                <input
+                  type="file"
+                  id="image-upload"
+                  accept="image/*"
+                  onChange={handleImageChange}
+                />
                 Upload
               </label>
               <p>2MB Max | 1:1 Ratio</p>

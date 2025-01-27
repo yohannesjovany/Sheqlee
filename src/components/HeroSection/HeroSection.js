@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 
 import Lottie from "lottie-react";
-import { redirect, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 import Classes from "./HeroSection.module.css";
 
 import heroAni from "../../assets/animations/hero.json";
 import Button from "../UI/Button";
 import LogInModal from "./LogInModal";
-import { useSelector } from "react-redux";
 
 const HeroSection = () => {
   const [isModalOpen, setIsmodalOpen] = useState(false);
@@ -20,13 +20,13 @@ const HeroSection = () => {
       navigate("/addvacancy");
     } else {
       setIsmodalOpen(!isModalOpen);
-      console.log("inmodal");
     }
   };
 
   const hundleClose = () => {
     setIsmodalOpen(false);
   };
+  if (auth.user.role === "freelancer") return null;
 
   return (
     <section className={Classes.hero}>

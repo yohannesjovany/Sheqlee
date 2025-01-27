@@ -6,7 +6,7 @@ import Classes from "./loggedUserNav.module.css";
 
 import sheqlee from "../../assets/icons/settings - alt2 (3).svg";
 import { ReactComponent as DownArrow } from "../../assets/icons/Icon material-keyboard-arrow-downT.svg";
-import { ReactComponent as Company } from "../../assets/icons/company.svg";
+import { ReactComponent as Company } from "../../assets/icons/company2.svg";
 import { ReactComponent as Setting } from "../../assets/icons/Icon material-settings.svg";
 import { ReactComponent as Dashbord } from "../../assets/icons/dashboard.svg";
 import { ReactComponent as Logout } from "../../assets/icons/logout.svg";

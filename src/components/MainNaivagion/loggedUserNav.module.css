@@ -64,9 +64,6 @@
   width: 0.8rem;
 }
 
-.overlay ul li:nth-child(2n + 1) * {
-  fill: var(--primary-color);
-}
 .overlay * {
   stroke: var(--primary-color);
 }

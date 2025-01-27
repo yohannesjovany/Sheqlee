@@ -2,9 +2,13 @@ import Classes from "./StatsSection.module.css";
 import programmer from "../../assets/icons/programmer.svg";
 import company from "../../assets/icons/company (2).svg";
 import handshake from "../../assets/icons/handshake.svg";
+import { useSelector } from "react-redux";
 
 const StatsSection = () => {
+  const auth = useSelector((state) => state.auth);
   const loading = false;
+
+  if (auth.user.role === "freelancer") return null;
   return (
     <section className={Classes.statsSection}>
       <header>

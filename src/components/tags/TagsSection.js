@@ -19,7 +19,7 @@ const TagsSection = () => {
       title="Popular tags"
       info="73+ more tags"
       withBackground="withBackground"
-      loading={true}
+      loading={false}
     >
       {tags.map((tag) => (
         <Tag
@@ -27,7 +27,7 @@ const TagsSection = () => {
           name={tag.name}
           jobs={tag.jobs}
           subscribers={tag.subscribers}
-          loading={true}
+          loading={false}
         />
       ))}
     </SectionWrapper>
