@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 
 import Classes from "./Modal.module.css";
 import cancelIcon from "../../assets/icons/Icon metro-cancel.svg";
+import ScrollToTop from "./ScrollToTop";
 
 const Backdrop = (props) => {
   return (
@@ -15,7 +16,12 @@ const Backdrop = (props) => {
 };
 
 const ModalOverlay = (props) => {
-  return <div className={Classes.modal}>{props.children}</div>;
+  return (
+    <div className={Classes.modal}>
+      <ScrollToTop />
+      {props.children}
+    </div>
+  );
 };
 
 const portalElement = document.getElementById("overlay");

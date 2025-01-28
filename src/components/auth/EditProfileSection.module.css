@@ -105,20 +105,28 @@ span.required {
   display: none;
 }
 
-.fileUpload div {
+.fileUpload .img {
   display: flex;
-  justify-content: center;
-  height: 5.64rem;
-  width: 5.64rem;
-  background-color: var(--light-gray-color);
-  border-radius: 50%;
   align-items: center;
+  justify-content: center;
+  min-height: 5.64rem;
+  max-height: 5.64rem;
+  min-width: 5.64rem;
+  max-width: 5.64rem;
+  border-radius: 50%;
+  background-color: #dddddd;
   overflow: hidden;
 }
-.fileUpload div img {
-  width: 50%;
-  height: 50%;
+.fileUpload .img img {
+  width: 5.64rem;
+  height: 5.64rem;
 }
+.fileUpload .img .placeholder {
+  width: 3rem;
+  height: 3rem;
+  overflow: hidden;
+}
+
 .fileUpload p {
   font-size: 0.8rem;
 }
@@ -189,9 +197,16 @@ span.required {
 .table tr:last-child td:last-child {
   border-bottom-right-radius: 0.88rem;
 }
-.table th:first-child,
-.table td:first-child {
+.table.largeFirst th:first-child,
+.table.largeFirst td:first-child {
   width: 100%; /* Let the first column take up all available space */
+}
+.table th:nth-child(2n + 2),
+.table td:nth-child(2n + 2) {
+  max-width: 25rem; /* Set the maximum width for the cell */
+  white-space: nowrap; /* Prevent text from wrapping to the next line */
+  overflow: hidden; /* Hide any text that overflows beyond the cell's width */
+  text-overflow: ellipsis;
 }
 .actionsButton {
   all: unset;
@@ -254,4 +269,15 @@ span.required {
   width: 13.92rem;
   border-top-left-radius: 0.4rem;
   border-bottom-left-radius: 0.4rem;
+}
+.fileName {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  justify-content: center;
+  width: 100%;
+  /* max-width: 10rem; */
+  text-overflow: ellipsis;
+  white-space: nowrap; /* Prevent text from wrapping to the next line */
+  overflow: hidden;
 }

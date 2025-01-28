@@ -14,7 +14,7 @@
 .addSkill button {
   all: unset;
   outline: none;
-  background-color: #000;
+  background-color: var(--primary-color);
   font-size: 1.2rem;
   font-weight: 600rem;
   padding: 0.8rem 4.6rem;
@@ -22,6 +22,10 @@
   margin-top: 2rem;
   color: #fff;
 }
+.addSkill button:disabled {
+  background-color: #000;
+}
+
 .addSkill input,
 .addSkill select {
   appearance: none;

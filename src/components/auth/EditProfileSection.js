@@ -1,8 +1,10 @@
+import { useState } from "react";
+
 import Classes from "./EditProfileSection.module.css";
 
 import { ReactComponent as EditP } from "../../assets/icons/edit_profile.svg";
 import { ReactComponent as Edit } from "../../assets/icons/Icon material-edit.svg";
-import { ReactComponent as Downkey } from "../../assets/icons/Icon material-keyboard-arrow-downT.svg";
+import { ReactComponent as Ellipse } from "../../assets/icons/Ellipse 2.svg";
 import placeholderImage from "../../assets/icons/settings - alt2 (2).svg";
 import FormatedInput from "../UI/FromatedInput";
 import Button from "../UI/Button";
@@ -10,6 +12,7 @@ import ActionsButton from "../UI/ActionsButton";
 import { ReactComponent as Delete } from "../../assets/icons/Icon material-delete.svg";
 import SkillButtons from "../UI/SkillButtons";
 import AddSkillModal from "./AddSkillModal";
+import AddLinkModal from "./AddLinkModal";
 
 const listOfSkills = [
   { skill: "Java", level: 1 },
@@ -18,11 +21,52 @@ const listOfSkills = [
 ];
 const listOfProfiles = [
   { name: "GitHub", url: "https://github.com/mygithub" },
-  { name: "LinkedIn", url: "https://linkedin.com/mylinkedin" },
+  {
+    name: "LinkedIn",
+    url: "https://linkedin.com/mylinkedinhttps://linkedin.com/mylinkedinhttps://linkedin.com/mylinkedin",
+  },
 ];
 const EditProfileSection = () => {
+  const [image, setImage] = useState();
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [fileName, setFileName] = useState("");
+  const [isLinkModalOpen, setIsLinkModalOpen] = useState(false);
+  const [isSkillModalOpen, setIsSkillModalOpen] = useState(false);
+
+  const handleSkillModalClose = () => {
+    setIsSkillModalOpen(false);
+  };
+  const handleLinkModalClose = () => {
+    setIsLinkModalOpen(false);
+  };
+
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      setSelectedFile(file);
+      setFileName(file.name);
+      console.log(file);
+      console.log(fileName);
+    }
+  };
+
+  const hundleImageChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        setImage(reader.result); // Set the uploaded image's data URL
+      };
+      reader.readAsDataURL(file);
+    }
+  };
   return (
     <section className={Classes.mainSection}>
+      <AddLinkModal isOpen={isLinkModalOpen} onClose={handleLinkModalClose} />
+      <AddSkillModal
+        isOpen={isSkillModalOpen}
+        onClose={handleSkillModalClose}
+      />
       <header className={Classes.header}>
         <EditP />
         <h1>Edit Profile</h1>
@@ -59,11 +103,19 @@ const EditProfileSection = () => {
               </div>
             </div>
             <div className={Classes.fileUpload}>
-              <div>
-                <img src={placeholderImage} />
+              <div className={Classes.img}>
+                <img
+                  src={image ? image : placeholderImage}
+                  className={!image ? Classes.placeholder : undefined}
+                />
               </div>
               <label for="image-upload">
-                <input type="file" id="image-upload" accept="image/*" />
+                <input
+                  type="file"
+                  id="image-upload"
+                  accept="image/*"
+                  onClick={hundleImageChange}
+                />
                 Upload
               </label>
               <p>2MB Max | 1:1 Ratio</p>
@@ -85,7 +137,7 @@ const EditProfileSection = () => {
                   accurately.
                 </p>
               </label>
-              <table className={Classes.table}>
+              <table className={`${Classes.table} ${Classes.largeFirst}`}>
                 <thead>
                   <tr>
                     <th>Skill</th>
@@ -110,7 +162,15 @@ const EditProfileSection = () => {
                 </tbody>
               </table>
               <div className={Classes.addButton}>
-                <Button className="primary">Add a skill</Button>
+                <Button
+                  className="primary"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setIsSkillModalOpen(true);
+                  }}
+                >
+                  Add a skill
+                </Button>
                 <AddSkillModal />
               </div>
             </div>
@@ -145,7 +205,15 @@ const EditProfileSection = () => {
                 </tbody>
               </table>
               <div className={Classes.addButton}>
-                <Button className="primary">Add a link</Button>
+                <Button
+                  className="primary"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setIsLinkModalOpen(true);
+                  }}
+                >
+                  Add a link
+                </Button>
               </div>
             </div>
           </div>
@@ -158,9 +226,22 @@ const EditProfileSection = () => {
               </p>
             </label>
             <div className={Classes.cvUpload}>
-              <span>...</span>
+              {fileName ? (
+                <span className={Classes.fileName}>{fileName}</span>
+              ) : (
+                <span className={Classes.fileName}>
+                  <Ellipse />
+                  <Ellipse />
+                  <Ellipse />
+                </span>
+              )}
               <label for="cv-upload">
-                <input type="file" id="cv-upload" accept="application/pdf" />
+                <input
+                  type="file"
+                  id="cv-upload"
+                  accept="application/pdf"
+                  onChange={handleFileChange}
+                />
                 Upload CV <span>[.pdf]</span>
               </label>
             </div>

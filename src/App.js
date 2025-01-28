@@ -78,32 +78,22 @@ const router = createBrowserRouter([
       { path: "/dashboard", element: <Dashboard /> },
       { path: "/companyprofile", element: <CompanyProfle /> },
       { path: "/accountsetting", element: <AccountSetting /> },
-      { path: "/editprofile", element: <EditProfile /> },
+      {
+        path: "/editprofile",
+        element: <EditProfile />,
+      },
 
       {
         path: "/addvacancy",
-        element: (
-          <VacancyDataProvider>
-            <AddVacancy />
-          </VacancyDataProvider>
-        ),
+        element: <AddVacancy />,
         children: [
           {
             index: true,
-            element: (
-              <VacancyDataProvider>
-                {" "}
-                <AddVacancySection />
-              </VacancyDataProvider>
-            ),
+            element: <AddVacancySection />,
           },
           {
             path: "/addvacancy/reviewandpublish",
-            element: (
-              <VacancyDataProvider>
-                <ReviewAndPublishSection />
-              </VacancyDataProvider>
-            ),
+            element: <ReviewAndPublishSection />,
           },
         ],
       },
@@ -112,7 +102,11 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <VacancyDataProvider>
+      <RouterProvider router={router} />
+    </VacancyDataProvider>
+  );
 }
 
 export default App;

@@ -85,7 +85,12 @@ const MainNavigation = (props) => {
             {auth.user.role === "freelancer" && (
               <>
                 <li>
-                  <NavLink to={"/editprofile"}>
+                  <NavLink
+                    to={"/editprofile"}
+                    className={({ isActive }) => {
+                      return isActive ? Classes.activeButton : undefined;
+                    }}
+                  >
                     <Button className="primary">Edit profile</Button>
                   </NavLink>
                 </li>
