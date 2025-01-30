@@ -2,29 +2,30 @@ import { createSlice } from "@reduxjs/toolkit";
 
 // "role": "company" | "freelancer" | "admin" | "superadmin",
 
+// const initialState = {
+//   user: {
+//     _id: "user1",
+//     role: "freelancer",
+//     fullname: "Miruts Yifter", // Full Name
+//     email: "miruts@gmail.com", // Must be unique
+//   },
+//   token: "akdwoufanosdiufal;kwnmdifuaqwnjefojqowevjq",
+//   status: "succeeded", // 'idle' | 'loading' | 'succeeded' | 'failed'
+//   error: null,
+// };
+
 const initialState = {
   user: {
-    _id: "user1",
-    role: "freelancer",
-    fullname: "Miruts Yifter", // Full Name
-    email: "miruts@gmail.com", // Must be unique
+    _id: undefined,
+    role: undefined,
+    fullname: undefined, // Full Name
+    email: undefined, // Must be unique
   },
-  token: "akdwoufanosdiufal;kwnmdifuaqwnjefojqowevjq",
-  status: "succeeded", // 'idle' | 'loading' | 'succeeded' | 'failed'
+  token: undefined,
+  status: "guest", // 'guest' | 'loading' | 'succeeded' | 'failed'
   error: null,
 };
 
-// const initialState = {
-//   user: {
-//     _id: undefined,
-//     role: undefined,
-//     fullname: undefined, // Full Name
-//     email: undefined, // Must be unique
-//   },
-//   token: undefined,
-//   status: "guest", // 'guest' | 'loading' | 'succeeded' | 'failed'
-//   error: null,
-// };
 // const initialState = {
 //   user: {
 //     _id: "user1",

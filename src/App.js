@@ -30,6 +30,7 @@ import AccountSetting from "./pages/AccountSetting";
 import EditProfile from "./pages/EditProfile";
 import { VacancyDataProvider } from "./store/VacancyContext";
 import Dashboard from "./pages/Dashboard";
+import ProfilePreview from "./pages/ProfilePreview";
 
 const router = createBrowserRouter([
   {
@@ -78,6 +79,7 @@ const router = createBrowserRouter([
       { path: "/dashboard", element: <Dashboard /> },
       { path: "/companyprofile", element: <CompanyProfle /> },
       { path: "/accountsetting", element: <AccountSetting /> },
+      { path: "/profilepreview", element: <ProfilePreview /> },
       {
         path: "/editprofile",
         element: <EditProfile />,
