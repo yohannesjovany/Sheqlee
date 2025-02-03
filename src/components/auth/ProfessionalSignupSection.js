@@ -1,5 +1,9 @@
-import { NavLink } from "react-router-dom";
+import { useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+
 import Classes from "./ProfessionalSignupSection.module.css";
+
 import { ReactComponent as Company } from "../../assets/icons/company.svg";
 import { ReactComponent as Profreg } from "../../assets/icons/professional_registration.svg";
 import { ReactComponent as UserIcon } from "../../assets/icons/user.svg";
@@ -9,8 +13,56 @@ import { ReactComponent as Google } from "../../assets/icons/Icon ionic-logo-goo
 
 import Button from "../UI/Button";
 import InputGroup from "../UI/InputGroup";
+import { authActions } from "../../store/auth";
 
 const ProfessionalSignupSection = () => {
+  const [fullname, setFullname] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    dispatch(authActions.loginStart());
+    try {
+      // Simulate an API call to login
+      const response = await fetch("/api/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ fullname, email, password }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        dispatch(
+          authActions.loginSuccess({ user: data.user, token: data.token })
+        ); // Save token to Redux and localStorage
+        navigate("/"); // Redirect to home page
+      } else {
+        dispatch(
+          authActions.loginFailure({ err: data.message || "Login failed" })
+        );
+      }
+    } catch (err) {
+      //dispatch(authActions.loginFailure({err:"An error occurred. Please try again."}));
+      dispatch(
+        authActions.loginSuccess({
+          user: {
+            _id: "user1",
+            role: "freelancer",
+            fullname: "Miruts Yifter", // Full Name
+            email: "miruts@gmail.com", // Must be unique
+          },
+          token: "akdwoufanosdiufal;kwnmdifuaqwnjefojqowevjq",
+        })
+      );
+    }
+    navigate("/");
+  };
+
   return (
     <section className={Classes.mainSection}>
       <div className={Classes.redirection}>
@@ -25,7 +77,7 @@ const ProfessionalSignupSection = () => {
           </p>
         </div>
       </div>
-      <form>
+      <form onSubmit={handleSubmit}>
         <header className={Classes.header}>
           <Profreg />
           <h1>Professional Registration</h1>
@@ -37,6 +89,8 @@ const ProfessionalSignupSection = () => {
               type="text"
               placeholder="Miruts Yifter"
               label={"Full name"}
+              value={fullname}
+              onChange={(e) => setFullname(e.target.value)}
               required
             />
             <InputGroup
@@ -44,6 +98,8 @@ const ProfessionalSignupSection = () => {
               type="email"
               placeholder="Miruts@gmail.com"
               label={"Email"}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               required
             />
             <InputGroup
@@ -52,6 +108,8 @@ const ProfessionalSignupSection = () => {
               type="password"
               placeholder="**********"
               label={"Password"}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               required
             />
             <InputGroup
@@ -60,6 +118,8 @@ const ProfessionalSignupSection = () => {
               type="password"
               placeholder="**********"
               label={"Confirm password"}
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
               required
             />
           </div>

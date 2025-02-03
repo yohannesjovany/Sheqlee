@@ -67,3 +67,6 @@
 .overlay * {
   stroke: var(--primary-color);
 }
+.overlay button{
+  all:unset
+}

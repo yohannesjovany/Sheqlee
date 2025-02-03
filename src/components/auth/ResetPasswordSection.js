@@ -1,9 +1,38 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Classes from "./ResetPasswordSection.module.css";
 import { ReactComponent as Email } from "../../assets/icons/email.svg";
 import { ReactComponent as Padlock } from "../../assets/icons/padlock.svg";
 import InputGroup from "../UI/InputGroup";
 import Button from "../UI/Button";
 const ResetPasswordSection = () => {
+  const [email, setEmail] = useState("");
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      // Simulate an API call to login
+      const response = await fetch("/api/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        navigate("/"); // Redirect to home page
+      } else {
+        console.log("faild");
+      }
+    } catch (err) {
+      //dispatch(authActions.loginFailure({err:"An error occurred. Please try again."}));
+      console.log("faild");
+      navigate("/");
+    }
+  };
   return (
     <section className={Classes.mainSection}>
       <form>
@@ -17,6 +46,8 @@ const ResetPasswordSection = () => {
               icon={<Email />}
               type="email"
               placeholder="Miruts@gmail.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               label={"Email"}
             />
           </div>

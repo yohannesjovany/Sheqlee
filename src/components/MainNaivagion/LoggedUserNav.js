@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
+import { useSelector,useDispatch } from "react-redux";
+import { NavLink,useNavigate } from "react-router-dom";
 
 import Classes from "./loggedUserNav.module.css";
+import { authActions } from "../../store/auth";
 
 import sheqlee from "../../assets/icons/settings - alt2 (3).svg";
 import { ReactComponent as DownArrow } from "../../assets/icons/Icon material-keyboard-arrow-downT.svg";
@@ -12,7 +13,16 @@ import { ReactComponent as Dashbord } from "../../assets/icons/dashboard.svg";
 import { ReactComponent as Logout } from "../../assets/icons/logout.svg";
 
 const DropDownModal = (props) => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const auth = useSelector((state) => state.auth);
+
+
+  const hundleLogout=()=>{
+    //remove token from localstorage
+    dispatch(authActions.logout())
+    navigate("/")
+  }
 
   useEffect(() => {
     const scrollBarWidth =
@@ -56,7 +66,7 @@ const DropDownModal = (props) => {
           </li>
           <div className={Classes.underline}></div>
           <li onClick={props.onClose}>
-            <Logout /> <NavLink>Logout</NavLink>
+            <Logout /> <button onClick={hundleLogout}>Logout</button>
           </li>
         </ul>
       </div>

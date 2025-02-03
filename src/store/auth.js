@@ -69,7 +69,11 @@ const authSlice = createSlice({
       state.error = action.payload;
     },
     logout(state) {
-      state = initialState;
+      state.user = {...initialState.user};
+      state.status = initialState.status
+      state.token = initialState.token
+      state.err = null
+
     },
   },
 });

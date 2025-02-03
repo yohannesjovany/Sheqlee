@@ -53,6 +53,6 @@
   top: 1.3rem;
 }
 .isPassword * {
-  stroke: var(--primary-color);
-  fill: var(--primary-color);
+  stroke: #666;
+  fill: #666;
 }

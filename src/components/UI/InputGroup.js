@@ -43,6 +43,7 @@ const InputGroup = ({
           onChange={onChange}
           {...inputProps}
           className={Classes["input-group-field"]}
+          required={required}
         />
         {isPassword && currentState === "text" && (
           <Eye onClick={hundleClick} className={Classes.isPassword} />
