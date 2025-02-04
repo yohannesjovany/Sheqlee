@@ -43,3 +43,15 @@ button {
 .heroContent button {
   padding: 0.85rem 4rem;
 }
+@media (max-width: 56rem) {
+  /* 56rem = 896px if 1rem = 16px */
+  .hero {
+    padding-left: 1rem; /* transform: translateY(-4rem); */
+    transform: translateY(10rem);
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}

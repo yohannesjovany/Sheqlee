@@ -8,12 +8,13 @@ const JobPostSection = () => {
   return (
     <div style={{ marginTop: "3rem" }}>
       <SectionWrapper
-        withHeader={true}
+        withHeader={false}
         title="Latest job posts"
         info="745+ more jobs"
+        loading={false}
       >
         {jobs.map((job) => (
-          <JobCard loading={true} />
+          <JobCard loading={false} />
         ))}
       </SectionWrapper>
     </div>

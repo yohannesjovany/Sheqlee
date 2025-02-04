@@ -6,11 +6,11 @@ import PageContex from "../components/UI/PageContext";
 import Pagination from "../components/UI/Pagination";
 
 const Jobs = () => {
-  const [job, setJob] = useState(false);
+  const [job, setJob] = useState(true);
   return (
     <>
       <PageContex path={["All Jobs"]} />
-      <SearchSection />
+      <SearchSection job={job} />
       {job && (
         <Pagination
           totalItems={139}

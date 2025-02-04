@@ -21,6 +21,15 @@
   gap: 1.8rem;
   list-style: none;
 }
+.dropDown {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+  list-style: none;
+}
+.dropDown li:last-child {
+  display: none;
+}
 .nav-list * {
   font-size: 1rem;
   font-weight: 500;
@@ -37,6 +46,9 @@
 }
 .logo img {
   max-height: 3rem;
+}
+.logo svg {
+  display: none;
 }
 logo span {
   font-weight: 600;
@@ -82,4 +94,27 @@ a.activeNav::after {
 .activeButton button {
   background-color: #000;
   border-color: #000;
+}
+@media (max-width: 896px) {
+  .header {
+    height: 5.62rem;
+    padding: 0rem 1.6rem 0rem 1.56rem;
+    display: flex;
+    align-items: center;
+  }
+  .logo span {
+    visibility: hidden;
+  }
+  .logo svg {
+    display: inline-block;
+  }
+  .dropDown {
+    display: none;
+  }
+  .clientLi {
+    display: none;
+  }
+  .header * {
+    flex-grow: 0;
+  }
 }

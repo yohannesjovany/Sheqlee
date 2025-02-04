@@ -17,3 +17,17 @@
   border: 0.16rem solid var(--primary-color);
   border-radius: 0.6rem;
 }
+
+@media (max-width: 896px) {
+  .primary {
+    font-size: 1rem;
+    padding: 0.5rem 0.56rem;
+    border: none;
+    border-radius: 0.31rem;
+  }
+  .secondary {
+    font-size: 1rem;
+    padding: 0.5rem 0.56rem;
+    border: none;
+  }
+}

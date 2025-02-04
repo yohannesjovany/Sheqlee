@@ -5,6 +5,7 @@ import Classes from "./MainNavigation.module.css";
 
 import logo from "../../assets/icons/sheqlee.svg";
 import { ReactComponent as Downkey } from "../../assets/icons/Icon material-keyboard-arrow-downT.svg";
+import { ReactComponent as GruopThree } from "../../assets/icons/Group 3.svg";
 import Button from "../UI/Button";
 import LoggedUserNav from "./LoggedUserNav";
 
@@ -15,38 +16,51 @@ const MainNavigation = (props) => {
       <div className={Classes.container}>
         <Link to={"/"}>
           <div className={Classes.logo}>
+            <GruopThree />
             <img src={logo} alt="Logo" />
             <span>Sheqlee</span>
           </div>
         </Link>
         <nav className={Classes.nav}>
           <ul className={Classes["nav-list"]}>
-            <li>
-              <NavLink
-                to={"/jobs"}
-                className={({ isActive }) => {
-                  return isActive ? Classes.activeNav : undefined;
-                }}
-              >
-                All jobs
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to={"/categories"}
-                className={({ isActive }) => {
-                  return isActive ? Classes.activeNav : undefined;
-                }}
-              >
-                <span className={Classes.category}>
-                  Categories
-                  <Downkey />
-                </span>
-              </NavLink>
-            </li>
+            <div className={Classes.dropDown}>
+              <li>
+                <NavLink
+                  to={"/jobs"}
+                  className={({ isActive }) => {
+                    return isActive ? Classes.activeNav : undefined;
+                  }}
+                >
+                  All jobs
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to={"/categories"}
+                  className={({ isActive }) => {
+                    return isActive ? Classes.activeNav : undefined;
+                  }}
+                >
+                  <span className={Classes.category}>
+                    Categories
+                    <Downkey />
+                  </span>
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to={"/clients"}
+                  className={({ isActive }) => {
+                    return isActive ? Classes.activeNav : undefined;
+                  }}
+                >
+                  Clients
+                </NavLink>
+              </li>
+            </div>
             {auth.status === "guest" && (
               <>
-                <li>
+                <li className={Classes.clientLi}>
                   <NavLink
                     to={"/clients"}
                     className={({ isActive }) => {
