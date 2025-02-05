@@ -95,7 +95,7 @@ a.activeNav::after {
   background-color: #000;
   border-color: #000;
 }
-@media (max-width: 896px) {
+@media (max-width: 56rem) {
   .header {
     height: 5.62rem;
     padding: 0rem 1.6rem 0rem 1.56rem;
@@ -116,5 +116,8 @@ a.activeNav::after {
   }
   .header * {
     flex-grow: 0;
+  }
+  .container {
+    flex-grow: 1;
   }
 }
