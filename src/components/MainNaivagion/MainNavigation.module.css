@@ -103,7 +103,7 @@ a.activeNav::after {
     align-items: center;
   }
   .logo span {
-    visibility: hidden;
+    display: none;
   }
   .logo svg {
     display: inline-block;
