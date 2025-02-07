@@ -15,6 +15,7 @@
 .card header {
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   font-weight: 500;
   gap: 0.7rem;
   font-size: 1.4rem;
@@ -52,7 +53,7 @@
   background-color: var(--primary-color);
   height: 1.48rem;
   border-radius: 0.2rem;
-  padding: 0rem 1.6rem;
+  padding: 0rem 1.2rem;
   font-size: 0.72rem;
 }
 .details button span {
@@ -137,4 +138,36 @@ main.shimmer .overla {
 .details.shimmer button {
   padding-left: 0.6rem;
   padding-right: 0.6rem;
+}
+@media (max-width: 56rem) {
+  .card {
+    min-height: 21.5rem;
+  }
+  .card header {
+    font-size: 1.562rem;
+    font-weight: 600;
+  }
+  .card header img {
+    height: 2.5rem;
+  }
+  .card main p {
+    font-size: 1.25rem;
+  }
+  .details * {
+    height: 1.875rem;
+    font-size: 0.75rem;
+  }
+  .details img {
+    height: 1rem;
+    width: 0.8rem;
+  }
+
+  .details button {
+    height: 1.875rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    padding: 0rem 1rem;
+    border: none;
+    overflow: hidden;
+  }
 }

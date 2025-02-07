@@ -15,3 +15,22 @@
   height: 2.6rem;
   width: 2.6rem;
 }
+@media (max-width: 56rem) {
+  .actionCall {
+    flex-direction: column;
+    height: auto;
+    gap: 1.56rem;
+    text-align: center;
+    max-height: 16rem;
+    min-height: 16rem;
+    padding: 0rem 2rem;
+  }
+  .actionCall p {
+    font-size: 1.56rem;
+  }
+  .actionCall button {
+    padding: 1rem 2rem;
+    font-size: 1.56rem;
+    border-radius: 0.625rem;
+  }
+}

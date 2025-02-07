@@ -117,4 +117,7 @@ a.activeNav::after {
   .header * {
     flex-grow: 0;
   }
+  .container {
+    flex-grow: 1;
+  }
 }

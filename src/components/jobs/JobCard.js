@@ -18,7 +18,7 @@ const JobCard = (props) => {
     <div className={Classes.card} onClick={hundleClick}>
       <div>
         <header className={props.loading ? Classes.shimmer : undefined}>
-          <div class={Classes.overlay}></div>
+          {/* <div class={Classes.overlay}></div> */}
           {!props.noIcon && <img src={logo} alt="catagory icon" />}
 
           <span>Product Designer</span>

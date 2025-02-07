@@ -48,3 +48,13 @@ span.shimmer {
   width: 4rem;
   border-radius: 0.2rem;
 }
+
+@media (max-width: 56rem) {
+  .container {
+    max-width: 56rem;
+  }
+  .container h1 {
+    font-size: 1.562rem;
+    font-weight: 600;
+  }
+}
