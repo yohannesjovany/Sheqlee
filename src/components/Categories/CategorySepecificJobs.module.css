@@ -7,6 +7,7 @@
   font-size: 1.4rem;
   padding-top: 1.72rem;
   margin-bottom: 4rem;
+  text-align: center;
 }
 .header > svg {
   height: 4.6rem;
@@ -52,4 +53,27 @@
 .socialMedia svg path {
   stroke: #000000;
   fill: #000000;
+}
+@media (max-width: 56rem) {
+  .header h1 {
+    font-size: 1.5625rem;
+  }
+  .header {
+    font-size: 1.127rem;
+    margin: 0rem 1.3125rem;
+  }
+  .header svg {
+    height: 2.8125rem;
+  }
+  .header button {
+    font-size: 1.25rem;
+    height: 3.75rem;
+    display: flex;
+    align-items: center;
+    padding: 0rem 1.6875rem;
+    border-radius: 0.625rem;
+  }
+  .socialMedia {
+    font-size: 1.125rem;
+  }
 }

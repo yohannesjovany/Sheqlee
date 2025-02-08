@@ -54,4 +54,7 @@
   .pagination {
     padding: 3.125rem 1.3125rem 5.625rem 1.3125rem;
   }
+  .page-btn.active {
+    background-color: var(--primary-color);
+  }
 }

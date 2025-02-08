@@ -11,6 +11,8 @@ import { ReactComponent as Twitter } from "../../assets/icons/twitter.svg";
 import { ReactComponent as AawesomeTags } from "../../assets/icons/Icon awesome-tags.svg";
 
 import Button from "../UI/Button";
+import ReadMore from "../UI/ReadMore";
+import { useEffect, useState } from "react";
 
 const action = (
   <div className={Classes.action}>
@@ -74,60 +76,76 @@ const formatedText = (
 );
 ///the qualifications should befetched here
 
-const JobDetailsSection = () => (
-  <secttion>
-    <header className={Classes.header}>
-      <div className={Classes.jobTitle}>
-        <UiUX />
-        <h1>Graphic Design Specialist</h1>
-      </div>
-      <div className={Classes.details}>
-        <p>
-          <Calendar />
-          30mins ago
-        </p>
-        <p>
-          <Company />
-          KeperLab
-        </p>
-        <p>
-          <Clock />
-          Full-Time
-        </p>
-        <p>
-          <Calendar />
-          Intermediate
-        </p>
-        <p>
-          <Company />
-          $15/hr
-        </p>
-      </div>
+const JobDetailsSection = () => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 896);
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 896);
+    };
 
-      {action}
-    </header>
-    <main className={Classes.mainContainer}>{formatedText}</main>
-    <footer className={Classes.footer}>
-      <div className={Classes.details}>
-        <div className={Classes.tagsIndicator}>
-          <AawesomeTags />
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  return (
+    <secttion>
+      <header className={Classes.header}>
+        <div className={Classes.jobTitle}>
+          <UiUX />
+          <h1>Graphic Design Specialist</h1>
         </div>
-        {listOfTags.map((tag) => (
-          <p>{tag}</p>
-        ))}
-      </div>
-      {action}
-      <div className={Classes.socialMedia}>
-        <p>Share with others</p>
-        <div>
-          <Facebook />
-          <Twitter />
-          <Telegram />
-          <Linkedin />
+        <div className={Classes.details}>
+          <p>
+            <Calendar />
+            30mins ago
+          </p>
+          <p>
+            <Company />
+            KeperLab
+          </p>
+          <p>
+            <Clock />
+            Full-Time
+          </p>
+          <p>
+            <Calendar />
+            Intermediate
+          </p>
+          <p>
+            <Company />
+            $15/hr
+          </p>
         </div>
-      </div>
-    </footer>
-  </secttion>
-);
+
+        {action}
+      </header>
+      {isMobile ? (
+        <ReadMore formattedText={formatedText} />
+      ) : (
+        <main className={Classes.mainContainer}>{formatedText}</main>
+      )}
+      <footer className={Classes.footer}>
+        <div className={Classes.details}>
+          <div className={Classes.tagsIndicator}>
+            <AawesomeTags />
+          </div>
+          {listOfTags.map((tag) => (
+            <p>{tag}</p>
+          ))}
+        </div>
+        {action}
+        <div className={Classes.socialMedia}>
+          <p>Share with others</p>
+          <div>
+            <Facebook />
+            <Twitter />
+            <Telegram />
+            <Linkedin />
+          </div>
+        </div>
+      </footer>
+    </secttion>
+  );
+};
 
 export default JobDetailsSection;

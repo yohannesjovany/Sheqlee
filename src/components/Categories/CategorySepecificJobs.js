@@ -26,6 +26,7 @@ const CategorySepecificJobs = () => {
     }
   };
 
+  
   return (
     <section>
       <LogInModal
@@ -61,7 +62,7 @@ const CategorySepecificJobs = () => {
         </div>
       </header>
 
-      <SectionWrapper>
+      <SectionWrapper isFlex={true}>
         {jobsList.map((job) => (
           <JobCard noIcon={true} />
         ))}
