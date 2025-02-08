@@ -92,4 +92,8 @@
   .header h1 {
     font-size: 1.56rem;
   }
+  .isFlex {
+    display: flex;
+    flex-direction: column;
+  }
 }

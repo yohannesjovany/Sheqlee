@@ -16,8 +16,8 @@ const SearchSection = (props) => {
         <header className={Classes.header}>
           <h1>All Job Posts</h1>
           <p>
-            Browse the latest jobs you can take up right now Use <br /> filters
-            to find the best jobs for your skillset.
+            Browse the latest jobs you can take up right now Use <br />
+            <span> filters to find the best jobs for your skillset.</span>
           </p>
         </header>
         <main className={Classes.main}>
@@ -49,7 +49,9 @@ const SearchSection = (props) => {
                 placeholder="Search by programming technology or field..."
               />
             </div>
-            <Button className="primary">Apply filter</Button>
+            <div>
+              <Button className="primary">Apply filter</Button>
+            </div>
           </form>
         </main>
       </section>
@@ -57,7 +59,7 @@ const SearchSection = (props) => {
 
       {props.job && (
         <section>
-          <SectionWrapper>
+          <SectionWrapper isFlex={true}>
             {jobsList.map((job) => (
               <JobCard />
             ))}

@@ -37,6 +37,13 @@
 .nav-list button {
   font-size: 1rem;
 }
+.logo a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: inherit;
+  gap: 1.4rem;
+}
 .logo {
   display: flex;
   align-items: center;
@@ -50,7 +57,7 @@
 .logo svg {
   display: none;
 }
-logo span {
+.logo span {
   font-weight: 600;
 }
 .logo * {

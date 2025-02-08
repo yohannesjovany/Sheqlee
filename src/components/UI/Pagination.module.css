@@ -36,7 +36,11 @@
 .nav-btn[disabled],
 .page-btn[disabled] {
   cursor: not-allowed;
-  opacity: 0.5;
+  background-color: var(--light-gray-color);
+}
+.nav-btn[disabled] * {
+  stroke: #000;
+  fill: #000;
 }
 
 .page-btn.active {
@@ -45,4 +49,9 @@
 }
 .nav-btn {
   background-color: var(--primary-color);
+}
+@media (max-width: 56rem) {
+  .pagination {
+    padding: 3.125rem 1.3125rem 5.625rem 1.3125rem;
+  }
 }
