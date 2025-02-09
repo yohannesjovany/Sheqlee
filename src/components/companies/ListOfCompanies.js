@@ -11,15 +11,19 @@ const ListOfCompanies = () => {
         <div>
           <h1>Companies on Sheqlee</h1>
 
-          <p>
+          <p className={classes.desktopInfo}>
             List of the companies on Sheqlee with their number <br />
             of job posts and subscribers.
+          </p>
+          <p className={classes.mobileInfo}>
+            List of the companies on Sheqlee with their number of job posts and
+            subscribers.
           </p>
         </div>
       </header>
       <main>
         {
-          <SectionWrapper>
+          <SectionWrapper isFlex={true}>
             {companyList.map((job) => (
               <Tag
                 id="cam1"

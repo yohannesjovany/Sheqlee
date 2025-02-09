@@ -1,6 +1,6 @@
 import Classes from "./PageContext.module.css";
 import locationIcon from "../../assets/icons/placeholder.svg";
-import rigthArrowIcon from "../../assets/icons/Icon material-keyboard-arrow-right.svg";
+import { ReactComponent as RigthArrowIcon } from "../../assets/icons/Icon material-keyboard-arrow-right.svg";
 import { NavLink } from "react-router-dom";
 
 const PageContex = (props) => {
@@ -12,7 +12,7 @@ const PageContex = (props) => {
         {props.path &&
           props.path.map((pathItem) => (
             <>
-              <img src={rigthArrowIcon} alt="keyboard right arrow" />
+              <RigthArrowIcon />
               <span>{pathItem}</span>
             </>
           ))}
