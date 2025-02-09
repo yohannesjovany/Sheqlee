@@ -116,12 +116,6 @@ const FAQSection = () => {
           ))}
         </div>
       </main>
-      <Pagination
-        totalItems={139}
-        itemsPerPage={3}
-        currentPage={10}
-        onPageChange="skip"
-      />
     </section>
   );
 };

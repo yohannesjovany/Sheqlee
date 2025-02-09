@@ -95,7 +95,7 @@ const MainNavigation = (props) => {
             )}
             {auth.user.role === "company" && (
               <>
-                <li>
+                <li className={Classes.postjob}>
                   <NavLink to={"/addvacancy"}>
                     <Button className="primary">Post a job</Button>
                   </NavLink>

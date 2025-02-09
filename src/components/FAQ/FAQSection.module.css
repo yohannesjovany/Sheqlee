@@ -87,3 +87,32 @@ button.active {
   margin-top: 2rem;
   margin-bottom: 3rem;
 }
+@media (max-width: 56rem) {
+  .header {
+    margin: 2.678rem 0rem;
+  }
+  .faq {
+    margin: 0rem 1.3125rem;
+    width: auto;
+  }
+  .header p {
+    font-size: 1.125rem;
+  }
+  .header h1 {
+    margin-bottom: 0.4rem;
+    font-size: 1.875rem;
+  }
+  .header br {
+    display: none;
+  }
+  .toggleAction {
+    display: none;
+  }
+
+  .accordionItem header p {
+    font-size: 1.25rem;
+  }
+  .accordionItem main {
+    font-size: 1rem;
+  }
+}

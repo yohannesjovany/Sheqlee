@@ -44,12 +44,17 @@ const ContactUsForm = () => {
         <Contact />
         <div>
           <h1>Contact</h1>
-          <p>
+          <p className={Classes.desktopInfo}>
             Please reach out to us if you have any questions or
             <br /> you need our assistance with something.
           </p>
+          <p className={Classes.mobileInfo}>
+            Please reach out to us if you have <br /> any questions or you need
+            our assistance.
+          </p>
         </div>
       </header>
+
       <main className={Classes.main}>
         <form className={Classes.form} onSubmit={handleSubmit}>
           <InputGroup
