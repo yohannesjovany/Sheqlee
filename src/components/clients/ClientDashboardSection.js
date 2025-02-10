@@ -1,6 +1,7 @@
 import Classes from "./ClientDashboardSection.module.css";
 
 import { ReactComponent as Dashboard } from "../../assets/icons/dashboard.svg";
+import { ReactComponent as Elipse } from "../../assets/icons/Ellipse 2.svg";
 import Button from "../UI/Button";
 import { NavLink } from "react-router-dom";
 import StatusBar from "../UI/SatatusBar";
@@ -31,7 +32,7 @@ const listOfJobs = [
 ];
 
 const ClientDashboardSection = () => {
-  const postedaJob = false;
+  const postedaJob = true;
   const hundleChangestatus = (id, status) => {
     const job = listOfJobs.filter((job) => job.id === id);
     job[0].status = status;
@@ -77,6 +78,7 @@ const ClientDashboardSection = () => {
             <Button className="primary">
               <NavLink to={"/addvacancy"}>Post your first job</NavLink>
             </Button>
+            <p>You can only post jobs on desktop.</p>
           </div>
         )}
         {postedaJob && (
@@ -86,10 +88,10 @@ const ClientDashboardSection = () => {
                 <tr>
                   <th>JID</th>
                   <th>Title</th>
-                  <th>Type</th>
-                  <th>Level</th>
+                  <th className={Classes.noMobile}>Type</th>
+                  <th className={Classes.noMobile}>Level</th>
                   <th>Status</th>
-                  <th>Actions</th>
+                  <th className={Classes.noMobile}>Actions</th>
                 </tr>
               </thead>
               <tbody>
@@ -97,9 +99,16 @@ const ClientDashboardSection = () => {
                   return (
                     <tr>
                       <td>{job.id}</td>
-                      <td>{job.title}</td>
-                      <td>{job.type}</td>
-                      <td>{job.level}</td>
+                      <td>
+                        {job.title}{" "}
+                        <div className={Classes.onlyMobile}>
+                          <span> {job.type}</span>
+                          <Elipse />
+                          <span>{job.level}</span>
+                        </div>
+                      </td>
+                      <td className={Classes.noMobile}>{job.type}</td>
+                      <td className={Classes.noMobile}>{job.level}</td>
                       <td>
                         <StatusBar
                           status={job.status}
@@ -108,7 +117,7 @@ const ClientDashboardSection = () => {
                           }}
                         />
                       </td>
-                      <td>
+                      <td className={Classes.noMobile}>
                         {(job.status === "active" ||
                           job.status === "inactive") && (
                           <div className={Classes.actionsContainer}>

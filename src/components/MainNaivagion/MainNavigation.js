@@ -107,7 +107,7 @@ const MainNavigation = (props) => {
             )}
             {auth.user.role === "freelancer" && (
               <>
-                <li>
+                <li className={Classes.postjob}>
                   <NavLink
                     to={"/editprofile"}
                     className={({ isActive }) => {
