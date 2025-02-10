@@ -59,7 +59,7 @@ const TagSpecificJos = () => {
           </div>
         </div>
       </header>
-      <SectionWrapper>
+      <SectionWrapper isFlex={true}>
         {jobsList.map((job) => (
           <JobCard />
         ))}

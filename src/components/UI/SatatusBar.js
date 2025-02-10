@@ -28,7 +28,7 @@ const StatusBar = (props) => {
     <div
       className={Classes.container}
       style={{
-        border: `0.1rem solid ${returnStyle(status)[0]}`,
+        border: `0.238rem solid ${returnStyle(status)[0]}`,
         justifyContent: `${returnStyle(status)[1]}`,
       }}
       onClick={hundleClick}

@@ -69,3 +69,9 @@
 .shimmer p span:last-child {
   width: 4rem;
 }
+@media (max-width: 56rem) {
+  .statsSection main {
+    flex-direction: column;
+    gap: 3.68rem;
+  }
+}

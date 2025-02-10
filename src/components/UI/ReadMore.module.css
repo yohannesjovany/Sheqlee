@@ -30,3 +30,9 @@
   stroke: #fff;
   fill: #fff;
 }
+@media (max-width: 56rem) {
+  .mainContainer {
+    margin: 1rem 1.3125rem 2.5rem 1.3125rem;
+    padding: 1.6rem 1.25rem 0.8rem 1.25rem;
+  }
+}

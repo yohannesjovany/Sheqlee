@@ -102,3 +102,71 @@
   height: 4rem;
   width: 20rem;
 }
+.mobileInfo {
+  display: none;
+}
+@media (max-width: 56rem) {
+  .header {
+    gap: 2.5rem;
+  }
+  .header h1 {
+    font-size: 1.5625rem;
+  }
+  .header p {
+    font-size: 1.125rem;
+    margin: 0rem 1.3125rem;
+  }
+  .desktopInfo {
+    display: none;
+  }
+  .mobileInfo {
+    display: block;
+  }
+  .action {
+    flex-direction: column;
+  }
+  .action button {
+    width: 18.75rem;
+    font-size: 1.25rem;
+    height: 3.75rem;
+    border-radius: 0.675rem;
+  }
+  .action button:first-child {
+    border: 0.2rem solid var(--primary-color);
+  }
+  .main {
+    gap: 1.25rem;
+    margin: 0rem 1.375rem 3.125rem 1.375rem;
+  }
+  .leftContainer {
+    width: auto;
+  }
+  .leftContainer h1 {
+    font-size: 1.125rem;
+  }
+  .leftContainer div:last-child p {
+    font-size: 0.875rem;
+    width: 95%;
+  }
+
+  .rightContainer {
+    width: auto;
+  }
+  .leftContainer div:first-child {
+    font-size: 1.5625rem;
+  }
+  .rightContainer div:last-child {
+    font-size: 1.5625rem;
+  }
+  .rightContainer div:first-child p {
+    font-size: 0.875rem;
+    width: 95%;
+  }
+  .rightContainer h1 {
+    font-size: 1.125rem;
+  }
+  .main button {
+    border-radius: 0.675rem;
+    font-weight: 500;
+  }
+}

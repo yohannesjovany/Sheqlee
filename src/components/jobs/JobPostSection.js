@@ -8,7 +8,7 @@ const JobPostSection = () => {
   return (
     <div style={{ marginTop: "3rem" }}>
       <SectionWrapper
-        withHeader={false}
+        withHeader={true}
         title="Latest job posts"
         info="745+ more jobs"
         loading={false}

@@ -20,3 +20,28 @@
   font-size: 1.2rem;
   font-weight: 600;
 }
+.mobileAction {
+  display: none;
+}
+@media (max-width: 56rem) {
+  .modalcontent {
+    width: 24rem;
+    padding: 2.5rem 1.25rem 1.25rem 1.25rem;
+    height: auto;
+    font-size: 1.25rem;
+    gap: 2rem;
+    min-height: 11.7rem;
+  }
+  .modalAction {
+    display: none;
+  }
+  .mobileAction {
+    display: block;
+  }
+  .mobileAction button {
+    font-size: 1.375rem;
+    height: 3.3125rem;
+    padding: 0rem 2.5625rem;
+    border-radius: 0.625rem;
+  }
+}

@@ -7,6 +7,12 @@ import Pagination from "../components/UI/Pagination";
 
 const Jobs = () => {
   const [job, setJob] = useState(true);
+
+  const handlePageCange = (pageNumber) => {
+    //fetch that page from back end
+    return null;
+  };
+
   return (
     <>
       <PageContex path={["All Jobs"]} />
@@ -16,7 +22,7 @@ const Jobs = () => {
           totalItems={139}
           itemsPerPage={3}
           currentPage={10}
-          onPageChange="skip"
+          onPageChange={handlePageCange}
         />
       )}
       <CallForAction />

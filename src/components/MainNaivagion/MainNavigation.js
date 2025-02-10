@@ -8,19 +8,28 @@ import { ReactComponent as Downkey } from "../../assets/icons/Icon material-keyb
 import { ReactComponent as GruopThree } from "../../assets/icons/Group 3.svg";
 import Button from "../UI/Button";
 import LoggedUserNav from "./LoggedUserNav";
+import Hamburger from "./Hamburger";
+import { useState } from "react";
 
 const MainNavigation = (props) => {
   const auth = useSelector((state) => state.auth);
+  const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
+
+  const toggleHumburger = () => {
+    setIsHamburgerOpen(!isHamburgerOpen);
+  };
+
   return (
     <header className={Classes.header}>
+      <Hamburger isOpen={isHamburgerOpen} onClose={toggleHumburger} />
       <div className={Classes.container}>
-        <Link to={"/"}>
-          <div className={Classes.logo}>
-            <GruopThree />
+        <div className={Classes.logo}>
+          <GruopThree onClick={toggleHumburger} />
+          <Link to={"/"}>
             <img src={logo} alt="Logo" />
             <span>Sheqlee</span>
-          </div>
-        </Link>
+          </Link>
+        </div>
         <nav className={Classes.nav}>
           <ul className={Classes["nav-list"]}>
             <div className={Classes.dropDown}>
@@ -86,7 +95,7 @@ const MainNavigation = (props) => {
             )}
             {auth.user.role === "company" && (
               <>
-                <li>
+                <li className={Classes.postjob}>
                   <NavLink to={"/addvacancy"}>
                     <Button className="primary">Post a job</Button>
                   </NavLink>
@@ -98,7 +107,7 @@ const MainNavigation = (props) => {
             )}
             {auth.user.role === "freelancer" && (
               <>
-                <li>
+                <li className={Classes.postjob}>
                   <NavLink
                     to={"/editprofile"}
                     className={({ isActive }) => {

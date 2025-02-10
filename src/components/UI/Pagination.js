@@ -1,22 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Classes from "./Pagination.module.css"; // External CSS file for styles
 
 import { ReactComponent as ArowRightIcon } from "../../assets/icons/Icon material-keyboard-arrow-right.svg";
 import { ReactComponent as ArowLeftIcon } from "../../assets/icons/Icon material-keyboard-arrow-left.svg";
 
-function Pagination({ totalItems, itemsPerPage, currentPage, onPageChange }) {
-  const totalPages = Math.ceil(totalItems / itemsPerPage);
+function Pagination(props) {
+  const totalPages = Math.ceil(props.totalItems / props.itemsPerPage);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 896);
+  const [currentPage, setCurrentPage] = useState(props.currentPage);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 896);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const handlePageClick = (pageNumber) => {
+    setCurrentPage(pageNumber);
     if (pageNumber >= 1 && pageNumber <= totalPages) {
-      onPageChange(pageNumber);
+      props.onPageChange(pageNumber);
     }
   };
 
   const renderPageNumbers = () => {
     const pages = [];
     const pagesToRender = [];
-    const visiblePages = 10; // Maximum number of pages to display
+    const visiblePages = (isMobile && 6) || 10;
+    console.log(visiblePages, isMobile);
 
     // Generate all page buttons
     for (let i = 1; i <= totalPages; i++) {
@@ -39,7 +52,7 @@ function Pagination({ totalItems, itemsPerPage, currentPage, onPageChange }) {
     }
 
     // If the current page is near the beginning
-    if (currentPage <= visiblePages - 2) {
+    if (currentPage <= visiblePages - 3) {
       pagesToRender.push(
         ...pages.slice(0, visiblePages - 2),
         <span key="dots-end" className={Classes.dots}>
@@ -49,7 +62,7 @@ function Pagination({ totalItems, itemsPerPage, currentPage, onPageChange }) {
       );
     }
     // If the current page is near the end
-    else if (currentPage >= totalPages - (visiblePages - 2)) {
+    else if (currentPage >= totalPages - (visiblePages - 4)) {
       pagesToRender.push(
         pages[0],
         <span key="dots-start" className={Classes.dots}>
@@ -65,16 +78,20 @@ function Pagination({ totalItems, itemsPerPage, currentPage, onPageChange }) {
         <span key="dots-start" className={Classes.dots}>
           ...
         </span>,
-        ...pages.slice(currentPage - 3, currentPage + 2),
+        ...pages.slice(
+          currentPage - ((isMobile && 2) || 3),
+          currentPage + ((isMobile && 1) || 2)
+        ),
         <span key="dots-end" className={Classes.dots}>
           ...
         </span>,
         pages[totalPages - 1]
       );
     }
-
+    console.log(pagesToRender);
     return pagesToRender;
   };
+
   return (
     <div className={Classes.pagination}>
       <div>{renderPageNumbers()}</div>

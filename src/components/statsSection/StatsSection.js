@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 
 const StatsSection = () => {
   const auth = useSelector((state) => state.auth);
-  const loading = true;
+  const loading = false;
 
   if (auth.user.role === "freelancer") return null;
   return (

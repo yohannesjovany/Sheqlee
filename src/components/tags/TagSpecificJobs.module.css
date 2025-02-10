@@ -56,3 +56,27 @@
   stroke: #000000;
   fill: #000000;
 }
+@media (max-width: 56rem) {
+  .header {
+    padding-top: 1.5625rem;
+    padding-bottom: 7rem;
+  }
+
+  .header svg {
+    height: 4rem;
+  }
+  .header h1 {
+    font-size: 1.875rem;
+  }
+  .header p {
+    font-size: 1.125rem;
+  }
+  .header button {
+    font-size: 1.25rem;
+    height: 3.75rem;
+    display: flex;
+    align-items: center;
+    padding: 0rem 1.6875rem;
+    border-radius: 0.675rem;
+  }
+}

@@ -13,14 +13,18 @@ const AllTags = () => {
       <header className={Classes.header}>
         <Tagicon />
         <h1>All Tags</h1>
-        <p>
+        <p className={Classes.desktopInfo}>
           Job tags along with their respective number of
           <br /> jobs posted and number of subscribers.
+        </p>
+        <p className={Classes.mobileInfo}>
+          Job tags along with their respective number of jobs posted and
+          subscribers.
         </p>
       </header>
       <main>
         {
-          <SectionWrapper>
+          <SectionWrapper isFlex={true}>
             {tagsList.map((job) => (
               <Tag id="job1" name="Java" jobs={140} subscribers={3500} />
             ))}

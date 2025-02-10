@@ -66,3 +66,41 @@
   justify-content: end;
   padding-top: 2rem;
 }
+.mobileInfo {
+  display: none;
+}
+
+@media (max-width: 56rem) {
+  .header {
+    margin: 2rem 1.3125rem;
+  }
+  .header h1 {
+    font-size: 1.875rem;
+  }
+
+  .desktopInfo {
+    display: none;
+  }
+  .mobileInfo {
+    display: block;
+    font-size: 1.12rem;
+  }
+  .main {
+    width: auto;
+    margin: 0rem 1.3125rem;
+  }
+  .form {
+    display: flex;
+    flex-direction: column;
+  }
+  .inputAction {
+    justify-content: center;
+    padding-top: 1.8rem;
+  }
+  .inputAction button {
+    font-size: 1.56rem;
+    height: 4rem;
+    padding: 0rem 2.5rem;
+    border-radius: 0.675rem;
+  }
+}

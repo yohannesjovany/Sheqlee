@@ -4,6 +4,9 @@ import PageContex from "../components/UI/PageContext";
 import Pagination from "../components/UI/Pagination";
 
 const Tags = () => {
+  const handlePageChange = () => {
+    return null;
+  };
   return (
     <>
       <PageContex path={["Tags"]} />
@@ -12,7 +15,7 @@ const Tags = () => {
         totalItems={139}
         itemsPerPage={3}
         currentPage={10}
-        onPageChange="skip"
+        onPageChange={handlePageChange}
       />
       <CallForAction />
     </>

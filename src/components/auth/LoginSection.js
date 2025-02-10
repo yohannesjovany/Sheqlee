@@ -50,6 +50,7 @@ const LoginSection = () => {
     navigate("/")
   };
 
+  
   return (
     <section className={Classes.mainSection}>
       <form onSubmit= {handleSubmit}>

@@ -1,7 +1,19 @@
 import classes from "./SectionWrapper.module.css";
 import rightArrow from "../../assets/icons/Icon material-keyboard-arrow-right.svg";
+import { useEffect, useState } from "react";
+import Carousel from "./Carousel";
 
 const SectionWrapper = (props) => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 896);
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 896);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <section
       className={`${classes["section-wrapper"]} ${
@@ -22,7 +34,11 @@ const SectionWrapper = (props) => {
             </div>
           </header>
         )}
-        <main className={classes.main}>{props.children}</main>
+        {isMobile || <main className={classes.main}>{props.children}</main>}
+        {isMobile && !props.isFlex && <Carousel>{props.children}</Carousel>}
+        {isMobile && props.isFlex && (
+          <main className={classes.isFlex}>{props.children}</main>
+        )}
       </div>
     </section>
   );

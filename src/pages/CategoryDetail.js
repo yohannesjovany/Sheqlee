@@ -4,6 +4,9 @@ import PageContex from "../components/UI/PageContext";
 import Pagination from "../components/UI/Pagination";
 
 const CategoryDetail = () => {
+  const handlePageChange = () => {
+    return null;
+  };
   return (
     <>
       <PageContex path={["Categories", "UI/UX & Product Design"]} />
@@ -12,7 +15,7 @@ const CategoryDetail = () => {
         totalItems={139}
         itemsPerPage={3}
         currentPage={10}
-        onPageChange="skip"
+        onPageChange={handlePageChange}
       />
       <CallForAction />
     </>

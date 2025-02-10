@@ -56,9 +56,13 @@ const ClientsStat = () => {
       <header className={Classes.header}>
         <div>
           <h1>Sheqlee for Clients</h1>
-          <p>
+          <p className={Classes.desktopInfo}>
             Access a pool of talented, competent and dedicated <br />
             experts and professional from Ethiopia.
+          </p>
+          <p className={Classes.mobileInfo}>
+            Access a pool of talented, competent and dedicated professional from
+            Ethiopia.
           </p>
         </div>
         <div className={Classes.action}>

@@ -68,6 +68,9 @@
   column-gap: 0.6rem;
   row-gap: 0.4rem;
 }
+.details a {
+  color: #4285f4;
+}
 .details * {
   flex-shrink: 0;
   background-color: var(--light-gray-color);
@@ -90,4 +93,54 @@
   text-align: center;
   font-size: 2rem;
   font-weight: 600;
+}
+@media (max-width: 56rem) {
+  .header {
+    margin-top: 2.32rem;
+  }
+  .header h1 {
+    font-size: 1.875rem;
+  }
+  .header img {
+    height: 3.8125rem;
+    width: 3.8125rem;
+  }
+  .header h1 svg {
+    height: 0.85rem;
+    transform: translateY(1rem);
+  }
+  .header button {
+    font-size: 1.25rem;
+    height: 3.75rem;
+    align-items: center;
+    border-radius: 0.625rem;
+    padding: 1.5rem;
+  }
+  .details * {
+    height: 1.87rem;
+    font-size: 1rem;
+  }
+  .subscibs {
+    font-size: 1.125rem;
+  }
+  .details svg {
+    height: 1rem;
+    width: 1rem;
+  }
+
+  .header div.socialMedia {
+    display: flex;
+    flex-direction: row;
+    gap: 0.7rem;
+  }
+
+  .socialMedia svg {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .socialMedia svg path {
+    stroke: #000000;
+    fill: #000000;
+  }
 }

@@ -35,9 +35,13 @@ const CategoriesList = () => {
         <Categories />
         <div>
           <h1>All Categories</h1>
-          <p>
-            Job categories along with their respective number of <br /> jobs
-            posted and number of subscribers.
+          <p className={Classes.desktopMsg}>
+            Job categories along with their respective number of <br />
+            jobs posted and number of subscribers.
+          </p>
+          <p className={Classes.mobilemsg}>
+            Job categories along with their respective number of jobs posted and
+            subscribers.
           </p>
         </div>
       </header>

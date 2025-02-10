@@ -20,6 +20,9 @@ const LogInModal = (props) => {
             <Button className="secondary">Log in</Button>
           </NavLink>
         </div>
+        <div className={Classes.mobileAction}>
+          <Button className="primary">Ok, sign up</Button>
+        </div>
       </div>
     </Modal>
   );
