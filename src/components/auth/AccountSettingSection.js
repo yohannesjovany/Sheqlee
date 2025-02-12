@@ -18,6 +18,7 @@ const AccountSettingSection = () => {
           account more secure.
         </p>
       </header>
+
       <main>
         <form>
           <div className={Classes.mainContainer}>

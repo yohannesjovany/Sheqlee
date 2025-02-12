@@ -97,7 +97,8 @@
   }
   .main form button {
     height: 100%;
-    width: 50%;
+
+    width: 12.5rem;
     border-radius: 0.625rem;
     font-weight: 600;
     font-size: 1.2rem;
@@ -110,5 +111,12 @@
   }
   .searchInput {
     padding-right: 2rem;
+  }
+  .main form div.buttonContainer {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .main form div.buttonContainer button {
+    width: 9rem;
   }
 }

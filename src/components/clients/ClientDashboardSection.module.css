@@ -138,4 +138,13 @@
     stroke: #ffc60b;
     fill: #ffc60b;
   }
+
+  .tableContainer > div {
+    border-top-right-radius: 0.65rem;
+    border-bottom-right-radius: 0.65rem;
+    overflow: hidden;
+  }
+  .statusHeader {
+    padding-right: 1rem;
+  }
 }

@@ -1,0 +1,11 @@
+.faq-container {
+  width: 73%;
+  margin: 0 auto;
+}
+
+@media (max-width: 56rem) {
+  .faq-container {
+    width: auto;
+    margin: initial; /* or adjust as needed */
+  }
+}

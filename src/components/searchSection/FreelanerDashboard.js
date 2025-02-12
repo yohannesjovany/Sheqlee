@@ -46,7 +46,9 @@ const FreelancerDashboard = (props) => {
               </select>
               <DownArrowIcon />
             </div>
-            <Button className="primary">Apply filter</Button>
+            <div className={Classes.buttonContainer}>
+              <Button className="primary">Apply filter</Button>
+            </div>
           </form>
         </main>
       </section>

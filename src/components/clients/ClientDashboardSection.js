@@ -83,99 +83,103 @@ const ClientDashboardSection = () => {
         )}
         {postedaJob && (
           <div className={Classes.tableContainer}>
-            <table className={Classes.table}>
-              <thead>
-                <tr>
-                  <th>JID</th>
-                  <th>Title</th>
-                  <th className={Classes.noMobile}>Type</th>
-                  <th className={Classes.noMobile}>Level</th>
-                  <th>Status</th>
-                  <th className={Classes.noMobile}>Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                {listOfJobs.map((job) => {
-                  return (
-                    <tr>
-                      <td>{job.id}</td>
-                      <td>
-                        {job.title}{" "}
-                        <div className={Classes.onlyMobile}>
-                          <span> {job.type}</span>
-                          <Elipse />
-                          <span>{job.level}</span>
-                        </div>
-                      </td>
-                      <td className={Classes.noMobile}>{job.type}</td>
-                      <td className={Classes.noMobile}>{job.level}</td>
-                      <td>
-                        <StatusBar
-                          status={job.status}
-                          onChangeStatus={(status) => {
-                            hundleChangestatus(job.id, status);
-                          }}
-                        />
-                      </td>
-                      <td className={Classes.noMobile}>
-                        {(job.status === "active" ||
-                          job.status === "inactive") && (
-                          <div className={Classes.actionsContainer}>
-                            <ActionsButton
-                              action="Duplicate"
-                              status="vacancy"
-                              onAction={() => {
-                                hundleDulicateAction(job.id);
-                              }}
-                            />
-                            <ActionsButton
-                              action="View"
-                              status="vacancy"
-                              onAction={() => {
-                                hundleViewAction(job.id);
-                              }}
-                            />
-                            <ActionsButton
-                              action={"Delete"}
-                              status="vacancy"
-                              onAction={() => {
-                                hundleDeleteAction(job.id);
-                              }}
-                            />
+            <div>
+              <table className={Classes.table}>
+                <thead>
+                  <tr>
+                    <th>JID</th>
+                    <th>Title</th>
+                    <th className={Classes.noMobile}>Type</th>
+                    <th className={Classes.noMobile}>Level</th>
+                    <th className={Classes.statusHeader}>Status</th>
+                    <th className={Classes.noMobile}>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {listOfJobs.map((job) => {
+                    return (
+                      <tr>
+                        <td>{job.id}</td>
+                        <td>
+                          {job.title}{" "}
+                          <div className={Classes.onlyMobile}>
+                            <span> {job.type}</span>
+                            <Elipse />
+                            <span>{job.level}</span>
                           </div>
-                        )}
-                        {job.status === "draft" && (
-                          <div className={Classes.actionsContainer}>
-                            <ActionsButton
-                              action="Duplicate"
-                              status="draft"
-                              onAction={() => {
-                                hundleDulicateAction(job.id);
-                              }}
-                            />
-                            <button className={Classes.publish}>Publish</button>
-                            <ActionsButton
-                              action="Edit"
-                              status="draft"
-                              onAction={() => {
-                                hundleEditAction(job.id);
-                              }}
-                            />
-                            <ActionsButton
-                              action={"Delete"}
-                              status="draft"
-                              onAction={() => {
-                                hundleDeleteAction(job.id);
-                              }}
-                            />
-                          </div>
-                        )}
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
+                        </td>
+                        <td className={Classes.noMobile}>{job.type}</td>
+                        <td className={Classes.noMobile}>{job.level}</td>
+                        <td classname={Classes.statusHeader}>
+                          <StatusBar
+                            status={job.status}
+                            onChangeStatus={(status) => {
+                              hundleChangestatus(job.id, status);
+                            }}
+                          />
+                        </td>
+                        <td className={Classes.noMobile}>
+                          {(job.status === "active" ||
+                            job.status === "inactive") && (
+                            <div className={Classes.actionsContainer}>
+                              <ActionsButton
+                                action="Duplicate"
+                                status="vacancy"
+                                onAction={() => {
+                                  hundleDulicateAction(job.id);
+                                }}
+                              />
+                              <ActionsButton
+                                action="View"
+                                status="vacancy"
+                                onAction={() => {
+                                  hundleViewAction(job.id);
+                                }}
+                              />
+                              <ActionsButton
+                                action={"Delete"}
+                                status="vacancy"
+                                onAction={() => {
+                                  hundleDeleteAction(job.id);
+                                }}
+                              />
+                            </div>
+                          )}
+                          {job.status === "draft" && (
+                            <div className={Classes.actionsContainer}>
+                              <ActionsButton
+                                action="Duplicate"
+                                status="draft"
+                                onAction={() => {
+                                  hundleDulicateAction(job.id);
+                                }}
+                              />
+                              <button className={Classes.publish}>
+                                Publish
+                              </button>
+                              <ActionsButton
+                                action="Edit"
+                                status="draft"
+                                onAction={() => {
+                                  hundleEditAction(job.id);
+                                }}
+                              />
+                              <ActionsButton
+                                action={"Delete"}
+                                status="draft"
+                                onAction={() => {
+                                  hundleDeleteAction(job.id);
+                                }}
+                              />
+                            </div>
+                          )}
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
           </div>
         )}
       </main>

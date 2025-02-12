@@ -62,8 +62,7 @@ const CompanyProfileSection = () => {
         <Company />
         <h1>Company Profile</h1>
         <p>
-          Provide accurate information about your company
-          <br />
+          Provide accurate information about your company <br />
           to make yourself discoverable.
         </p>
       </header>
@@ -161,6 +160,7 @@ const CompanyProfileSection = () => {
               </div>
             </div>
           </div>
+
           <div className={Classes.actionButton}>
             <Button className="primary">Update profile</Button>
           </div>

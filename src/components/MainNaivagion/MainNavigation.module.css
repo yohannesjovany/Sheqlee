@@ -127,10 +127,7 @@ a.activeNav::after {
   .container {
     flex-grow: 1;
   }
-<<<<<<< HEAD
-=======
   .postjob {
     display: none;
   }
->>>>>>> master
 }

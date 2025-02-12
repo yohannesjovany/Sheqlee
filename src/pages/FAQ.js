@@ -1,3 +1,5 @@
+import Classes from "./FAQ.module.css";
+
 import CallForAction from "../components/callForAction/CallForAction";
 import FAQSection from "../components/FAQ/FAQSection";
 import PageContex from "../components/UI/PageContext";
@@ -11,12 +13,14 @@ const FAQ = () => {
     <>
       <PageContex path={["FAQ"]} />
       <FAQSection />
-      <Pagination
-        totalItems={139}
-        itemsPerPage={3}
-        currentPage={10}
-        onPageChange={handlePageChange}
-      />
+      <div className={Classes["faq-container"]}>
+        <Pagination
+          totalItems={139}
+          itemsPerPage={3}
+          currentPage={10}
+          onPageChange={handlePageChange}
+        />
+      </div>
       <CallForAction />
     </>
   );

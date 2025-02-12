@@ -120,3 +120,55 @@ span.required {
   background-color: var(--light-gray-color);
   margin-bottom: 0.88rem;
 }
+@media (max-width: 56rem) {
+  .header h1 {
+    font-size: 1.875rem;
+  }
+  .header svg {
+    height: 3.125rem;
+    width: 3.125rem;
+  }
+  .header {
+    margin-top: 3.125rem;
+    margin-bottom: 3.325rem;
+  }
+  .mainSection {
+    width: 90%;
+  }
+  .mainContainer {
+    grid-template-columns: 1fr;
+  }
+  .acountDeletion header h1 {
+    font-size: 1.6rem;
+  }
+  .actoins button {
+    font-size: 1.25rem;
+    padding: 0rem 1.25rem;
+    border-radius: 0.675rem;
+    height: 3.125rem;
+  }
+  .header br {
+    display: none;
+  }
+  .row p {
+    font-size: 0.72rem;
+  }
+  .acountDeletion main p {
+    font-size: 0.8rem;
+  }
+  .acountDeletion main button {
+    font-size: 1.25rem;
+    padding: 0rem 1.25rem;
+    border-radius: 0.675rem;
+    height: 3.125rem;
+  }
+  .line {
+    margin-top: 1.6rem;
+  }
+  .lineSeparator {
+    padding-top: 2rem;
+  }
+  .lineSeparator div {
+    margin-bottom: 0.6rem;
+  }
+}
