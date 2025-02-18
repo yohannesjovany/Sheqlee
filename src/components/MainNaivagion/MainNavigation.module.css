@@ -6,8 +6,11 @@
   max-height: 7.12rem;
   padding: 2.1rem 3rem 2.1rem 4rem;
   z-index: 10;
+  transition: transform 0.3s ease-in-out;
 }
-
+.hidden {
+  transform: translateY(-100%);
+}
 .container {
   display: flex;
   background-color: inherit;

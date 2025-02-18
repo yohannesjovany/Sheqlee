@@ -1,6 +1,6 @@
+import { useState, useEffect } from "react";
 import Classes from "./JobDetailsSection.module.css";
 import { ReactComponent as UiUX } from "../../assets/icons/ui_ux_design.svg";
-
 import { ReactComponent as Calendar } from "../../assets/icons/calendar.svg";
 import { ReactComponent as Clock } from "../../assets/icons/Icon feather-clock.svg";
 import { ReactComponent as Company } from "../../assets/icons/company.svg";
@@ -9,75 +9,15 @@ import { ReactComponent as Linkedin } from "../../assets/icons/linkedin-logo.svg
 import { ReactComponent as Telegram } from "../../assets/icons/telegram.svg";
 import { ReactComponent as Twitter } from "../../assets/icons/twitter.svg";
 import { ReactComponent as AawesomeTags } from "../../assets/icons/Icon awesome-tags.svg";
-
 import Button from "../UI/Button";
 import ReadMore from "../UI/ReadMore";
-import { useEffect, useState } from "react";
-
-const action = (
-  <div className={Classes.action}>
-    <Button className="primary">Apply now</Button>
-    <p>
-      Please mention <b>Sheqlee</b> when you apply.
-    </p>
-  </div>
-);
-
-const listOfTags = ["Java", "User Interface", "Python", "C++", "Flutter"];
-
-const formatedText = (
-  <div>
-    <p>
-      We need one to Designs and maintains prospect websites including graphic
-      development, regular site updates, usability reviews and traffic
-      reporting.
-    </p>
-    <h1>QUALIFICATIONS</h1>
-    <p>
-      - Bachelor's degree with major in graphic design or a related field from
-      an accredited college or university preferred.
-    </p>
-    <h1>Experience</h1>
-    <p>
-      - Four (4) years of graphic/web design experience or equivalent
-      combination of education and experience required.
-    </p>
-    <h1>Skills & Knowledge</h1>{" "}
-    <p>
-      - Excellent knowledge of graphic and photo software - Good knowledge of
-      web technology - Excellent oral and written communication, including
-      presentation skills - PC literate, including Microsoft Office products -
-      Strong organizational skills - Excellent interpersonal skills - Ability to
-      work on multiple projects and meet deadlines - Ability to work in a team
-      environment - Ability to meet or exceed Performance Competencies
-    </p>
-    <h1> Description</h1>{" "}
-    <p>
-      For a career path that is both challenging and rewarding, join Sedgwick’s
-      talented team of 27,000 colleagues around the globe. Sedgwick is a leading
-      provider of technology-enabled risk, benefits and integrated business
-      solutions. Taking care of people is at the heart of everything we do.
-      Millions of people and organizations count on Sedgwick each year to take
-      care of their needs when they face a major life event or something
-      unexpected happens. Whether they have a workplace injury, suffer property
-      or financial loss or damage from a natural or manmade disaster, are
-      involved in an auto or other type of accident, or need time away from work
-      for the birth of a child or another medical situation, we are here to
-      provide compassionate care and expert guidance. Our clients depend on our
-      talented colleagues to take care of their most valuable assets—their
-      employees, their customers and their property. At Sedgwick, caring
-      counts®. Join our team of creative and caring people of all backgrounds,
-      and help us make a difference in the lives of others.
-      <br /> PRIMARY PURPOSE: To design and produce presentations, technical and
-      conceptual web graphics, interactive marketing materials, and print
-      materials.
-    </p>
-  </div>
-);
-///the qualifications should befetched here
 
 const JobDetailsSection = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 896);
+  const [jobDetails, setJobDetails] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  // Handle resizing for mobile responsiveness
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 896);
@@ -87,50 +27,103 @@ const JobDetailsSection = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // Fetch job details from the backend
+  useEffect(() => {
+    const fetchJobDetails = async () => {
+      try {
+        const response = await fetch("/api/jobdetails"); // Replace with your actual endpoint
+        if (!response.ok) {
+          throw new Error(`Error: ${response.status}`);
+        }
+        const data = await response.json();
+        setJobDetails(data);
+      } catch (error) {
+        console.error("Error fetching job details:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchJobDetails();
+  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  // Destructure job details with fallback values
+  const {
+    title = "Graphic Design Specialist",
+    company = "KeperLab",
+    timeAgo = "30mins ago",
+    jobType = "Full-Time",
+    level = "Intermediate",
+    salary = "$15/hr",
+    description = "We need someone to design and maintain prospect websites...",
+    qualifications = "Bachelor's degree in graphic design or related field...",
+    tags = ["Java", "User Interface", "Python", "C++", "Flutter"],
+  } = jobDetails || {};
+
+  const action = (
+    <div className={Classes.action}>
+      <Button className="primary">Apply now</Button>
+      <p>
+        Please mention <b>{company}</b> when you apply.
+      </p>
+    </div>
+  );
+
+  const formattedText = (
+    <div>
+      <p>{description}</p>
+      <h1>QUALIFICATIONS</h1>
+      <p>{qualifications}</p>
+    </div>
+  );
+
   return (
-    <secttion>
+    <section>
       <header className={Classes.header}>
         <div className={Classes.jobTitle}>
           <UiUX />
-          <h1>Graphic Design Specialist</h1>
+          <h1>{title}</h1>
         </div>
         <div className={Classes.details}>
           <p>
             <Calendar />
-            30mins ago
+            {timeAgo}
           </p>
           <p>
             <Company />
-            KeperLab
+            {company}
           </p>
           <p>
             <Clock />
-            Full-Time
+            {jobType}
           </p>
           <p>
             <Calendar />
-            Intermediate
+            {level}
           </p>
           <p>
             <Company />
-            $15/hr
+            {salary}
           </p>
         </div>
-
         {action}
       </header>
       {isMobile ? (
-        <ReadMore formattedText={formatedText} />
+        <ReadMore formattedText={formattedText} />
       ) : (
-        <main className={Classes.mainContainer}>{formatedText}</main>
+        <main className={Classes.mainContainer}>{formattedText}</main>
       )}
       <footer className={Classes.footer}>
         <div className={Classes.details}>
           <div className={Classes.tagsIndicator}>
             <AawesomeTags />
           </div>
-          {listOfTags.map((tag) => (
-            <p>{tag}</p>
+          {tags.map((tag, index) => (
+            <p key={index}>{tag}</p>
           ))}
         </div>
         {action}
@@ -144,7 +137,7 @@ const JobDetailsSection = () => {
           </div>
         </div>
       </footer>
-    </secttion>
+    </section>
   );
 };
 

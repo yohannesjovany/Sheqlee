@@ -47,6 +47,15 @@ const CategoriesList = () => {
       </header>
       <main className={Classes.mainTagContainer}>
         {catItems.map((Item) => (
+          //   <CategoryItem
+          //   key={item.id}
+          //   id={item.id}
+          //   slug={item.slug}
+          //   name={item.name}
+          //   jobs={item.jobs}
+          //   subscribers={item.subscribers}
+          //   Logo={item.Logo}
+          // />
           <CategoryItem
             id="cat1"
             name="Web Frontend"

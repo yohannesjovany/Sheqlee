@@ -9,18 +9,35 @@ import { ReactComponent as GruopThree } from "../../assets/icons/Group 3.svg";
 import Button from "../UI/Button";
 import LoggedUserNav from "./LoggedUserNav";
 import Hamburger from "./Hamburger";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const MainNavigation = (props) => {
   const auth = useSelector((state) => state.auth);
   const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const prevScrollY = useRef(window.pageYOffset);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.pageYOffset;
+      if (currentScrollY > prevScrollY.current) {
+        setIsVisible(false);
+      } else {
+        setIsVisible(true);
+      }
+      prevScrollY.current = currentScrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const toggleHumburger = () => {
     setIsHamburgerOpen(!isHamburgerOpen);
   };
 
   return (
-    <header className={Classes.header}>
+    <header className={`${Classes.header} ${!isVisible ? Classes.hidden : ""}`}>
       <Hamburger isOpen={isHamburgerOpen} onClose={toggleHumburger} />
       <div className={Classes.container}>
         <div className={Classes.logo}>
