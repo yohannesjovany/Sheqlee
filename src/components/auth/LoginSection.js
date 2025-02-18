@@ -15,7 +15,6 @@ const LoginSection = () => {
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
- 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -31,29 +30,37 @@ const LoginSection = () => {
       const data = await response.json();
 
       if (response.ok) {
-        dispatch(authActions.loginSuccess({ user: data.user, token: data.token })); // Save token to Redux and localStorage
+        localStorage.setItem("token", data.token);
+        dispatch(
+          authActions.loginSuccess({ user: data.user, token: data.token })
+        ); // Save token to Redux and localStorage
         navigate("/"); // Redirect to home page
       } else {
-        dispatch(authActions.loginFailure({err:data.message || "Login failed"}));
+        dispatch(
+          authActions.loginFailure({ err: data.message || "Login failed" })
+        );
       }
     } catch (err) {
       //dispatch(authActions.loginFailure({err:"An error occurred. Please try again."}));
-      dispatch(authActions.loginSuccess({ user:{
+      localStorage.setItem("token", "for testing");
+      dispatch(
+        authActions.loginSuccess({
+          user: {
             _id: "user1",
             role: "company",
             fullname: "Miruts Yifter", // Full Name
             email: "miruts@gmail.cm", // Must be unique
           },
-          token: "akdwoufanosdiufal;kwnmdifuaqwnjefojqowevjq",})); 
-
+          token: "akdwoufanosdiufal;kwnmdifuaqwnjefojqowevjq",
+        })
+      );
     }
-    navigate("/")
+    navigate("/");
   };
 
-  
   return (
     <section className={Classes.mainSection}>
-      <form onSubmit= {handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <header className={Classes.header}>
           <Enter />
           <h1>Login to your account</h1>

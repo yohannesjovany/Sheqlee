@@ -21,7 +21,7 @@ const initialState = {
     fullname: undefined, // Full Name
     email: undefined, // Must be unique
   },
-  token: undefined,
+  token: localStorage.getItem("token") || null,
   status: "guest", // 'guest' | 'loading' | 'succeeded' | 'failed'
   error: null,
 };

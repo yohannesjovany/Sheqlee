@@ -1,11 +1,12 @@
+import { useState, useEffect } from "react";
 import Pagination from "../UI/Pagination";
 import Classes from "./FAQSection.module.css";
 import { ReactComponent as Question } from "../../assets/icons/question.svg";
 import { ReactComponent as Downarrow } from "../../assets/icons/Icon material-keyboard-arrow-downT.svg";
 import { ReactComponent as Uparrwow } from "../../assets/icons/Icon material-keyboard-arrow-up.svg";
-import { useState } from "react";
 
-const faqItems = [
+// Default FAQ items as initial state (fallback)
+const initialFaqItems = [
   {
     id: "faq1",
     question: "How do I post a job vacancy on Sheqlee?",
@@ -30,46 +31,68 @@ const faqItems = [
     answer:
       "In order to post a job vacancy on Sheqlee, you must first create an account as a company. Company account creation is done by just filling out a few basic information about your company. Then you can easily post a job vacancy by providing the details of the job post. It takes less than 15mins to post a job.",
   },
-  {
-    id: "faq5",
-    question:
-      "How do I post a job vacancy How do I post a job vacancy on Sheqlee?How do I post a job vacancy on Sheqlee? job vacancy on Sheqlee?",
-    answer:
-      "In order to post a job vacancy on Sheqlee, you must first create an account as a company. Company account creation is done by just filling out a few basic information about your company. Then you can easily post a job vacancy by providing the details of the job post. It takes less than 15mins to post a job.",
-  },
 ];
 
-const Accordion = (props) => {
+const Accordion = ({ id, question, answer, accordionID, onClick }) => {
   return (
-    <div className={Classes.accordionItem} onClick={props.onClick}>
-      <header
-        className={props.id === props.accordionID ? Classes.act : Classes.inact}
-      >
-        <p>{props.question}</p>
-        {props.id === props.accordionID ? <Uparrwow /> : <Downarrow />}
+    <div className={Classes.accordionItem} onClick={onClick}>
+      <header className={id === accordionID ? Classes.act : Classes.inact}>
+        <p>{question}</p>
+        {id === accordionID ? <Uparrwow /> : <Downarrow />}
       </header>
       <main
         className={
-          props.id === props.accordionID
+          id === accordionID
             ? Classes.activeAccordon
             : Classes.inactiveAccordion
         }
       >
-        {props.answer}
+        {answer}
       </main>
     </div>
   );
 };
 
 const FAQSection = () => {
-  const [isActive, setisActive] = useState(true);
-  const [accordionID, setAccordionID] = useState("faq1");
+  const [faqItems, setFaqItems] = useState(initialFaqItems);
+  const [loading, setLoading] = useState(false);
+  const [accordionID, setAccordionID] = useState(initialFaqItems[0].id);
+  const [faqType, setFaqType] = useState("freelancers"); // "freelancers" or "companies"
 
-  const hundleAccordionClick = (id) => {
+  // Fetch FAQ items from backend based on faqType
+  const fetchFaqItems = async () => {
+    setLoading(true);
+    try {
+      const response = await fetch(`/api/faq?type=${faqType}`);
+      if (!response.ok) {
+        throw new Error(`Error: ${response.status}`);
+      }
+      const data = await response.json();
+      // Expect backend to return { faqItems: [...] }
+      setFaqItems(data.faqItems || initialFaqItems);
+      // Reset accordion selection with new data
+      if (data.faqItems && data.faqItems.length > 0) {
+        setAccordionID(data.faqItems[0].id);
+      }
+    } catch (error) {
+      console.error("Error fetching FAQ items:", error);
+      // fallback to defaults on error
+      setFaqItems(initialFaqItems);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchFaqItems();
+  }, [faqType]);
+
+  const handleAccordionClick = (id) => {
     setAccordionID(id);
   };
-  const hundleClick = () => {
-    setisActive(!isActive);
+
+  const handleFaqTypeChange = (type) => {
+    setFaqType(type);
   };
 
   return (
@@ -86,14 +109,14 @@ const FAQSection = () => {
         <div>
           <div className={Classes.toggleAction}>
             <button
-              onClick={hundleClick}
-              className={isActive ? Classes.active : undefined}
+              onClick={() => handleFaqTypeChange("freelancers")}
+              className={faqType === "freelancers" ? Classes.active : undefined}
             >
               Freelancers
             </button>
             <button
-              onClick={hundleClick}
-              className={!isActive ? Classes.active : undefined}
+              onClick={() => handleFaqTypeChange("companies")}
+              className={faqType === "companies" ? Classes.active : undefined}
             >
               Companies
             </button>
@@ -101,22 +124,25 @@ const FAQSection = () => {
         </div>
       </header>
       <main>
-        <div className={Classes.accordion}>
-          {faqItems.map((faqItem) => (
-            <Accordion
-              key={faqItem.id}
-              id={faqItem.id}
-              question={faqItem.question}
-              answer={faqItem.answer}
-              accordionID={accordionID}
-              onClick={() => {
-                hundleAccordionClick(faqItem.id);
-              }}
-            />
-          ))}
-        </div>
+        {loading ? (
+          <p>Loading FAQs...</p>
+        ) : (
+          <div className={Classes.accordion}>
+            {faqItems.map((faqItem) => (
+              <Accordion
+                key={faqItem.id}
+                id={faqItem.id}
+                question={faqItem.question}
+                answer={faqItem.answer}
+                accordionID={accordionID}
+                onClick={() => handleAccordionClick(faqItem.id)}
+              />
+            ))}
+          </div>
+        )}
       </main>
     </section>
   );
 };
+
 export default FAQSection;

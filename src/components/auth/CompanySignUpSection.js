@@ -37,6 +37,7 @@ const CompanySignUpSection = () => {
       const data = await response.json();
 
       if (response.ok) {
+        localStorage.setItem("token", data.token);
         dispatch(
           authActions.loginSuccess({ user: data.user, token: data.token })
         ); // Save token to Redux and localStorage
@@ -48,6 +49,7 @@ const CompanySignUpSection = () => {
       }
     } catch (err) {
       //dispatch(authActions.loginFailure({err:"An error occurred. Please try again."}));
+      localStorage.setItem("token", "for testing");
       dispatch(
         authActions.loginSuccess({
           user: {

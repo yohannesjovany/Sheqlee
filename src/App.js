@@ -31,6 +31,10 @@ import EditProfile from "./pages/EditProfile";
 import { VacancyDataProvider } from "./store/VacancyContext";
 import Dashboard from "./pages/Dashboard";
 import ProfilePreview from "./pages/ProfilePreview";
+import PrivateRoute from "./components/auth/PrivateRoute";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { authActions } from "./store/auth";
 
 const router = createBrowserRouter([
   {
@@ -76,18 +80,54 @@ const router = createBrowserRouter([
       { path: "/privacypolicy", element: <PrivacyPolicy /> },
       { path: "/cookiepolicy", element: <CookiePolicy /> },
       { path: "/termsandconditions", element: <TermsAndConditions /> },
-      { path: "/dashboard", element: <Dashboard /> },
-      { path: "/companyprofile", element: <CompanyProfle /> },
-      { path: "/accountsetting", element: <AccountSetting /> },
-      { path: "/profilepreview", element: <ProfilePreview /> },
+      {
+        path: "/dashboard",
+        element: (
+          <PrivateRoute>
+            <Dashboard />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/companyprofile",
+        element: (
+          <PrivateRoute>
+            <CompanyProfle />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/accountsetting",
+        element: (
+          <PrivateRoute>
+            <AccountSetting />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/profilepreview",
+        element: (
+          <PrivateRoute>
+            <ProfilePreview />
+          </PrivateRoute>
+        ),
+      },
       {
         path: "/editprofile",
-        element: <EditProfile />,
+        element: (
+          <PrivateRoute>
+            <EditProfile />
+          </PrivateRoute>
+        ),
       },
 
       {
         path: "/addvacancy",
-        element: <AddVacancy />,
+        element: (
+          <PrivateRoute>
+            <AddVacancy />
+          </PrivateRoute>
+        ),
         children: [
           {
             index: true,
@@ -104,6 +144,47 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const token = localStorage.getItem("token");
+      if (token) {
+        // try {
+        //   const res = await fetch("/api/me", {
+        //     headers: {
+        //       "Content-Type": "application/json",
+        //       Authorization: `Bearer ${token}`,
+        //     },
+        //   });
+        //   if (!res.ok) {
+        //     throw new Error(`Error: ${res.status}`);
+        //   }
+        //   const data = await res.json();
+        //   if (data.user) {
+        //     dispatch(authActions.loginSuccess({ user: data.user, token }));
+        //   }
+        // } catch (err) {
+        //   console.error("Error fetching user data:", err);
+        //   localStorage.removeItem("token");
+        // }
+        dispatch(
+          authActions.loginSuccess({
+            user: {
+              _id: "user1",
+              role: "company",
+              fullname: "Miruts Yifter", // Full Name
+              email: "miruts@gmail.cm", // Must be unique
+            },
+            token: "akdwoufanosdiufal;kwnmdifuaqwnjefojqowevjq",
+          })
+        );
+      }
+    };
+
+    fetchUser();
+  }, [dispatch]);
+
   return (
     <VacancyDataProvider>
       <RouterProvider router={router} />

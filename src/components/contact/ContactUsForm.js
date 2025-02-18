@@ -17,8 +17,8 @@ const ContactUsForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Simulate an API call to login
-      const response = await fetch("/api/login", {
+      // Adjust the API endpoint to match the contact form functionality.
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ subject, email, message }),
@@ -27,15 +27,13 @@ const ContactUsForm = () => {
       const data = await response.json();
 
       if (response.ok) {
-        navigate("/"); // Redirect to home page
+        navigate("/"); // Redirect to home page on success.
       } else {
         console.log("error");
       }
     } catch (err) {
-      //dispatch(authActions.loginFailure({err:"An error occurred. Please try again."}));
       console.log("error");
     }
-    navigate("/");
   };
 
   return (
@@ -74,15 +72,16 @@ const ContactUsForm = () => {
             icon={<Email />}
           />
           <div className={Classes.inputGroup}>
-            <label for="body">Message</label>
+            <label htmlFor="body">Message</label>
             <textarea
               id="body"
               placeholder="Write your message down..."
               value={message}
               onChange={(e) => setMessage(e.target.value)}
+              maxLength={512}
             ></textarea>
-            <div class={Classes["char-counter"]} id="charCounter">
-              0/512
+            <div className={Classes["char-counter"]} id="charCounter">
+              {message.length}/512
             </div>
           </div>
           <div className={Classes.inputAction}>

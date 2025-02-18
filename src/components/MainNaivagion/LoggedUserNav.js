@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { useSelector,useDispatch } from "react-redux";
-import { NavLink,useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { NavLink, useNavigate } from "react-router-dom";
 
 import Classes from "./loggedUserNav.module.css";
 import { authActions } from "../../store/auth";
@@ -17,12 +17,12 @@ const DropDownModal = (props) => {
   const dispatch = useDispatch();
   const auth = useSelector((state) => state.auth);
 
-
-  const hundleLogout=()=>{
+  const hundleLogout = () => {
     //remove token from localstorage
-    dispatch(authActions.logout())
-    navigate("/")
-  }
+    localStorage.removeItem("token");
+    dispatch(authActions.logout());
+    navigate("/");
+  };
 
   useEffect(() => {
     const scrollBarWidth =

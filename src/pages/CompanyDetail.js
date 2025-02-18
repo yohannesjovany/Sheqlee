@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import CallForAction from "../components/callForAction/CallForAction";
 import CompanySpecificJobs from "../components/companies/CompanySpecificJobs";
 import PageContex from "../components/UI/PageContext";
-
 const CompanyDetail = () => {
   const { slug } = useParams(); // e.g. "hotjar"
   const [companyDetails, setCompanyDetails] = useState(null);
