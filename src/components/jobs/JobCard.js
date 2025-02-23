@@ -18,11 +18,16 @@ const JobCard = (props) => {
     <div className={Classes.card} onClick={hundleClick}>
       <div>
         <header className={props.loading ? Classes.shimmer : undefined}>
+          <div class={Classes.overlay}></div>
+
           {!props.noIcon && <img src={logo} alt="catagory icon" />}
 
           <span>Product Designer</span>
         </header>
         <main className={props.loading ? Classes.shimmer : undefined}>
+          <div className={Classes.overlay}></div>
+          <div className={Classes.overla}></div>
+
           <p>
             KeplerLab is a VC-backed, stealth, application-only platform for
             senior product designers to team up with the best companies on their
@@ -34,25 +39,38 @@ const JobCard = (props) => {
         className={`${Classes.details} ${props.loading ? Classes.shimmer : ""}`}
       >
         <p>
+          <span className={Classes.imgOverlay}></span>
+          <span className={Classes.infoOverlay}></span>
           <img src={calendar} alt="calendar icon" />
           <span>30mins ago</span>
         </p>
         <p>
+          <span className={Classes.imgOverlay}></span>
+          <span className={Classes.infoOverlay}></span>
           <img src={company} alt="company icon" />
           <span>Entrust Datacard</span>
         </p>
         <p>
+          <span className={Classes.imgOverlay}></span>
+          <span className={Classes.infoOverlay}></span>
           <img src={clock} alt="clock icon" />
           <span>Full-Time</span>
         </p>
         <p>
+          <span className={Classes.imgOverlay}></span>
+          <span className={Classes.infoOverlay}></span>
+
           <img src={calendar} alt="calander icon" />
           <span>Intermediate</span>
         </p>
         <p>
+          <span className={Classes.imgOverlay}></span>
+          <span className={Classes.infoOverlay}></span>
+
           <img src={company} alt="company icon" />
           <span>$15/hr</span>
         </p>
+
         <button onClick={hundleClick}>
           <span>Apply</span>
         </button>

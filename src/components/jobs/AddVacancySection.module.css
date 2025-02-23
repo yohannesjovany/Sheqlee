@@ -53,6 +53,7 @@
   padding-top: 3.32rem;
 }
 .spanTwo {
+  position: relative;
   grid-column: span 2;
 }
 
@@ -79,6 +80,7 @@
   width: 100%;
 }
 .inputGroup textarea {
+  position: relative;
   height: 7.12rem;
   resize: none;
 }
@@ -179,7 +181,12 @@ span.required {
   width: 1.48rem;
   border-radius: 0.2rem;
 }
-
+.char-counter {
+  position: absolute;
+  bottom: 2.64rem;
+  right: 1rem;
+  font-size: 12px;
+}
 .action {
   display: flex;
   align-items: center;
@@ -200,4 +207,34 @@ span.required {
   height: 0.1rem;
   background-color: var(--light-gray-color);
   margin-bottom: 0.88rem;
+}
+
+/* Add this at the bottom of your AddVacancySection.module.css */
+.skillsChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+.skillChip {
+  background-color: var(--light-gray-color);
+  padding: 0.4rem 0.8rem;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+}
+.removeChip {
+  margin-left: 0.5rem;
+  cursor: pointer;
+  color: red;
+  font-weight: 600;
+}
+.privacy .show {
+  position: absolute;
+  width: 1.2rem;
+  pointer-events: none;
+}
+.privacy .hidden {
+  display: none;
 }
