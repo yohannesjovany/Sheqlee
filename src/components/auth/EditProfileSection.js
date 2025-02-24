@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import Classes from "./EditProfileSection.module.css";
 
@@ -13,6 +13,7 @@ import { ReactComponent as Delete } from "../../assets/icons/Icon material-delet
 import SkillButtons from "../UI/SkillButtons";
 import AddSkillModal from "./AddSkillModal";
 import AddLinkModal from "./AddLinkModal";
+import { useNavigate } from "react-router-dom";
 
 const listOfSkills = [
   { skill: "Java", level: 1 },
@@ -27,11 +28,76 @@ const listOfProfiles = [
   },
 ];
 const EditProfileSection = () => {
+  const navigate = useNavigate();
+
+  //file states
   const [image, setImage] = useState();
   const [selectedFile, setSelectedFile] = useState(null);
   const [fileName, setFileName] = useState("");
+  const [cvUrl, setCvUrl] = useState("");
+
+  //form state
+  const [name, setName] = useState();
+  const [title, setTitle] = useState();
+  const [intro, setIntro] = useState();
+  const [skills, setSkills] = useState(listOfSkills);
+  const [profiles, setProfiles] = useState(listOfProfiles);
+
+  //modal state
   const [isLinkModalOpen, setIsLinkModalOpen] = useState(false);
   const [isSkillModalOpen, setIsSkillModalOpen] = useState(false);
+
+  useEffect(() => {
+    const fetchProfile = async () => {
+      try {
+        const response = await fetch("/api/profile", {
+          method: "GET",
+          headers: { "Content-Type": "application/json" },
+        });
+        if (!response.ok) {
+          throw new Error("Failed to fetch profile");
+        }
+        const data = await response.json();
+        setName(data.name || "");
+        setTitle(data.title || "");
+        setIntro(data.intro || "");
+        setSkills(data.skills || listOfSkills);
+        setProfiles(data.profiles || listOfProfiles);
+        setImage(data.image || null);
+        setCvUrl(data.cv || "");
+        setFileName(data.cv ? data.cv.split("/").pop() : "");
+      } catch (err) {
+        console.error("Fetch profile failed, using dummy data:", err);
+      }
+    };
+    fetchProfile();
+  }, []);
+
+  const handleIntroChange = (value) => {
+    setIntro(value);
+  };
+
+  const handleAddSkill = (skill) => {
+    const exists = skills.find(
+      (s) => s.skill.toLowerCase() === skill.skill.toLowerCase()
+    );
+    if (exists) {
+      alert("This skill already exists");
+      return;
+    }
+    setSkills((prevState) => [...prevState, skill]);
+  };
+
+  const handleAddLink = (link) => {
+    const exists = profiles.find(
+      (p) => p.name.toLowerCase() === link.name.toLowerCase()
+    );
+    if (exists) {
+      alert("This profile already exists");
+      return;
+    }
+    setProfiles((prevState) => [...prevState, link]);
+  };
 
   const handleSkillModalClose = () => {
     setIsSkillModalOpen(false);
@@ -60,11 +126,71 @@ const EditProfileSection = () => {
       reader.readAsDataURL(file);
     }
   };
+
+  const handleChangeSkillLevel = (skillName, newLevel) => {
+    setSkills((prevSkills) =>
+      prevSkills.map((item) =>
+        item.skill === skillName ? { ...item, level: newLevel } : item
+      )
+    );
+  };
+
+  const handleDeleteSkill = (skillToDelete) => {
+    setSkills((prevSkills) =>
+      prevSkills.filter((skill) => skill.skill !== skillToDelete)
+    );
+  };
+
+  const handleDeleteProfile = (profileNameToDelete) => {
+    setProfiles((prevProfiles) =>
+      prevProfiles.filter((profile) => profile.name !== profileNameToDelete)
+    );
+  };
+
+  const handleUpdateProfile = async (event) => {
+    event.preventDefault();
+    try {
+      const formData = new FormData();
+      formData.append("name", name);
+      formData.append("title", title);
+      formData.append("intro", intro);
+      formData.append("skills", JSON.stringify(skills));
+      formData.append("profiles", JSON.stringify(profiles));
+
+      formData.append("image", image || "");
+
+      if (selectedFile) {
+        formData.append("cv", selectedFile);
+      } else {
+        formData.append("cv", cvUrl || "");
+      }
+
+      const response = await fetch("/api/profile", {
+        method: "PUT",
+        body: formData,
+      });
+      if (!response.ok) {
+        throw new Error("Failed to update profile");
+      }
+      alert("Profile updated successfully!");
+      navigate("/profilepreview");
+    } catch (error) {
+      navigate("/profilepreview");
+      console.error("Error updating profile:", error);
+      alert("Error updating profile. Please try again.");
+    }
+  };
+
   return (
     <section className={Classes.mainSection}>
-      <AddLinkModal isOpen={isLinkModalOpen} onClose={handleLinkModalClose} />
+      <AddLinkModal
+        isOpen={isLinkModalOpen}
+        onAddLink={handleAddLink}
+        onClose={handleLinkModalClose}
+      />
       <AddSkillModal
         isOpen={isSkillModalOpen}
+        onAddSkill={handleAddSkill}
         onClose={handleSkillModalClose}
       />
       <header className={Classes.header}>
@@ -80,7 +206,7 @@ const EditProfileSection = () => {
         <form>
           <div className={Classes.row}>
             <div className={Classes.inputGroup}>
-              <label for="name">
+              <label htmlFor="name">
                 Full name
                 <span className={Classes.required}>*</span>
               </label>
@@ -90,7 +216,7 @@ const EditProfileSection = () => {
               </div>
             </div>
             <div className={Classes.inputGroup}>
-              <label for="title">
+              <label htmlFor="title">
                 Title <span className={Classes.required}>*</span>
               </label>
               <div className={Classes.selectInput}>
@@ -109,7 +235,7 @@ const EditProfileSection = () => {
                   className={!image ? Classes.placeholder : undefined}
                 />
               </div>
-              <label for="image-upload">
+              <label htmlFor="image-upload">
                 <input
                   type="file"
                   id="image-upload"
@@ -125,12 +251,14 @@ const EditProfileSection = () => {
             <label for="intro">Introduce yourself</label>
             <FormatedInput
               id="intro"
+              value={intro}
               inplaceholder="Say something appealing about yourself..."
+              onChange={handleIntroChange}
             />
           </div>
           <div className={Classes.skillandProfile}>
             <div className={`${Classes.inputGroup} `}>
-              <label for="skills">
+              <label htmlFor="skills">
                 Your skills
                 <p>
                   Adding your skills will help us make job suggestions more
@@ -146,14 +274,25 @@ const EditProfileSection = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {listOfSkills.map((skill) => (
-                    <tr>
+                  {skills.map((skill) => (
+                    <tr key={skill.skill}>
                       <td>{skill.skill}</td>
                       <td>
-                        <SkillButtons level={skill.level} />
+                        <SkillButtons
+                          level={skill.level}
+                          onChangeLevel={(newLevel) =>
+                            handleChangeSkillLevel(skill.skill, newLevel)
+                          }
+                        />
                       </td>
                       <td>
-                        <button className={Classes.actionsButton}>
+                        <button
+                          className={Classes.actionsButton}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            handleDeleteSkill(skill.skill);
+                          }}
+                        >
                           <Delete />
                         </button>
                       </td>
@@ -191,12 +330,18 @@ const EditProfileSection = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {listOfProfiles.map((profile) => (
+                  {profiles.map((profile) => (
                     <tr>
                       <td>{profile.name}</td>
                       <td>{profile.url}</td>
                       <td>
-                        <button className={Classes.actionsButton}>
+                        <button
+                          className={Classes.actionsButton}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            handleDeleteProfile(profile.name);
+                          }}
+                        >
                           <Delete />
                         </button>
                       </td>
@@ -248,7 +393,9 @@ const EditProfileSection = () => {
           </div>
 
           <div className={Classes.actionButton}>
-            <Button className="primary">Update profile</Button>
+            <Button className="primary" onClick={handleUpdateProfile}>
+              Update profile
+            </Button>
           </div>
         </form>
         <div className={Classes.lineSeparator}>

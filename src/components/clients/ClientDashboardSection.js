@@ -32,6 +32,96 @@ const listOfJobs = [
 ];
 
 const ClientDashboardSection = () => {
+  // const auth = useSelector((state) => state.auth);
+
+  // const [jobs, setJobs] = useState([]);
+
+  // // Fetch jobs from backend on component mount
+  // useEffect(() => {
+  //   const fetchJobs = async () => {
+  //     try {
+  //       const response = await fetch("/api/jobs", {
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //           Authorization: `Bearer ${auth.token}`,
+  //         },
+  //       });
+  //       if (!response.ok) {
+  //         throw new Error("Failed to fetch jobs");
+  //       }
+  //       const data = await response.json();
+  //       setJobs(data);
+  //     } catch (error) {
+  //       console.error("Error fetching jobs:", error);
+  //     }
+  //   };
+  //   fetchJobs();
+  // }, [auth.token]);
+
+  // const hundleChangestatus = async (id, status) => {
+  //   try {
+  //     // Update the job status in the backend
+  //     const response = await fetch(`/api/jobs/${id}/status`, {
+  //       method: "PUT",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         Authorization: `Bearer ${auth.token}`,
+  //       },
+  //       body: JSON.stringify({ status }),
+  //     });
+  //     if (!response.ok) {
+  //       throw new Error("Failed to update status");
+  //     }
+  //     // Update the local state: find the job and update its status
+  //     setJobs((prevJobs) =>
+  //       prevJobs.map((job) => (job.id === id ? { ...job, status } : job))
+  //     );
+  //   } catch (error) {
+  //     console.error("Error updating status:", error);
+  //   }
+  // };
+
+  // const hundleDuplicateAction = async (id) => {
+  //   try {
+  //     // Call backend to duplicate job
+  //     const response = await fetch(`/api/jobs/duplicate/${id}`, {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         Authorization: `Bearer ${auth.token}`,
+  //       },
+  //     });
+  //     if (!response.ok) {
+  //       throw new Error("Failed to duplicate job");
+  //     }
+  //     const duplicatedJob = await response.json();
+  //     // Update local state
+  //     setJobs((prevJobs) => [...prevJobs, duplicatedJob]);
+  //   } catch (error) {
+  //     console.error("Error duplicating job:", error);
+  //   }
+  // };
+
+  // const hundleDeleteAction = async (id) => {
+  //   try {
+  //     // Call backend API to delete the job
+  //     const response = await fetch(`/api/jobs/${id}`, {
+  //       method: "DELETE",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         Authorization: `Bearer ${auth.token}`,
+  //       },
+  //     });
+  //     if (!response.ok) {
+  //       throw new Error("Failed to delete job");
+  //     }
+  //     // Remove the job from local state
+  //     setJobs((prevJobs) => prevJobs.filter((job) => job.id !== id));
+  //   } catch (error) {
+  //     console.error("Error deleting job:", error);
+  //   }
+  // };
+
   const postedaJob = true;
   const hundleChangestatus = (id, status) => {
     const job = listOfJobs.filter((job) => job.id === id);

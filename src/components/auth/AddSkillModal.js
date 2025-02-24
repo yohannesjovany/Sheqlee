@@ -38,13 +38,21 @@ const AddSkillModal = (props) => {
                 Skill level
               </option>
               {Levels.map((Level) => (
-                <option>{Level}</option>
+                <option value={Levels.indexOf(Level) + 1}>{Level}</option>
               ))}
             </select>
             <Downkey />
           </div>
         </div>
-        <button disabled={!isButtonEnabled}>Add skill</button>
+        <button
+          disabled={!isButtonEnabled}
+          onClick={() => {
+            props.onAddSkill(formValues);
+            props.onClose();
+          }}
+        >
+          Add skill
+        </button>
       </div>
     </Modal>
   );

@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Classes from "./CompanyProfileSection.module.css";
 import { ReactComponent as Company } from "../../assets/icons/company.svg";
 import { ReactComponent as Edit } from "../../assets/icons/Icon material-edit.svg";
@@ -5,45 +7,71 @@ import { ReactComponent as Downkey } from "../../assets/icons/Icon material-keyb
 import placeholderImage from "../../assets/icons/settings - alt2 (3).svg";
 import FormatedInput from "../UI/FromatedInput";
 import Button from "../UI/Button";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 const CompanyProfileSection = () => {
   const [image, setImage] = useState();
   const [formImage, setFormImage] = useState();
-
-  const [name, setName] = useState();
-  const [size, setSize] = useState();
-  const [hq, setHq] = useState();
-  const [domain, setDomain] = useState();
-  const [description, setDescription] = useState();
+  const [name, setName] = useState("");
+  const [size, setSize] = useState("");
+  const [hq, setHq] = useState("");
+  const [domain, setDomain] = useState("");
+  const [description, setDescription] = useState("");
   const navigate = useNavigate();
+
+  // Fetch initial company profile data on mount
+  useEffect(() => {
+    const fetchCompanyProfile = async () => {
+      try {
+        const response = await fetch("/api/company-profile", {
+          method: "GET",
+          headers: { "Content-Type": "application/json" },
+        });
+        if (!response.ok) {
+          throw new Error("Failed to fetch company profile");
+        }
+        const data = await response.json();
+        // Set initial values from the fetched data
+        setName(data.name || "");
+        setSize(data.size || "");
+        setHq(data.hq || "");
+        setDomain(data.domain || "");
+        setDescription(data.description || "");
+        if (data.image) {
+          setImage(data.image);
+        }
+      } catch (err) {
+        console.error("Error fetching company profile:", err);
+      }
+    };
+
+    fetchCompanyProfile();
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Simulate an API call to login
-      const response = await fetch("/api/login", {
-        method: "POST",
+      const updatedData = { image, name, size, hq, domain, description };
+      const response = await fetch("/api/company-profile", {
+        method: "PUT",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ image, name, size, hq, domain, description }),
+        body: JSON.stringify(updatedData),
       });
       const data = await response.json();
       if (response.ok) {
-        navigate("/"); // Redirect to home page
+        navigate("/"); // Redirect to home or another page after updating
       } else {
-        console.log({ image, name, size, hq, domain, description });
+        console.log(updatedData);
       }
     } catch (err) {
-      //dispatch(authActions.loginFailure({err:"An error occurred. Please try again."}));
+      console.error("Error updating company profile:", err);
       console.log({ formImage, name, size, hq, domain, description });
     }
-    navigate("/");
   };
 
   const handleQuillChange = (value) => {
     setDescription(value);
   };
+
   const handleImageChange = (event) => {
     const file = event.target.files[0];
     if (file) {
@@ -106,6 +134,7 @@ const CompanyProfileSection = () => {
                 <img
                   src={image ? image : placeholderImage}
                   className={!image ? Classes.placeholder : undefined}
+                  alt="Company Profile"
                 />
               </div>
               <label htmlFor="image-upload">
@@ -120,34 +149,34 @@ const CompanyProfileSection = () => {
               <p>2MB Max | 1:1 Ratio</p>
             </div>
           </div>
-          <div className={`${Classes.inputGroup} `}>
+          <div className={Classes.inputGroup}>
             <label htmlFor="description">Description</label>
             <FormatedInput
               placeholder="A brief description about your company..."
               id="description"
+              value={description}
               onChange={(value) => handleQuillChange(value)}
             />
           </div>
           <div className={Classes.row}>
             <div className={Classes.inputGroup}>
-              <label for="size">Company size</label>
+              <label htmlFor="size">Company size</label>
               <div className={Classes.selectInput}>
                 <select
                   id="size"
                   value={size}
                   onChange={(e) => setSize(e.target.value)}
                 >
-                  <option value="" selected>
-                    Less than 10 people
-                  </option>
-                  <option>Web Frontend</option>
-                  <option>UI/UX Desing</option>
+                  <option value="">Less than 10 people</option>
+                  <option value="10-50">10-50 people</option>
+                  <option value="50-100">50-100 people</option>
+                  <option value="over100">Over 100 people</option>
                 </select>
                 <Downkey />
               </div>
             </div>
             <div className={Classes.inputGroup}>
-              <label for="location">HQ location</label>
+              <label htmlFor="location">HQ location</label>
               <div className={Classes.selectInput}>
                 <input
                   type="text"
@@ -160,7 +189,6 @@ const CompanyProfileSection = () => {
               </div>
             </div>
           </div>
-
           <div className={Classes.actionButton}>
             <Button className="primary">Update profile</Button>
           </div>

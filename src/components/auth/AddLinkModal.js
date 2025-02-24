@@ -8,7 +8,7 @@ const Levels = ["Beginner", "Intermediate", "Advanced", "Expert", "lead"];
 const AddLinkModal = (props) => {
   const [formValues, setFormValues] = useState({
     name: "",
-    link: "",
+    url: "",
   });
 
   const handleInputChange = (e) => {
@@ -19,7 +19,7 @@ const AddLinkModal = (props) => {
     }));
   };
 
-  let isButtonEnabled = formValues.name && formValues.link;
+  let isButtonEnabled = formValues.name && formValues.url;
 
   return (
     <Modal isOpen={props.isOpen} onClose={props.onClose}>
@@ -35,11 +35,19 @@ const AddLinkModal = (props) => {
           <input
             type="url"
             placeholder="URL"
-            name="link"
+            name="url"
             onChange={handleInputChange}
           />
         </div>
-        <button disabled={!isButtonEnabled}>Add link</button>
+        <button
+          disabled={!isButtonEnabled}
+          onClick={() => {
+            props.onAddLink(formValues);
+            props.onClose();
+          }}
+        >
+          Add link
+        </button>
       </div>
     </Modal>
   );
