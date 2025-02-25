@@ -70,7 +70,7 @@ const LoginSection = () => {
             <InputGroup
               icon={<Email />}
               type="email"
-              placeholder="Miruts@gmail.com"
+              placeholder="miruts@gmail.com"
               label={"Email"}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
