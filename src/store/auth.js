@@ -16,10 +16,14 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   user: {
-    _id: undefined,
+    id: undefined,
     role: undefined,
-    fullname: undefined, // Full Name
+    name: undefined, // Full Name
     email: undefined, // Must be unique
+  },
+  profile: {
+    companyName: undefined,
+    domain: undefined,
   },
   token: localStorage.getItem("token") || null,
   status: "guest", // 'guest' | 'loading' | 'succeeded' | 'failed'
@@ -48,6 +52,7 @@ const authSlice = createSlice({
     loginSuccess(state, action) {
       state.status = "succeeded";
       state.user = { ...action.payload.user };
+      state.profile = { ...action.payload.profile } || undefined;
       state.token = action.payload.token;
       state.error = null;
     },
@@ -61,6 +66,7 @@ const authSlice = createSlice({
     signupSuccess(state, action) {
       state.status = "succeeded";
       state.user = { ...action.payload.user };
+      state.profile = { ...action.payload.profile } || undefined;
       state.token = action.payload.token;
       state.error = null;
     },
@@ -70,6 +76,7 @@ const authSlice = createSlice({
     },
     logout(state) {
       state.user = { ...initialState.user };
+      state.profile = { ...initialState.profile };
       state.status = initialState.status;
       state.token = initialState.token;
       state.err = null;

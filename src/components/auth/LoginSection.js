@@ -9,6 +9,7 @@ import Button from "../UI/Button";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { authActions } from "../../store/auth";
+import { BASE_URL, ENDPOINTS } from "../../apiConfig";
 
 const LoginSection = () => {
   const [email, setEmail] = useState("");
@@ -20,21 +21,26 @@ const LoginSection = () => {
     e.preventDefault();
     dispatch(authActions.loginStart());
     try {
-      // Simulate an API call to login
-      const response = await fetch("/api/login", {
+      const response = await fetch(`${BASE_URL}${ENDPOINTS.login}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
       });
 
       const data = await response.json();
+      console.log(data);
 
       if (response.ok) {
         localStorage.setItem("token", data.token);
+        console.log(data);
         dispatch(
-          authActions.loginSuccess({ user: data.user, token: data.token })
-        ); // Save token to Redux and localStorage
-        navigate("/"); // Redirect to home page
+          authActions.loginSuccess({
+            user: data.data.user,
+            profile: data.data.profile,
+            token: data.token,
+          })
+        );
+        navigate("/");
       } else {
         dispatch(
           authActions.loginFailure({ err: data.message || "Login failed" })

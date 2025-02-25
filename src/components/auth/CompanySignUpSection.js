@@ -12,6 +12,7 @@ import { ReactComponent as Key } from "../../assets/icons/Icon ionic-md-key.svg"
 import { ReactComponent as Google } from "../../assets/icons/Icon ionic-logo-google.svg";
 import { authActions } from "../../store/auth";
 import Button from "../UI/Button";
+import { BASE_URL, ENDPOINTS } from "../../apiConfig";
 
 const CompanySignUpSection = () => {
   const [companyname, setCompanyname] = useState("");
@@ -27,28 +28,39 @@ const CompanySignUpSection = () => {
     e.preventDefault();
     dispatch(authActions.loginStart());
     try {
-      // Simulate an API call to login
-      const response = await fetch("/api/login", {
+      const response = await fetch(`${BASE_URL}${ENDPOINTS.signUpClient}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ fullname, email, password }),
+        body: JSON.stringify({
+          name: fullname,
+          email,
+          password,
+          companyName: companyname,
+          domain,
+          passwordConfirm: confirmPassword,
+        }),
       });
 
       const data = await response.json();
+      console.log(data);
 
       if (response.ok) {
         localStorage.setItem("token", data.token);
         dispatch(
-          authActions.loginSuccess({ user: data.user, token: data.token })
-        ); // Save token to Redux and localStorage
-        navigate("/"); // Redirect to home page
+          authActions.signupSuccess({
+            user: data.data.user,
+            profile: data.data.profile,
+            token: data.token,
+          })
+        );
+        console.log(data);
+        navigate("/");
       } else {
         dispatch(
-          authActions.loginFailure({ err: data.message || "Login failed" })
+          authActions.signupFailure({ err: data.message || "signup Failure" })
         );
       }
     } catch (err) {
-      //dispatch(authActions.loginFailure({err:"An error occurred. Please try again."}));
       localStorage.setItem("token", "for testing");
       dispatch(
         authActions.loginSuccess({

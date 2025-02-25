@@ -90,7 +90,11 @@ const LoggedUserNav = () => {
             <img src={sheqlee} />
           </div>
         )}
-        <span>{auth.user.fullname}</span>
+        <span>
+          {auth.user.role === "company"
+            ? auth.profile.companyName
+            : auth.user.name}
+        </span>
         <DownArrow />
       </div>
       <DropDownModal isOpen={isDropdownOpen} onClose={toggleDropdown} />
